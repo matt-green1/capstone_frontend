@@ -28,22 +28,25 @@ class App extends React.Component {
     .then(response => response.json())
     .then(userObj => {
       if (userObj){
-        this.setState({currentUser: userObj})
+        //localStorage.setItem("user", userObj)
+        this.setState({currentUser: userObj}, ()=> this.props.history.push("/home"))
+        
       } else {
-        window.alert("Wrong Username or Password, please try again. :)")
+        window.alert("Wrong Username or Password, please try again.")
       }
     })
   }
   
   render(){
+    console.log(this.state.currentUser)
     return (
       <>
-        <NavBar/>
+        <NavBar currentUser={this.state.currentUser} />
         <Switch>
           {this.state.currentUser
           ? 
           <>
-              <Route path="/" render={() => <MainContainer currentUser={this.state.curentUser} /> }/>
+            <Route path="/" render={() => <MainContainer currentUser={this.state.currentUser} /> }/>
           </>
           :
           <>

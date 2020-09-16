@@ -3,7 +3,7 @@ import React from 'react'
 class HomePage extends React.Component {
 
     render() {
-        console.log(this.props)
+        // console.log(this.props)
         return(
             <>
                 <h4>Home Page</h4>

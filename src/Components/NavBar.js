@@ -7,6 +7,8 @@ class NavBar extends React.Component {
         return(
             <>
                 <h3>NAV BAR</h3>
+                {this.props.currentUser ?
+                
                 <ul>
                     <NavLink to="/home">
                         <li>Home</li>
@@ -24,6 +26,12 @@ class NavBar extends React.Component {
                         <li>Log Out</li>
                     </NavLink>
                 </ul>
+
+                :
+
+                <h1>LIFE LETTERS</h1>
+
+                }
             </>
         )
 

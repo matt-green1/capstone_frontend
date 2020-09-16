@@ -7,19 +7,21 @@ import HomePage from '../Components/HomePage'
 
 class MainContainer extends React.Component {
 
-    componentDidMount() { 
-        this.props.history.push("/home")
+    state = {
+        lettersArray : []
     }
 
+    
+
     render() {
-        console.log(this.props)
+        //console.log(this.props.currentUser)
         return(
             <>    
                 <h2>Main Container reporting for duty</h2>
                 
                 <Switch>
                     <Route path="/home" render={() => <HomePage currentUser={this.props.currentUser} /> } />
-                    <Route path="/letters" render={() => <LetterContainer /> } />
+                    <Route path="/letters" render={() => <LetterContainer currentUser={this.props.currentUser} /> } />
                     <Route path="/executors" render={() => <ExecutorContainer /> } />
                 </Switch>
             </>
