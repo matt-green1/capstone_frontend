@@ -8,7 +8,7 @@ class ExecutorForm extends React.Component {
                 <h4>EXECUTOR FORM:</h4>
                 <input type="text" placeholder="Executor Name" />
                 <input type="text" placeholder="Executor Email" />
-                <input type="text" placeholder="Executor instructions" />
+                <textarea type="text" placeholder="Executor instructions" />
                 <input type="submit"  value="Save Executor" />
             </>
         )

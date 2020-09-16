@@ -6,31 +6,35 @@ class NavBar extends React.Component {
     render(){
         return(
             <>
-                <h3>NAV BAR</h3>
-                {this.props.currentUser ?
                 
-                <ul>
-                    <NavLink to="/home">
-                        <li>Home</li>
-                    </NavLink>
+                {this.props.currentUser ?
+                <>
+                    <ul>
+                        <NavLink to="/home">
+                            <li>Home</li>
+                        </NavLink>
 
-                    <NavLink to="letters">
-                        <li>My Letters</li>
-                    </NavLink>
+                        <NavLink to="letters">
+                            <li>My Letters</li>
+                        </NavLink>
 
-                    <NavLink to="/executors">
-                        <li>My Executors</li>
-                    </NavLink>
+                        <NavLink to="/executors">
+                            <li>My Executors</li>
+                        </NavLink>
 
-                    <NavLink to="/">
-                        <li>Log Out</li>
-                    </NavLink>
-                </ul>
-
+                            <li onClick={this.props.clearUser} >Log Out</li>
+                        
+                    </ul>
+                    <p>-------------------------------------------------------------------------------------------------------------------------------------------------------------------------</p>
+                </>
                 :
-
-                <h1>LIFE LETTERS</h1>
-
+                <>
+                    <h4>LIFE LETTERS</h4>
+                    <NavLink to="/">
+                        <p>About</p>
+                    </NavLink>
+                    <p>-------------------------------------------------------------------------------------------------------------------------------------------------------------------------</p>
+                </>
                 }
             </>
         )

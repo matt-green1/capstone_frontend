@@ -1,10 +1,20 @@
 import React from 'react'
 
 class Executor extends React.Component {
-
+    executorObject
     render(){
         return(
-            <h5>I'm and executor - I care for you</h5>
+            <>
+                <tr>
+                    <td>{this.props.executorObject.executor_name}</td>
+                    <td>{this.props.executorObject.executor_email}</td>
+                    <td>{this.props.executorObject.instructions}</td>
+                    <td>
+                        <button>Edit</button>
+                        <button>Delete</button>
+                    </td>
+                </tr>
+            </>
         )
     }
 }

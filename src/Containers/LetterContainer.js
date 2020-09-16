@@ -9,7 +9,7 @@ class LetterContainer extends React.Component {
     }
 
     createLetters = () => {
-        return this.props.currentUser.letters.map(letterObj => <Letter letterObject={letterObj} />)
+        return this.props.currentUser.letters.map(letterObj => <Letter key={letterObj.id} letterObject={letterObj} />)
     }
 
 

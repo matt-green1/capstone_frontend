@@ -27,8 +27,9 @@ class App extends React.Component {
     fetch("http://localhost:3000/login", configObj)
     .then(response => response.json())
     .then(userObj => {
+
       if (userObj){
-        //localStorage.setItem("user", userObj)
+        localStorage.setItem("userId", userObj.id)
         this.setState({currentUser: userObj}, ()=> this.props.history.push("/home"))
         
       } else {
@@ -37,11 +38,55 @@ class App extends React.Component {
     })
   }
   
+  signupHandler = (signupInfo) => {
+    
+      let configObj = {
+        method: 'POST',
+        headers: {
+          'Content-Type': 'application/json',
+          'Accept': 'application/json',
+        },
+        body: JSON.stringify({user: signupInfo})
+      }   
+
+      
+      fetch('http://localhost:3000/users', configObj)
+        .then(response => response.json())
+        .then(newUser => {
+          localStorage.setItem("userId", newUser.id)
+          this.setState({currentUser: newUser}, ()=> this.props.history.push("/home"))
+          }
+        )
+
+  }
+
+  //passed down to Nav Bar - log out on click
+  clearUser = () => {
+    localStorage.removeItem("userId")
+    this.setState({currentUser: null}, () => this.props.history.push("/"))
+  }
+
+  componentDidMount() {
+    let currentUserId = localStorage.getItem("userId")
+    //let intCurrentUserId = parseInt(currentUserId)
+
+    console.log(currentUserId)
+    if (currentUserId) {
+      fetch(`http://localhost:3000/users/${currentUserId}`)
+        .then(response => response.json())
+        .then(userObj => this.setState({currentUser: userObj}))
+
+    } else {
+      this.props.history.push("/")
+    }
+
+  }
+
   render(){
     console.log(this.state.currentUser)
     return (
       <>
-        <NavBar currentUser={this.state.currentUser} />
+        <NavBar clearUser={this.clearUser} currentUser={this.state.currentUser} />
         <Switch>
           {this.state.currentUser
           ? 
@@ -52,7 +97,7 @@ class App extends React.Component {
           <>
             <Route exact path="/" render={() => <About /> } />
             <Route exact path="/login" render={() => <LoginForm loginHandler={this.loginHandler} />} />
-            <Route path="/signup" render={() => <SignupForm/>} />
+            <Route path="/signup" render={() => <SignupForm signupHandler={this.signupHandler } /> }/>
           </>
         }
         </Switch>
@@ -63,3 +108,29 @@ class App extends React.Component {
 export default withRouter(App);
 
 
+
+
+// componentDidMount() {
+//   let currentUserId = localStorage.getItem("userid")
+//   let intCurrentUserId = parseInt(currentUserId)
+
+  
+//   let configObj = {
+//     method: 'POST',
+//     headers: {
+//       'Content-Type': 'application/json',
+//       'Accept': 'application/json',
+//     },
+//     body: JSON.stringify({user_id: intCurrentUserId})
+//   }   
+
+//   if (currentUserId) {
+//     fetch("http://localhost:3000/profile", configObj)
+//       .then(response => response.json())
+//       .then(console.log("yay"))
+
+//   } else {
+//     this.props.history.push("/")
+//   }
+
+// }
