@@ -10,6 +10,7 @@ class SignupForm extends React.Component {
                 <input type="text" placeholder="Username here" />
                 <input type="text" placeholder="Password here" />
                 <input type="submit"  value="Sign Up" />
+                <p>Already have an account? <a href="/login">Log in here</a></p>
             </>
         )
     }
