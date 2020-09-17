@@ -1,4 +1,5 @@
 import React from 'react'
+import { withRouter } from 'react-router-dom'
 
 class SignupForm extends React.Component {
 
@@ -20,16 +21,21 @@ class SignupForm extends React.Component {
         })
     }
 
+    switchToLoginHelper = () => {
+        this.props.history.push("/login")
+    }
+
     render() {
         return(
             <>
-                <h4>Signup form here</h4>
+                <h4>Nice to meet you! Signup below:</h4>
                 <form onSubmit={this.signupHelper}>
                     <input name="username" onChange={this.signupChangeHelper} type="text" placeholder="Username here" value={this.state.username} />
                     <input name="password" onChange={this.signupChangeHelper} type="password" placeholder="Password here" value={this.state.password} />
                     <input type="submit"  value="Sign Up" />
                 </form>
-                <p>Already have an account? <a href="/login">Log in here</a></p>
+                <p>Already have an account? <u onClick={this.switchToLoginHelper} >Log in here</u></p>
+                
             </>
         )
     }
@@ -37,4 +43,6 @@ class SignupForm extends React.Component {
 
 }
 
-export default SignupForm
+export default withRouter(SignupForm)
+
+{/* <p>Already have an account? <a href="/login">Log in here</a></p> */}

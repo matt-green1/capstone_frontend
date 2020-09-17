@@ -53,9 +53,13 @@ class App extends React.Component {
       fetch('http://localhost:3000/users', configObj)
         .then(response => response.json())
         .then(newUser => {
+          if(newUser.id){          
           localStorage.setItem("userId", newUser.id)
           this.setState({currentUser: newUser}, ()=> this.props.history.push("/home"))
+          } else {
+            window.alert("Username taken. Please choose another name.")
           }
+        }
         )
 
   }
@@ -83,7 +87,6 @@ class App extends React.Component {
   }
 
   render(){
-    console.log(this.state.currentUser)
     return (
       <>
         <NavBar clearUser={this.clearUser} currentUser={this.state.currentUser} />
@@ -97,7 +100,7 @@ class App extends React.Component {
           <>
             <Route exact path="/" render={() => <About /> } />
             <Route exact path="/login" render={() => <LoginForm loginHandler={this.loginHandler} />} />
-            <Route path="/signup" render={() => <SignupForm signupHandler={this.signupHandler } /> }/>
+            <Route exact path="/signup" render={() => <SignupForm signupHandler={this.signupHandler } /> }/>
           </>
         }
         </Switch>
