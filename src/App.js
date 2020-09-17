@@ -82,18 +82,75 @@ class App extends React.Component {
     } else {
       this.props.history.push("/")
     }
-
   }
 
-  createLetterHandler = (letterObj) => {
-      console.log("POST this:", letterObj)
+  createLetterHandler = (letterObj, toedit) => {
+    //toEdit will be null here sine it only exists if we're editing a letter
+    const configObj = {
+      method: 'POST',
+      headers: {
+        'Content-Type': 'application/json',
+        'Accept': 'application/json',
+      },
+      body: JSON.stringify(letterObj)
+    }
+
+    fetch("http://localhost:3000/letters/", configObj)
+      .then(response => response.json())
+      .then(newLetterObj => {
+        this.setState({...this.state, currentUser: {...this.state.currentUser, letters: [...this.state.currentUser.letters, newLetterObj ]   } }, ()=> this.props.history.push("/letters") )
+
+      })
   }
 
-  editLetterHandler = (letterObj) => {
-    console.log("PATCH this:", letterObj)
-}
+  editLetterHandler = (letterObj, toEdit) => {
+    
+    const configObj = {
+      method: 'PATCH',
+      headers: {
+        'Content-Type': 'application/json',
+        'Accept': 'application/json',
+      },
+      body: JSON.stringify(letterObj)
+    }
+
+    fetch(`http://localhost:3000/letters/${toEdit.id}`, configObj)
+      .then(response => response.json())
+      .then(editedLetter => {
+        let newLetterArray = [...this.state.currentUser.letters]
+        let letterToEdit = newLetterArray.find(letterObject => letterObject.id === editedLetter.id)
+        letterToEdit.letter_title = editedLetter.letter_title
+        letterToEdit.recipient_name = editedLetter.recipient_name
+        letterToEdit.recipient_email = editedLetter.recipient_email
+        letterToEdit.letter_text = editedLetter.letter_text
+        letterToEdit.signoff = editedLetter.signoff
+
+        this.setState({...this.state, currentUser: {...this.state.currentUser, letters: newLetterArray } }, ()=> this.props.history.push("/letters") )
+
+      })
+
+    }
+
+    deleteLetterHandler = (letterObj) => {
+      
+      const configObj = {
+        method: 'DELETE'
+      }
+
+        fetch(`http://localhost:3000/letters/${letterObj.id}`, configObj)
+          .then(()=> {
+            let newLetterArray = [...this.state.currentUser.letters]
+            let updatedLetterArray = newLetterArray.filter(letterObject => letterObject.id !== letterObj.id)
+            this.setState({...this.state, currentUser: {...this.state.currentUser, letters: updatedLetterArray } }, ()=> this.props.history.push("/letters") )
+
+
+          } )
+
+    }
 
   render(){
+    // this.state.currentUser ? console.log(this.state.currentUser.letters) :console.log("no user")
+    //console.log(this.state.currentUser)
     return (
       <>
         <NavBar clearUser={this.clearUser} currentUser={this.state.currentUser} />
@@ -101,7 +158,7 @@ class App extends React.Component {
           {this.state.currentUser
           ? 
           <>
-            <Route path="/" render={() => <MainContainer createLetterHandler={this.createLetterHandler} editLetterHandler={this.editLetterHandler} currentUser={this.state.currentUser} /> }/>
+            <Route path="/" render={() => <MainContainer createLetterHandler={this.createLetterHandler} editLetterHandler={this.editLetterHandler} currentUser={this.state.currentUser} deleteLetterHandler={this.deleteLetterHandler} /> }/>
           </>
           :
           <>

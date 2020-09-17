@@ -3,6 +3,7 @@ import React from 'react'
 class LetterForm extends React.Component {
     //this state will just control this form and the prompt - can we put the whole form in one object nested?
     state = {
+        user_id: this.props.currentUser.id, 
         letter_title: "",
         recipient_name: "",
         recipient_email: "",
@@ -29,13 +30,22 @@ class LetterForm extends React.Component {
 
     createOrEditHelper = (e) => {
         e.preventDefault()
-        this.props.createOrEditHandler(this.state)
+        this.props.createOrEditHandler(this.state, this.props.toEdit)
+        this.props.backToLetterList()
+        this.setState({
+            user_id: this.props.currentUser.id, 
+            letter_title: "",
+            recipient_name: "",
+            recipient_email: "",
+            letter_text: "",
+            signoff: ""
+        })
     }
 
     render() {
         return(
             <>
-                <button onClick={this.props.backToLetterList}>Back to letter list</button><br/>
+                <button onClick={this.props.backToLetterList}>Back to Letter List</button><br/>
                 
                     {this.props.toEdit ? <h4>Edit Your Letter!</h4> : <h4>Create a Letter!</h4> }
                 <form onSubmit={this.createOrEditHelper}>
@@ -54,7 +64,7 @@ class LetterForm extends React.Component {
                     <label>Your Name (This is how your letter will be "signed" at the bottom)</label><br/>
                     <input name="signoff" onChange={this.letterChangeHelper} value={this.state.signoff} type="text" placeholder="Enter your name" />
                     <br/><br/>
-                    <input type="submit"  value="Save Letter" />
+                    <input type="submit"  value={this.props.toEdit ? "Save Changes" : "Create Letter" } />
                 </form>
                     <br/>
                     <h3>Select a Prompt for inspiration</h3>
