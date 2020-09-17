@@ -2,6 +2,10 @@ import React from 'react'
 
 class Letter extends React.Component {
 
+    editFormFillHelper = () => {
+        this.props.editFormStateHelper(this.props.letterObject)
+    }
+
     render() {
 
         return(
@@ -9,12 +13,13 @@ class Letter extends React.Component {
                 <tr>
                     <td>{this.props.letterObject.letter_title}</td>
                     <td>{this.props.letterObject.recipient_name}</td>
-                    <td>{this.props.letterObject.letter_type}</td>
+                    <td>{this.props.letterObject.recipient_email}</td>
+                    <td>{this.props.letterObject.letter_text}</td>
                     <td>
-                        <button>Edit</button>
+                    &nbsp;&nbsp;&nbsp;<button onClick={this.editFormFillHelper}>Edit</button>&nbsp;&nbsp;&nbsp;&nbsp;
                         <button>Delete</button>
                     </td>
-                </tr>
+                </tr><br/>
             </>
         )
     }

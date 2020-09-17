@@ -5,19 +5,25 @@ import LetterForm from '../Components/LetterForm'
 class LetterContainer extends React.Component {
     //form: can be null, edit, or create - this will control which form comes up and will feed in different props
     state = {
-        form_status: null
+        form_status: null,
+        toEdit: null
     }
 
     createLetters = () => {
-        return this.props.currentUser.letters.map(letterObj => <Letter key={letterObj.id} letterObject={letterObj} />)
+        return this.props.currentUser.letters.map(letterObj => <Letter key={letterObj.id} letterObject={letterObj} editFormStateHelper={this.editFormStateHelper}  />)
     }
 
-    createFormHelper = () => {
+    createFormStateHelper = () => {
         this.setState({...this.state, form_status: "create"})
     }
 
+    //Note: This works because any truthy value that isn't "create" brings up edit - might want to make the logic more explicit later
+    editFormStateHelper = (letterObj) => {
+        this.setState({...this.state, form_status: "edit", toEdit: letterObj})
+    }
+
     backToLetterList = () => {
-        this.setState({...this.state, form_status: null})
+        this.setState({...this.state, form_status: null, toEdit: null})
     }
 
     render() {
@@ -29,7 +35,7 @@ class LetterContainer extends React.Component {
                 <>
                     <h2>{this.props.currentUser.username}'s Letters</h2>
                     
-                    <button onClick={this.createFormHelper} >Create New Letter</button><br/><br/>
+                    <button onClick={this.createFormStateHelper} >Create New Letter</button><br/><br/>
                     
                     {this.props.currentUser.letters.length < 1
                     ?
@@ -43,16 +49,19 @@ class LetterContainer extends React.Component {
                         <tbody>
                             <tr>
                                 <th>
-                                    <h3>Title</h3>
+                                    <h3>|&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;Title&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;|</h3>
                                 </th>
                                 <th>
-                                    <h3>Recipient</h3>
+                                    <h3>&nbsp;&nbsp;&nbsp;Recipient&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;|</h3>
                                 </th>
                                 <th>
-                                    <h3>Letter Type</h3>
+                                    <h3>&nbsp;&nbsp;&nbsp;Recipient Email&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;|</h3>
                                 </th>
                                 <th>
-                                    <h3>Edit / Delete</h3>
+                                    <h3>&nbsp;&nbsp;Text&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;|</h3>
+                                </th>
+                                <th>
+                                    <h3>&nbsp;&nbsp;Edit / Delete&nbsp;&nbsp;&nbsp;|</h3>
                                 </th>
                             </tr>
                                 {this.createLetters()}
@@ -61,17 +70,15 @@ class LetterContainer extends React.Component {
                     }
                 </>
                     
-                    
-
                 :
                 <>
                 {this.state.form_status === "create" 
                     ?
 
-                    <LetterForm backToLetterList={this.backToLetterList}/>
+                    <LetterForm createOrEditHandler={this.props.createLetterHandler} backToLetterList={this.backToLetterList} toEdit={this.state.toEdit}/>
 
                     :
-                    <h1>badonadunk in the trunk</h1>
+                    <LetterForm createOrEditHandler={this.props.editLetterHandler} backToLetterList={this.backToLetterList} toEdit={this.state.toEdit} />
                     }
                 </>
                 }

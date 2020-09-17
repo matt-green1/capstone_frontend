@@ -50,21 +50,21 @@ class App extends React.Component {
       }   
 
       
-      fetch('http://localhost:3000/users', configObj)
-        .then(response => response.json())
-        .then(newUser => {
-          if(newUser.id){          
-          localStorage.setItem("userId", newUser.id)
-          this.setState({currentUser: newUser}, ()=> this.props.history.push("/home"))
-          } else {
-            window.alert("Username taken. Please choose another name.")
-          }
-        }
-        )
+  fetch('http://localhost:3000/users', configObj)
+    .then(response => response.json())
+    .then(newUser => {
+      if(newUser.id){          
+      localStorage.setItem("userId", newUser.id)
+      this.setState({currentUser: newUser}, ()=> this.props.history.push("/home"))
+      } else {
+        window.alert("Username taken. Please choose another name.")
+      }
+    }
+    )
 
   }
 
-  //passed down to Nav Bar - log out on click
+      //passed down to Nav Bar - log out on click
   clearUser = () => {
     localStorage.removeItem("userId")
     this.setState({currentUser: null}, () => this.props.history.push("/"))
@@ -74,7 +74,6 @@ class App extends React.Component {
     let currentUserId = localStorage.getItem("userId")
     //let intCurrentUserId = parseInt(currentUserId)
 
-    console.log(currentUserId)
     if (currentUserId) {
       fetch(`http://localhost:3000/users/${currentUserId}`)
         .then(response => response.json())
@@ -86,6 +85,14 @@ class App extends React.Component {
 
   }
 
+  createLetterHandler = (letterObj) => {
+      console.log("POST this:", letterObj)
+  }
+
+  editLetterHandler = (letterObj) => {
+    console.log("PATCH this:", letterObj)
+}
+
   render(){
     return (
       <>
@@ -94,7 +101,7 @@ class App extends React.Component {
           {this.state.currentUser
           ? 
           <>
-            <Route path="/" render={() => <MainContainer currentUser={this.state.currentUser} /> }/>
+            <Route path="/" render={() => <MainContainer createLetterHandler={this.createLetterHandler} editLetterHandler={this.editLetterHandler} currentUser={this.state.currentUser} /> }/>
           </>
           :
           <>

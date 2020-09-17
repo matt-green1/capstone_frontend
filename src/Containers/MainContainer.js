@@ -8,14 +8,13 @@ class MainContainer extends React.Component {
 
 
     render() {
-        //console.log(this.props.currentUser)
         return(
             <>    
                 <h2>Main Container reporting for duty</h2>
                 
                 <Switch>
                     <Route path="/home" render={() => <HomePage currentUser={this.props.currentUser} /> } />
-                    <Route path="/letters" render={() => <LetterContainer currentUser={this.props.currentUser} /> } />
+                    <Route path="/letters" render={() => <LetterContainer currentUser={this.props.currentUser} createLetterHandler={this.props.createLetterHandler} editLetterHandler={this.props.editLetterHandler} /> } />
                     <Route path="/executors" render={() => <ExecutorContainer currentUser={this.props.currentUser}/> } />
                 </Switch>
             </>

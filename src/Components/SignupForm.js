@@ -44,5 +44,3 @@ class SignupForm extends React.Component {
 }
 
 export default withRouter(SignupForm)
-
-{/* <p>Already have an account? <a href="/login">Log in here</a></p> */}

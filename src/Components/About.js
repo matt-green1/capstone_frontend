@@ -33,8 +33,8 @@ class About extends React.Component {
                 <li>When finished writing, have the letters sent to executors with the press of a button</li>
             </ul>
 
-            <h5>Ready to get started?! Log in or Sign up below!</h5>
-            <button onClick={this.loginNavHelper} >Log In</button>
+            <h4>Ready to get started?! Log in or Sign up below!</h4>
+            &nbsp;&nbsp;&nbsp;<button onClick={this.loginNavHelper} >Log In</button>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
             <button onClick={this.signupNavHelper}>Sign Up</button>
 
             </>
