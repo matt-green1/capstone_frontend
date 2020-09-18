@@ -1,7 +1,6 @@
 import React from 'react'
 
 class LetterForm extends React.Component {
-    //this state will just control this form and the prompt - can we put the whole form in one object nested?
     state = {
         user_id: this.props.currentUser.id, 
         letter_title: "",
@@ -13,12 +12,12 @@ class LetterForm extends React.Component {
 
     letterChangeHelper = (e) => {
         this.setState({...this.state, [e.target.name]:e.target.value})
-       
     }
 
     componentDidMount = () => {
         if(this.props.toEdit) {
             this.setState({
+                user_id: this.props.currentUser.id,
                 letter_title: this.props.toEdit.letter_title,
                 recipient_name: this.props.toEdit.recipient_name,
                 recipient_email: this.props.toEdit.recipient_email,
