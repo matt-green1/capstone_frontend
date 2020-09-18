@@ -11,7 +11,7 @@ class MainContainer extends React.Component {
         return(
             <>                    
                 <Switch>
-                    <Route path="/home" render={() => <HomePage currentUser={this.props.currentUser} /> } />
+                    <Route path="/home" render={() => <HomePage currentUser={this.props.currentUser} exportLetters={this.props.exportLetters} /> } />
                     <Route path="/letters" render={() => <LetterContainer currentUser={this.props.currentUser} createLetterHandler={this.props.createLetterHandler} editLetterHandler={this.props.editLetterHandler} deleteLetterHandler={this.props.deleteLetterHandler} /> } />
                     <Route path="/executors" render={() => <ExecutorContainer currentUser={this.props.currentUser} createExecutorHandler={this.props.createExecutorHandler} editExecutorHandler={this.props.editExecutorHandler} deleteExecutorHandler={this.props.deleteExecutorHandler}/> } />
                 </Switch>

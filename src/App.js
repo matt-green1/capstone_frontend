@@ -200,6 +200,10 @@ class App extends React.Component {
             })
       }
 
+      exportLetters = (userObj) => {
+        console.log(`big scary export to pdfs of all of ${userObj.username}'s letters`)
+      }
+
     render(){
       // this.state.currentUser ? console.log(this.state.currentUser.letters) :console.log("no user")
       //console.log(this.state.currentUser)
@@ -210,7 +214,7 @@ class App extends React.Component {
             {this.state.currentUser
             ? 
             <>
-              <Route path="/" render={() => <MainContainer currentUser={this.state.currentUser} createLetterHandler={this.createLetterHandler} editLetterHandler={this.editLetterHandler}  deleteLetterHandler={this.deleteLetterHandler} createExecutorHandler={this.createExecutorHandler} editExecutorHandler={this.editExecutorHandler} deleteExecutorHandler={this.deleteExecutorHandler} /> }/>
+              <Route path="/" render={() => <MainContainer currentUser={this.state.currentUser} exportLetters={this.exportLetters} createLetterHandler={this.createLetterHandler} editLetterHandler={this.editLetterHandler}  deleteLetterHandler={this.deleteLetterHandler} createExecutorHandler={this.createExecutorHandler} editExecutorHandler={this.editExecutorHandler} deleteExecutorHandler={this.deleteExecutorHandler} /> }/>
             </>
             :
             <>
