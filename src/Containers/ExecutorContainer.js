@@ -15,11 +15,11 @@ class ExecutorContainer extends React.Component {
     }
 
     createExecutors = () => {
-    return this.sortedExecutors().map(executorObj => <Executor key={executorObj.id} executorObject={executorObj} editFormStateHelper={this.editFormStateHelper} />)
+    return this.sortedExecutors().map(executorObj => <Executor key={executorObj.id} executorObject={executorObj} editFormStateHelper={this.editFormStateHelper} deleteExecutorHandler={this.props.deleteExecutorHandler} />)
     }
 
     createFormStateHelper = () => {
-        this.setState({...this.state, form_status: "create"})
+        this.props.currentUser.executors.length >= 3 ? window.alert("You cannot have more than three executors.\nPlease delete one if you'd like to add a new one.") : this.setState({...this.state, form_status: "create"})
     }
 
     editFormStateHelper = (executorObj) => {
@@ -75,12 +75,9 @@ class ExecutorContainer extends React.Component {
                 <>
                 {this.state.form_status === "create"
                     ?
-                    
-                    <ExecutorForm backToExecutorList={this.backToExecutorList} toEdit={this.state.toEdit} currentUser={this.props.currentUser}/>
-
+                    <ExecutorForm createOrEditHandler={this.props.createExecutorHandler} backToExecutorList={this.backToExecutorList} toEdit={this.state.toEdit} currentUser={this.props.currentUser}/>
                     :
-                    <ExecutorForm backToExecutorList={this.backToExecutorList} toEdit={this.state.toEdit} currentUser={this.props.currentUser}/>
-
+                    <ExecutorForm createOrEditHandler={this.props.editExecutorHandler} backToExecutorList={this.backToExecutorList} toEdit={this.state.toEdit} currentUser={this.props.currentUser}/>
                 }
             </>
             }

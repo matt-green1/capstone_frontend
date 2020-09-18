@@ -30,7 +30,6 @@ class LetterContainer extends React.Component {
         this.setState({...this.state, form_status: null, toEdit: null})
     }
 
-
     render() {
         return(
             <>    

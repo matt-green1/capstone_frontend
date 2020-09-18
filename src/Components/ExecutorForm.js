@@ -23,14 +23,25 @@ class ExecutorForm extends React.Component {
         }
     }
 
+    createOrEditHelper = (e) => {
+        e.preventDefault()
+        this.props.createOrEditHandler(this.state, this.props.toEdit)
+        this.props.backToExecutorList()
+        this.setState({
+            user_id: this.props.currentUser.id, 
+            executor_name: "",
+            executor_email: "",
+            instructions: ""
+        })
+    }
+
     render(){
-        console.log(this.state)
         return(
             <>
                 <button onClick={this.props.backToExecutorList}>Back to Executor List</button>
                 
                     {this.props.toEdit ? <h4>Edit Executor</h4> : <h4>Add an Executor</h4> }
-                <form>
+                <form onSubmit={this.createOrEditHelper} >
                     <label>Executor Name (The person who will be in charge of distributing the letters)</label><br/>
                     <input name="executor_name" onChange={this.executorChangeHelper} value={this.state.executor_name} type="text" placeholder="Carl Tart" />
                     <br/><br/>

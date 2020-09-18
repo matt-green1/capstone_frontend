@@ -12,7 +12,13 @@ class App extends React.Component {
     currentUser : null
   }
   
+  //Log out - passed to Nav Bar
+  clearUser = () => {
+    localStorage.removeItem("userId")
+    this.setState({currentUser: null}, () => this.props.history.push("/"))
+  }
 
+  //Log in and signup
   loginHandler = (loginInfo) => {
     
     let configObj = {
@@ -49,27 +55,19 @@ class App extends React.Component {
         body: JSON.stringify({user: signupInfo})
       }   
 
-      
-  fetch('http://localhost:3000/users', configObj)
-    .then(response => response.json())
-    .then(newUser => {
-      if(newUser.id){          
-      localStorage.setItem("userId", newUser.id)
-      this.setState({currentUser: newUser}, ()=> this.props.history.push("/home"))
-      } else {
-        window.alert("Username taken. Please choose another name.")
-      }
-    }
-    )
-
+    fetch('http://localhost:3000/users', configObj)
+      .then(response => response.json())
+      .then(newUser => {
+        if(newUser.id){          
+        localStorage.setItem("userId", newUser.id)
+        this.setState({currentUser: newUser}, ()=> this.props.history.push("/home"))
+        } else {
+          window.alert("Username taken. Please choose another name.")
+        }
+      })
   }
 
-      //passed down to Nav Bar - log out on click
-  clearUser = () => {
-    localStorage.removeItem("userId")
-    this.setState({currentUser: null}, () => this.props.history.push("/"))
-  }
-
+  // Makes sure User persists on a refresh - mimics Auth
   componentDidMount() {
     let currentUserId = localStorage.getItem("userId")
     //let intCurrentUserId = parseInt(currentUserId)
@@ -84,7 +82,8 @@ class App extends React.Component {
     }
   }
 
-  createLetterHandler = (letterObj, toedit) => {
+  // Letter Create/Edit/Delete Handlers
+  createLetterHandler = (letterObj, toEdit) => {
     //toEdit will be null here sine it only exists if we're editing a letter
     const configObj = {
       method: 'POST',
@@ -126,9 +125,7 @@ class App extends React.Component {
         letterToEdit.signoff = editedLetter.signoff
 
         this.setState({...this.state, currentUser: {...this.state.currentUser, letters: newLetterArray } }, ()=> this.props.history.push("/letters") )
-
-      })
-
+        })
     }
 
     deleteLetterHandler = (letterObj) => {
@@ -142,62 +139,91 @@ class App extends React.Component {
             let newLetterArray = [...this.state.currentUser.letters]
             let updatedLetterArray = newLetterArray.filter(letterObject => letterObject.id !== letterObj.id)
             this.setState({...this.state, currentUser: {...this.state.currentUser, letters: updatedLetterArray } }, ()=> this.props.history.push("/letters") )
-
-
-          } )
-
+          })
     }
 
-  render(){
-    // this.state.currentUser ? console.log(this.state.currentUser.letters) :console.log("no user")
-    //console.log(this.state.currentUser)
-    return (
-      <>
-        <NavBar clearUser={this.clearUser} currentUser={this.state.currentUser} />
-        <Switch>
-          {this.state.currentUser
-          ? 
-          <>
-            <Route path="/" render={() => <MainContainer createLetterHandler={this.createLetterHandler} editLetterHandler={this.editLetterHandler} currentUser={this.state.currentUser} deleteLetterHandler={this.deleteLetterHandler} /> }/>
-          </>
-          :
-          <>
-            <Route exact path="/" render={() => <About /> } />
-            <Route exact path="/login" render={() => <LoginForm loginHandler={this.loginHandler} />} />
-            <Route exact path="/signup" render={() => <SignupForm signupHandler={this.signupHandler } /> }/>
-          </>
-        }
-        </Switch>
-      </>
-    );
-  }
-}
-export default withRouter(App);
-
-
-
-
-// componentDidMount() {
-//   let currentUserId = localStorage.getItem("userid")
-//   let intCurrentUserId = parseInt(currentUserId)
-
+    //Executor Create/Edit/Delete Handlers
+    createExecutorHandler = (executorObj, toEdit) => {
+      //toEdit will be null here sine it only exists if we're editing a letter
+      const configObj = {
+        method: 'POST',
+        headers: {
+          'Content-Type': 'application/json',
+          'Accept': 'application/json',
+        },
+        body: JSON.stringify(executorObj)
+      }
   
-//   let configObj = {
-//     method: 'POST',
-//     headers: {
-//       'Content-Type': 'application/json',
-//       'Accept': 'application/json',
-//     },
-//     body: JSON.stringify({user_id: intCurrentUserId})
-//   }   
+      fetch("http://localhost:3000/executors/", configObj)
+        .then(response => response.json())
+        .then(newExecutorObj => {
+          this.setState({...this.state, currentUser: {...this.state.currentUser, executors: [...this.state.currentUser.executors, newExecutorObj ] } }, ()=> this.props.history.push("/executors") )
+  
+        })
+    }
 
-//   if (currentUserId) {
-//     fetch("http://localhost:3000/profile", configObj)
-//       .then(response => response.json())
-//       .then(console.log("yay"))
+    editExecutorHandler = (executorObj, toEdit) => {
+    
+      const configObj = {
+        method: 'PATCH',
+        headers: {
+          'Content-Type': 'application/json',
+          'Accept': 'application/json',
+        },
+        body: JSON.stringify(executorObj)
+      }
+  
+      fetch(`http://localhost:3000/executors/${toEdit.id}`, configObj)
+        .then(response => response.json())
+        .then(editedExecutor => {
+          let newExecutorArray = [...this.state.currentUser.executors]
+          let executorToEdit = newExecutorArray.find(executorObject => executorObject.id === editedExecutor.id)
+          executorToEdit.executor_name = editedExecutor.executor_name
+          executorToEdit.executor_email = editedExecutor.executor_email
+          executorToEdit.instructions = editedExecutor.instructions
+         
+          this.setState({...this.state, currentUser: {...this.state.currentUser, executors: newExecutorArray } }, ()=> this.props.history.push("/executors") )
+          })
+      }
 
-//   } else {
-//     this.props.history.push("/")
-//   }
+      deleteExecutorHandler = (executorObj) => {
+      
+        const configObj = {
+          method: 'DELETE'
+        }
+  
+          fetch(`http://localhost:3000/executors/${executorObj.id}`, configObj)
+            .then(()=> {
+              let newExecutorArray = [...this.state.currentUser.executors]
+              let updatedExecutorArray = newExecutorArray.filter(executorObject => executorObject.id !== executorObj.id)
+              this.setState({...this.state, currentUser: {...this.state.currentUser, executors: updatedExecutorArray } }, ()=> this.props.history.push("/executors") )
+            })
+      }
 
-// }
+    render(){
+      // this.state.currentUser ? console.log(this.state.currentUser.letters) :console.log("no user")
+      //console.log(this.state.currentUser)
+      return (
+        <>
+          <NavBar clearUser={this.clearUser} currentUser={this.state.currentUser} />
+          <Switch>
+            {this.state.currentUser
+            ? 
+            <>
+              <Route path="/" render={() => <MainContainer currentUser={this.state.currentUser} createLetterHandler={this.createLetterHandler} editLetterHandler={this.editLetterHandler}  deleteLetterHandler={this.deleteLetterHandler} createExecutorHandler={this.createExecutorHandler} editExecutorHandler={this.editExecutorHandler} deleteExecutorHandler={this.deleteExecutorHandler} /> }/>
+            </>
+            :
+            <>
+              <Route exact path="/" render={() => <About /> } />
+              <Route exact path="/login" render={() => <LoginForm loginHandler={this.loginHandler} />} />
+              <Route exact path="/signup" render={() => <SignupForm signupHandler={this.signupHandler } /> }/>
+            </>
+          }
+          </Switch>
+        </>
+      );
+    }
+  }
+  
+  export default withRouter(App);
+
