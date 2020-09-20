@@ -201,12 +201,43 @@ class App extends React.Component {
       }
 
       exportLetters = (userObj) => {
+        this.setState({...this.state, currentUser: {...this.state.currentUser, letter_status: true} })
         console.log(`big scary export to pdfs of all of ${userObj.username}'s letters`)
+
+        //ultimately, I'll need to loop through all letters and send a post for each one * # of executors, but for now just hardcoding firts letter + executor
+
+        let configObj = {
+          method: 'POST',
+          headers: {
+            'Content-Type': 'application/json',
+            'Accept': 'application/json',
+          },
+          body: JSON.stringify({
+            "letter_title": this.state.currentUser.letters[0].letter_title,
+            "recipient_name": this.state.currentUser.letters[0].recipient_name,
+            "recipient_email": this.state.currentUser.letters[0].recipient_email,
+            "username" : this.state.currentUser.username,
+            "letter_text" : this.state.currentUser.letters[0].letter_text,
+            "signoff" : this.state.currentUser.letters[0].signoff,
+            "executor_name": this.state.currentUser.executors[0].executor_name,
+            "executor_email": this.state.currentUser.executors[0].executor_email,
+            "instructions" : this.state.currentUser.executors[0].instructions
+          })
+        }
+
+        fetch("https://www.webmerge.me/merge/659863/nw7yvx?test=1", configObj)
+        .then(console.log)
+          // .then(response => response.json())
+        //Needs to: 1. set state of letter_status on user to true ( which will remove the button that triggers function call) and persist to DB - eventually you'll be able to undo it and send updated letters again
+        // 2. Send POST req Formstack API for each letter with variables from letter model and user model
+        // 3. Eventually also send another one with variables from executor model - with instructions
       }
 
     render(){
-      // this.state.currentUser ? console.log(this.state.currentUser.letters) :console.log("no user")
+      // this.state.currentUser ? console.log(this.state.currentUser.executors[0]) :console.log("no user")
       //console.log(this.state.currentUser)
+      //console.log(this.state.currentUser.letters)
+      //console.log(this.props.currentUser.letters)
       return (
         <>
           <NavBar clearUser={this.clearUser} currentUser={this.state.currentUser} />

@@ -1,4 +1,5 @@
 import React from 'react'
+import { withRouter } from 'react-router-dom'
 
 class HomePage extends React.Component {
 
@@ -11,7 +12,12 @@ class HomePage extends React.Component {
     }
 
     exportLetterHelper = () => {
+        this.setState({button: !this.state.button})
         this.props.exportLetters(this.props.currentUser)
+    }
+
+    buttonRouteHelper = (e) => {
+        e.target.innerText === "Create Executors" ? this.props.history.push("/executors") : this.props.history.push("/letters")
     }
 
     render() {
@@ -24,20 +30,23 @@ class HomePage extends React.Component {
 
                 <h4>How it works:</h4>
                 <ol>
-                    <li>Enter one or more "Executors" into your account. Your executors will be in charge of distributing your letters using instructions you provide. <button>Create Executors</button> </li><br/>
-                    <li>Write your letters! Take your time, and come back to edit them for as long as you'd like - they're hard to write! <button>Write Letters</button> </li><br/>
+                    <li>Enter one or more "Executors" into your account. Your executors will be in charge of distributing your letters using instructions you provide. <button onClick={this.buttonRouteHelper}>Create Executors</button> </li><br/>
+                    <li>Write your letters! Take your time, and come back to edit them for as long as you'd like - they're hard to write! <button onClick={this.buttonRouteHelper}>Write Letters</button> </li><br/>
                     <li>Once finished, you can mark your account finished below and your letters will be sent to your executors for safe keeping.</li>
                 </ol>
                 <br/>
                 
-                <div class="ui toggle checkbox">
-                    <input type="checkbox" name="public" onClick={this.exportButtonActivator} checked={this.state.button} />
+                {this.props.currentUser.letter_status ? null :
+                <div className="ui toggle checkbox">
+                    <input type="checkbox" name="public" onChange={this.exportButtonActivator} checked={this.state.button} />
                     <label>Letters ready to send? (will activate button with a toggle eventually)</label>
                 </div>
+                }
                 <br/>
                 
-                <button onClick={this.state.button ? this.exportLetterHelper : null}> SEND TO EXECUTORS </button>
+                {this.props.currentUser.letter_status ? null : <button onClick={this.state.button ? this.exportLetterHelper : null}> SEND TO EXECUTORS </button> }
                 {this.state.button ? <p>Warning: Clicking the button above will email the letters to your executors. It cannot be undone.</p> : null}
+                <h3>Letters Status: {this.props.currentUser.letter_status ? "SENT - Button + toggle gone" : "Not yet finalized"} </h3>
             </>
         )
     }
@@ -45,4 +54,4 @@ class HomePage extends React.Component {
 
 }
 
-export default HomePage
+export default withRouter(HomePage)
