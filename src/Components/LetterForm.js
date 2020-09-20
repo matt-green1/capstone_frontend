@@ -122,7 +122,7 @@ class LetterForm extends React.Component {
                     <label>Letter Title (Give the letter a name to help your executor identify it)</label><br/>
                     <input name="letter_title" onChange={this.letterChangeHelper} value={this.state.letterObj.letter_title} type="text" placeholder="Mom Letter" />
                     <br/><br/>
-                    <label>Recipient Name (Who is it going to?)</label><br/>
+                    <label>Recipient Name (Who is it going to? or who the point person is for a group?)</label><br/>
                     <input name="recipient_name" onChange={this.letterChangeHelper} value={this.state.letterObj.recipient_name} type="text" placeholder="Marge Simpson" />
                     <br/><br/>
                     <label>Recipient Email (How the recipient will be contacted - if for a group - this will be the point person)</label><br/>
@@ -141,13 +141,13 @@ class LetterForm extends React.Component {
                     <br/>
                     <h5>Having trouble finding the right words? Click an option below for guidance</h5>
                     <label>Gratitude</label>
-                    <input type="radio" name="gratitude" checked={this.state.gratitude} onClick={this.gratitudeChanger} />&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
+                    <input type="radio" name="gratitude" checked={this.state.gratitude} onChange={this.gratitudeChanger} />&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
                     <label>Forgiveness</label>
-                    <input type="radio" name="forgiveness" checked={this.state.forgiveness} onClick={this.forgivenessChanger} />&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
+                    <input type="radio" name="forgiveness" checked={this.state.forgiveness} onChange={this.forgivenessChanger} />&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
                     <label>Favorite Memories</label>
-                    <input type="radio" name="favemems" checked={this.state.favemems} onClick={this.favememsChanger} />&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
+                    <input type="radio" name="favemems" checked={this.state.favemems} onChange={this.favememsChanger} />&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
                     <label>Apology </label>
-                    <input type="radio" name="apology" checked={this.state.apology} onClick={this.apologyChanger} />
+                    <input type="radio" name="apology" checked={this.state.apology} onChange={this.apologyChanger} />
                     <br/>
             </>
         )

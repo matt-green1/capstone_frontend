@@ -13,7 +13,7 @@ class HomePage extends React.Component {
 
     exportLetterHelper = () => {
         this.setState({button: !this.state.button})
-        this.props.exportLetters(this.props.currentUser)
+        this.props.exportLetters()
     }
 
     buttonRouteHelper = (e) => {
@@ -44,9 +44,9 @@ class HomePage extends React.Component {
                 }
                 <br/>
                 
-                {this.props.currentUser.letter_status ? null : <button onClick={this.state.button ? this.exportLetterHelper : null}> SEND TO EXECUTORS </button> }
+                {this.props.currentUser.letter_status ? <button onClick={this.props.markUnfinished}>Mark Account Unfinished</button> : <button onClick={this.state.button ? this.exportLetterHelper : null}> SEND TO EXECUTORS </button> }
                 {this.state.button ? <p>Warning: Clicking the button above will email the letters to your executors. It cannot be undone.</p> : null}
-                <h3>Letters Status: {this.props.currentUser.letter_status ? "SENT - Button + toggle gone" : "Not yet finalized"} </h3>
+                <h3>Letters Status: {this.props.currentUser.letter_status ? "SENT to Executors" : "Not yet finalized"} </h3>
             </>
         )
     }
