@@ -275,12 +275,37 @@ class App extends React.Component {
               "instructions": executor.instructions,
               "executor_name": executor.executor_name,
               "executor_email": executor.executor_email,
-              "username" : this.state.currentUser.username
+              "username" : this.state.currentUser.username,
+              "letters": this.state.currentUser.letters,
+              "executors": this.state.currentUser.executors
             })
           }
           
           fetch("https://www.webmerge.me/merge/659873/jzdb9w?test=1", configObj)
           .then(console.log)
+        })
+      }
+
+
+      sendDropboxLink = () => {
+
+        this.state.currentUser.executors.forEach(executor => {
+
+        let configObj = {
+          method: 'POST',
+          headers: {
+            //'Content-Type': 'application/json',
+            'Accept': 'application/json'
+          },
+          body: JSON.stringify({
+            "executor_name": executor.executor_name,
+            "executor_email": executor.executor_email,
+            "username" : this.state.currentUser.username
+          })
+        }
+        
+        fetch("https://hooks.zapier.com/hooks/catch/8543506/owiwusb/", configObj)
+        .then(console.log)
         })
       }
 
@@ -294,6 +319,9 @@ class App extends React.Component {
         //sends post request to formstack for each executor which get sent to their email -- will eventually also incorpoirate letter instructions
         this.createExecutorEmails()
           
+        //call to zapier that triggers dropbox link to be sent
+        this.sendDropboxLink()
+
         }
 
     render(){
