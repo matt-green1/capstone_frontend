@@ -5,7 +5,7 @@ class ExecutorForm extends React.Component {
         user_id: this.props.currentUser.id, 
         executor_name: "",
         executor_email: "",
-        instructions: ""
+        relationship: ""
     }
 
     executorChangeHelper = (e) => {
@@ -18,7 +18,7 @@ class ExecutorForm extends React.Component {
                 user_id: this.props.currentUser.id, 
                 executor_name: this.props.toEdit.executor_name,
                 executor_email: this.props.toEdit.executor_email,
-                instructions: this.props.toEdit.instructions
+                relationship: this.props.toEdit.relationship
             })
         }
     }
@@ -31,7 +31,7 @@ class ExecutorForm extends React.Component {
             user_id: this.props.currentUser.id, 
             executor_name: "",
             executor_email: "",
-            instructions: ""
+            relationship: ""
         })
     }
 
@@ -48,8 +48,8 @@ class ExecutorForm extends React.Component {
                     <label>Executor Email (How we get the letters to the executor when you're ready)</label><br/>
                     <input name="executor_email" onChange={this.executorChangeHelper} value={this.state.executor_email} type="text" placeholder="carltart@gmail.com" />
                     <br/><br/>
-                    <label>Instructions (How we get the letters to the executor when you're ready)</label><br/>
-                    <textarea name="instructions" onChange={this.executorChangeHelper} value={this.state.instructions} type="text" placeholder="For the Mom email, send it twice" />
+                    <label>Relationship (To Executor)</label><br/>
+                    <textarea name="relationship" onChange={this.executorChangeHelper} value={this.state.relationship} type="text" placeholder="Mom, Friend, etc." />
                     <br/><br/>
                     <input type="submit"  value={this.props.toEdit ? "Save Changes" : "Add Executor" } />
                 </form>

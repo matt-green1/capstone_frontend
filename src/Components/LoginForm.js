@@ -4,7 +4,7 @@ import { withRouter } from 'react-router-dom'
 class LoginForm extends React.Component {
 
     state = {
-        username: "",
+        user_email: "",
         password: ""
     }
 
@@ -16,7 +16,7 @@ class LoginForm extends React.Component {
         e.preventDefault()
         this.props.loginHandler(this.state)
         this.setState({
-            username: "",
+            user_email: "",
             password: ""
         })
     }
@@ -30,8 +30,10 @@ class LoginForm extends React.Component {
             <>
                 <h4>Welcome Back! Log in below:</h4>
                 <form onSubmit={this.loginHelper}>
-                    <input name="username" onChange={this.loginChangeHelper} type="text" value={this.state.username} placeholder="Username here" />
-                    <input name="password" onChange={this.loginChangeHelper} type="password" value={this.state.password} placeholder="Password here" />
+                    <label>Email:</label><br/>
+                    <input name="user_email" onChange={this.loginChangeHelper} type="text" value={this.state.user_email} placeholder="jonedoe@gmail.com" /><br/><br/>
+                    <label>Password:</label><br/>
+                    <input name="password" onChange={this.loginChangeHelper} type="password" value={this.state.password} placeholder="JoneDoe3454" /><br/><br/>
                     <input type="submit"  value="Log In" />
                 </form>
                 <p>Don't have an account? <u onClick={this.switchToSigninHelper} >Sign up here</u></p>

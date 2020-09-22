@@ -85,6 +85,7 @@ class App extends React.Component {
   // Letter Create/Edit/Delete Handlers
   createLetterHandler = (letterObj, toEdit) => {
     //toEdit will be null here sine it only exists if we're editing a letter
+    
     const configObj = {
       method: 'POST',
       headers: {
@@ -122,6 +123,7 @@ class App extends React.Component {
         letterToEdit.recipient_name = editedLetter.recipient_name
         letterToEdit.recipient_email = editedLetter.recipient_email
         letterToEdit.letter_text = editedLetter.letter_text
+        letterToEdit.letter_instructions = editedLetter.letter_instructions
         letterToEdit.signoff = editedLetter.signoff
 
         this.setState({...this.state, currentUser: {...this.state.currentUser, letters: newLetterArray } }, ()=> this.props.history.push("/letters") )
@@ -180,7 +182,7 @@ class App extends React.Component {
           let executorToEdit = newExecutorArray.find(executorObject => executorObject.id === editedExecutor.id)
           executorToEdit.executor_name = editedExecutor.executor_name
           executorToEdit.executor_email = editedExecutor.executor_email
-          executorToEdit.instructions = editedExecutor.instructions
+          executorToEdit.relationship = editedExecutor.relationship
          
           this.setState({...this.state, currentUser: {...this.state.currentUser, executors: newExecutorArray } }, ()=> this.props.history.push("/executors") )
           })
@@ -260,7 +262,6 @@ class App extends React.Component {
           }
           
           fetch("https://www.webmerge.me/merge/659863/nw7yvx?test=1", configObj)
-          //.then(console.log)
         
         })
       }
@@ -292,7 +293,6 @@ class App extends React.Component {
 
       sendDropboxLink = () => {
        
-
         this.state.currentUser.executors.forEach(executor => {
 
         let configObj = {
@@ -318,14 +318,14 @@ class App extends React.Component {
         //persists finished status in DB as true
         this.markFinished()
         
-        //sends a post request to formstack for each letter which get stored in dropbox
-        this.createLetterPdfs()
+        // //sends a post request to formstack for each letter which get stored in dropbox
+        // this.createLetterPdfs()
 
-        //sends post request to formstack for each executor which get sent to their email -- will eventually also incorpoirate letter instructions
-        this.createExecutorEmails()
+        // //sends post request to formstack for each executor which get sent to their email -- will eventually also incorpoirate letter instructions
+        // this.createExecutorEmails()
           
-        //call to zapier that triggers dropbox link to be sent
-        this.sendDropboxLink()
+        // //call to zapier that triggers dropbox link to be sent
+        // this.sendDropboxLink()
 
         }
 
@@ -360,26 +360,4 @@ class App extends React.Component {
 
 
 
-  // original hard coded fetch call to Fomr stack for one letter:
-
-  // let configObj = {
-  //   method: 'POST',
-  //   headers: {
-  //     'Content-Type': 'application/json',
-  //     'Accept': 'application/json',
-  //   },
-  //   body: JSON.stringify({
-  //     "letter_title": this.state.currentUser.letters[0].letter_title,
-  //     "recipient_name": this.state.currentUser.letters[0].recipient_name,
-  //     "recipient_email": this.state.currentUser.letters[0].recipient_email,
-  //     "username" : this.state.currentUser.username,
-  //     "letter_text" : this.state.currentUser.letters[0].letter_text,
-  //     "signoff" : this.state.currentUser.letters[0].signoff,
-  //     "executor_name": this.state.currentUser.executors[0].executor_name,
-  //     "executor_email": this.state.currentUser.executors[0].executor_email,
-  //     "instructions" : this.state.currentUser.executors[0].instructions
-  //   })
-  // }
-
-  // fetch("https://www.webmerge.me/merge/659863/nw7yvx?test=1", configObj)
-  // .then(console.log)
+  

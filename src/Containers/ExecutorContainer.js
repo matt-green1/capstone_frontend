@@ -37,7 +37,7 @@ class ExecutorContainer extends React.Component {
 
                 ?
                 <>
-                    <h2>{this.props.currentUser.username}'s Executors</h2>
+                    <h2>{this.props.currentUser.first_name}'s Executors</h2>
                     
                     <button onClick={this.createFormStateHelper}>Create New Executor</button><br/><br/>
                 
@@ -56,13 +56,13 @@ class ExecutorContainer extends React.Component {
                                     <h3>|&nbsp;&nbsp;Name&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;|</h3>
                                 </th>
                                 <th>
-                                    <h3>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;Email&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;|</h3>
+                                    <h3>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;Email&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;|&nbsp;&nbsp;&nbsp;</h3>
                                 </th>
                                 <th>
-                                    <h3>Instructions</h3>
+                                    <h3>Relationship</h3>
                                 </th>
                                 <th>
-                                    <h3>|&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;Edit / Delete&nbsp;&nbsp;|</h3>
+                                    <h3>&nbsp;&nbsp;&nbsp;|&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;Edit / Delete&nbsp;&nbsp;|</h3>
                                 </th>
                             </tr>
                                 {this.createExecutors()}

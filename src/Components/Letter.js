@@ -29,6 +29,7 @@ class Letter extends React.Component {
                     <td>{this.props.letterObject.recipient_name}</td>
                     <td>{this.props.letterObject.recipient_email}</td>
                     <td>{this.props.letterObject.letter_text}</td>
+                    <td>{this.props.letterObject.letter_instructions}</td>
                     <td>
                         {this.state.deleteActivated === false 
                         ? 

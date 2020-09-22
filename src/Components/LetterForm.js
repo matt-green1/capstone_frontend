@@ -8,6 +8,7 @@ class LetterForm extends React.Component {
             recipient_name: "",
             recipient_email: "",
             letter_text: "",
+            letter_instructions: "",
             signoff: ""
                 },
         gratitude: false,
@@ -31,6 +32,7 @@ class LetterForm extends React.Component {
                         recipient_name: this.props.toEdit.recipient_name,
                         recipient_email: this.props.toEdit.recipient_email,
                         letter_text: this.props.toEdit.letter_text,
+                        letter_instructions: this.props.toEdit.letter_instructions,
                         signoff: this.props.toEdit.signoff
                     }
                 })
@@ -49,6 +51,7 @@ class LetterForm extends React.Component {
                         recipient_name: "",
                         recipient_email: "",
                         letter_text: "",
+                        letter_instructions: "",
                         signoff: ""
                     }
         })
@@ -133,21 +136,25 @@ class LetterForm extends React.Component {
                     <br/>
                     {this.promptRenderer()}
                     <br/>
+                    <label>Instructions (Optional - Anything you think would help the Executors deliver the letter)</label><br/>
+                    <textarea name="letter_instructions" onChange={this.letterChangeHelper} value={this.state.letterObj.letter_instructions} type="text" placeholder="Here is Brittany's phone number in case she doesn't respond to your email: 917-878-5643" />
+                    <br/><br/>
                     <label>Your Name (This is how your letter will be "signed" at the bottom)</label><br/>
                     <input name="signoff" onChange={this.letterChangeHelper} value={this.state.letterObj.signoff} type="text" placeholder="Enter your name" />
                     <br/><br/>
                     <input type="submit"  value={this.props.toEdit ? "Save Changes" : "Create Letter" } />
                 </form>
+                    {/* Note: getting an error on raido buttons that it wants me to use onChange OR defaultChecked -- but that doesn't give me desired behavior so ignoring for now */}
                     <br/>
                     <h5>Having trouble finding the right words? Click an option below for guidance</h5>
                     <label>Gratitude</label>
-                    <input type="radio" name="gratitude" checked={this.state.gratitude} onChange={this.gratitudeChanger} />&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
+                    <input type="radio" name="gratitude" checked={this.state.gratitude} onClick={this.gratitudeChanger} />&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
                     <label>Forgiveness</label>
-                    <input type="radio" name="forgiveness" checked={this.state.forgiveness} onChange={this.forgivenessChanger} />&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
+                    <input type="radio" name="forgiveness" checked={this.state.forgiveness} onClick={this.forgivenessChanger} />&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
                     <label>Favorite Memories</label>
-                    <input type="radio" name="favemems" checked={this.state.favemems} onChange={this.favememsChanger} />&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
+                    <input type="radio" name="favemems" checked={this.state.favemems} onClick={this.favememsChanger} />&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
                     <label>Apology </label>
-                    <input type="radio" name="apology" checked={this.state.apology} onChange={this.apologyChanger} />
+                    <input type="radio" name="apology" checked={this.state.apology} onClick={this.apologyChanger} />
                     <br/>
             </>
         )

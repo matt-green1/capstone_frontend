@@ -37,7 +37,7 @@ class LetterContainer extends React.Component {
 
                 ?
                 <>
-                    <h2>{this.props.currentUser.username}'s Letters</h2>
+                    <h2>{this.props.currentUser.first_name}'s Letters</h2>
                     
                     <button onClick={this.createFormStateHelper} >Create New Letter</button><br/><br/>
                     
@@ -62,7 +62,10 @@ class LetterContainer extends React.Component {
                                     <h3>&nbsp;&nbsp;&nbsp;Recipient Email&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;|</h3>
                                 </th>
                                 <th>
-                                    <h3>&nbsp;&nbsp;Text&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;|</h3>
+                                    <h3>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;Text&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;|</h3>
+                                </th>
+                                <th>
+                                    <h3>Instructions&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;|</h3>
                                 </th>
                                 <th>
                                     <h3>&nbsp;&nbsp;Edit / Delete&nbsp;&nbsp;&nbsp;|</h3>

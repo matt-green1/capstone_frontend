@@ -24,7 +24,7 @@ class HomePage extends React.Component {
         return(
             <>
                 
-                <h2>Welcome {this.props.currentUser.username}!</h2>
+                <h2>Welcome {this.props.currentUser.first_name}!</h2>
 
                 <h3>LifeLetters lets you record your thoughts and feelings to be sent out in the event that you pass away.</h3>
 
@@ -39,7 +39,7 @@ class HomePage extends React.Component {
                 {this.props.currentUser.letter_status ? null :
                 <div className="ui toggle checkbox">
                     <input type="checkbox" name="public" onChange={this.exportButtonActivator} checked={this.state.button} />
-                    <label>Letters ready to send? (will activate button with a toggle eventually)</label>
+                    <label>Letters ready to send? (will be a toggle button eventually)</label>
                 </div>
                 }
                 <br/>

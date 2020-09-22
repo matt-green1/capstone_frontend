@@ -26,7 +26,7 @@ class Executor extends React.Component {
                 <tr>
                     <td>&nbsp;&nbsp;&nbsp;&nbsp;{this.props.executorObject.executor_name}</td>
                     <td>{this.props.executorObject.executor_email}</td>
-                    <td>{this.props.executorObject.instructions}</td>
+                    <td>{this.props.executorObject.relationship}</td>
                     <td>
                         {this.state.deleteActivated === false 
                         ? 
