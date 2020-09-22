@@ -222,22 +222,25 @@ class App extends React.Component {
       }
 
       //used in exportLetters function
-      markFinished = () => {
+      markFinished = (dateTimeString) => {
+        console.log("inside function:", dateTimeString)
+
         const configObj = {
           method: 'PATCH',
           headers: {
             'Content-Type': 'application/json',
             'Accept': 'application/json',
           },
-          body: JSON.stringify({letter_status: true})
+          body: JSON.stringify({letter_status: true, last_batch: dateTimeString})
         }
     
         fetch(`http://localhost:3000/users/${this.state.currentUser.id}`, configObj)
           .then(response => response.json())
           .then(editedUser => 
-            this.setState({...this.state, currentUser: {...this.state.currentUser, letter_status: editedUser.letter_status} })
+            this.setState({...this.state, currentUser: {...this.state.currentUser, letter_status: editedUser.letter_status} } )
           )
       }
+
 
       createLetterPdfs = () => {
         
@@ -315,8 +318,20 @@ class App extends React.Component {
       }
 
       exportLetters = () => {
+        
+        //Creates batch date data
+        let basicDate = new Date().toString()
+        let dateArray = basicDate.split(" ")
+        let dateArrayCopy = [...dateArray]
+        let editedDateArray = dateArrayCopy.slice(0,5)
+        let stringifiedDate = editedDateArray.join("_")
+        let newBatchDate = stringifiedDate.replace(/:/g, "_")
+        
+        console.log(newBatchDate)
+
         //persists finished status in DB as true
-        this.markFinished()
+        this.markFinished(newBatchDate)
+        
         
         // //sends a post request to formstack for each letter which get stored in dropbox
         // this.createLetterPdfs()
@@ -330,10 +345,9 @@ class App extends React.Component {
         }
 
     render(){
-      // this.state.currentUser ? console.log(this.state.currentUser.executors[0]) :console.log("no user")
-      //console.log(this.state.currentUser)
-      //console.log(this.state.currentUser.letters)
-      //console.log(this.props.currentUser.letters)
+      //this.state.currentUser ? console.log("last batch date:", this.state.currentUser.last_batch) :console.log("no user")
+      //this.state.currentUser ? console.log("letter_status:", this.state.currentUser.letter_status) :console.log("no user")
+      
       return (
         <>
           <NavBar clearUser={this.clearUser} currentUser={this.state.currentUser} />

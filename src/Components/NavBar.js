@@ -22,6 +22,10 @@ class NavBar extends React.Component {
                             <li>My Executors</li>
                         </NavLink>
 
+                        <NavLink to="/profile">
+                            <li>Profile</li>
+                        </NavLink>
+
                             <li onClick={this.props.clearUser} >Log Out</li>
                         
                     </ul>
