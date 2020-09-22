@@ -238,6 +238,7 @@ class App extends React.Component {
       }
 
       createLetterPdfs = () => {
+        
         this.state.currentUser.letters.forEach(letter => {
         
           let configObj = {
@@ -253,11 +254,13 @@ class App extends React.Component {
               "username" : this.state.currentUser.username,
               "letter_text" : letter.letter_text,
               "signoff" : letter.signoff,
-            })
+              "batch_date": "9_28"
+
+                })
           }
           
           fetch("https://www.webmerge.me/merge/659863/nw7yvx?test=1", configObj)
-          .then(console.log)
+          //.then(console.log)
         
         })
       }
@@ -282,12 +285,13 @@ class App extends React.Component {
           }
           
           fetch("https://www.webmerge.me/merge/659873/jzdb9w?test=1", configObj)
-          .then(console.log)
+          
         })
       }
 
 
       sendDropboxLink = () => {
+       
 
         this.state.currentUser.executors.forEach(executor => {
 
@@ -300,12 +304,13 @@ class App extends React.Component {
           body: JSON.stringify({
             "executor_name": executor.executor_name,
             "executor_email": executor.executor_email,
-            "username" : this.state.currentUser.username
+            "username" : this.state.currentUser.username,
+            "batch_date": "9_28"
           })
         }
         
         fetch("https://hooks.zapier.com/hooks/catch/8543506/owiwusb/", configObj)
-        .then(console.log)
+        
         })
       }
 
