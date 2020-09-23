@@ -1,5 +1,6 @@
 import React from 'react'
 import { NavLink } from 'react-router-dom'
+import { Button } from 'semantic-ui-react'
 
 class NavBar extends React.Component {
 
@@ -34,9 +35,19 @@ class NavBar extends React.Component {
                 :
                 <>
                     <h4>LIFE LETTERS</h4>
-                    <NavLink to="/">
-                        <p>About</p>
-                    </NavLink>
+                    <ul>
+                        <NavLink to="/">
+                        <li>About</li>
+                        </NavLink>
+
+                        <NavLink to="/login">
+                        <li>Log In</li>
+                        </NavLink>
+
+                        <NavLink to="/signup">
+                        <li>Signup</li>
+                        </NavLink>
+                    </ul>
                     <p>-------------------------------------------------------------------------------------------------------------------------------------------------------------------------</p>
                 </>
                 }

@@ -202,6 +202,25 @@ class App extends React.Component {
             })
       }
 
+      editUserInfoHandler = (userInfo) => {
+        
+        const configObj = {
+          method: 'PATCH',
+          headers: {
+            'Content-Type': 'application/json',
+            'Accept': 'application/json',
+          },
+          body: JSON.stringify(userInfo)
+        }
+    
+        fetch(`http://localhost:3000/users/${this.state.currentUser.id}`, configObj)
+          .then(response => response.json())
+          .then(editedUser => {
+            this.setState({...this.state, currentUser: editedUser }, ()=> this.props.history.push("/profile") )
+            })
+
+      }
+
       // ------ Getting stuff out of the app below ------
 
       markUnfinished = () => {
@@ -359,7 +378,7 @@ class App extends React.Component {
             {this.state.currentUser
             ? 
             <>
-              <Route path="/" render={() => <MainContainer currentUser={this.state.currentUser} exportLetters={this.exportLetters} markUnfinished={this.markUnfinished} createLetterHandler={this.createLetterHandler} editLetterHandler={this.editLetterHandler}  deleteLetterHandler={this.deleteLetterHandler} createExecutorHandler={this.createExecutorHandler} editExecutorHandler={this.editExecutorHandler} deleteExecutorHandler={this.deleteExecutorHandler} /> }/>
+              <Route path="/" render={() => <MainContainer currentUser={this.state.currentUser} editUserInfoHandler={this.editUserInfoHandler} exportLetters={this.exportLetters} markUnfinished={this.markUnfinished} createLetterHandler={this.createLetterHandler} editLetterHandler={this.editLetterHandler}  deleteLetterHandler={this.deleteLetterHandler} createExecutorHandler={this.createExecutorHandler} editExecutorHandler={this.editExecutorHandler} deleteExecutorHandler={this.deleteExecutorHandler} /> }/>
             </>
             :
             <>
