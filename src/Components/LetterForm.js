@@ -122,13 +122,13 @@ class LetterForm extends React.Component {
                 
                     {this.props.toEdit ? <h4>Edit Your Letter!</h4> : <h4>Create a Letter!</h4> }
                 <form onSubmit={this.createOrEditHelper}>
-                    <label>Letter Title (Give the letter a name to help your executor identify it)</label><br/>
+                    <label>Letter Title (For Executor use only)</label><br/>
                     <input name="letter_title" onChange={this.letterChangeHelper} value={this.state.letterObj.letter_title} type="text" placeholder="Mom Letter" />
                     <br/><br/>
-                    <label>Recipient Name (Who is it going to? or who the point person is for a group?)</label><br/>
+                    <label>Recipient Full Name (Who is the letter going to?)</label><br/>
                     <input name="recipient_name" onChange={this.letterChangeHelper} value={this.state.letterObj.recipient_name} type="text" placeholder="Marge Simpson" />
                     <br/><br/>
-                    <label>Recipient Email (How the recipient will be contacted - if for a group - this will be the point person)</label><br/>
+                    <label>Recipient Email (How the executor(s) will get in touch with the letter recipient)</label><br/>
                     <input name="recipient_email" onChange={this.letterChangeHelper} value={this.state.letterObj.recipient_email} type="text" placeholder="marge@gmail.com" />
                     <br/><br/>
                     <label>Letter Text</label><br/>
@@ -136,11 +136,11 @@ class LetterForm extends React.Component {
                     <br/>
                     {this.promptRenderer()}
                     <br/>
-                    <label>Instructions (Optional - Anything you think would help the Executors deliver the letter)</label><br/>
+                    <label>Instructions (Anything you think would help the Executors deliver the letter successfully)</label><br/>
                     <textarea name="letter_instructions" onChange={this.letterChangeHelper} value={this.state.letterObj.letter_instructions} type="text" placeholder="Here is Brittany's phone number in case she doesn't respond to your email: 917-878-5643" />
                     <br/><br/>
-                    <label>Your Name (This is how your letter will be "signed" at the bottom)</label><br/>
-                    <input name="signoff" onChange={this.letterChangeHelper} value={this.state.letterObj.signoff} type="text" placeholder="Enter your name" />
+                    <label>Personal Sign Off (This is how your letter will be "signed" at the bottom)</label><br/>
+                    <textarea name="signoff" onChange={this.letterChangeHelper} value={this.state.letterObj.signoff} type="text" placeholder="Love, Matt" />
                     <br/><br/>
                     <input type="submit"  value={this.props.toEdit ? "Save Changes" : "Create Letter" } />
                 </form>

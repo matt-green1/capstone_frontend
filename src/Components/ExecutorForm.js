@@ -42,13 +42,13 @@ class ExecutorForm extends React.Component {
                 
                     {this.props.toEdit ? <h4>Edit Executor</h4> : <h4>Add an Executor</h4> }
                 <form onSubmit={this.createOrEditHelper} >
-                    <label>Executor Name (The person who will be in charge of distributing the letters)</label><br/>
+                    <label>Executor Full Name (Will be in charge of distributing your letters)</label><br/>
                     <input name="executor_name" onChange={this.executorChangeHelper} value={this.state.executor_name} type="text" placeholder="Carl Tart" />
                     <br/><br/>
-                    <label>Executor Email (How we get the letters to the executor when you're ready)</label><br/>
+                    <label>Executor Email (How we get the letters to the executor)</label><br/>
                     <input name="executor_email" onChange={this.executorChangeHelper} value={this.state.executor_email} type="text" placeholder="carltart@gmail.com" />
                     <br/><br/>
-                    <label>Relationship (To Executor)</label><br/>
+                    <label>Relationship To Executor</label><br/>
                     <textarea name="relationship" onChange={this.executorChangeHelper} value={this.state.relationship} type="text" placeholder="Mom, Friend, etc." />
                     <br/><br/>
                     <input type="submit"  value={this.props.toEdit ? "Save Changes" : "Add Executor" } />
