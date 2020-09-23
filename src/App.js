@@ -237,7 +237,7 @@ class App extends React.Component {
         fetch(`http://localhost:3000/users/${this.state.currentUser.id}`, configObj)
           .then(response => response.json())
           .then(editedUser => 
-            this.setState({...this.state, currentUser: {...this.state.currentUser, letter_status: editedUser.letter_status} } )
+            this.setState({...this.state, currentUser: {...this.state.currentUser, letter_status: editedUser.letter_status, last_batch: editedUser.last_batch } } )
           )
       }
 
