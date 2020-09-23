@@ -242,7 +242,7 @@ class App extends React.Component {
       }
 
 
-      createLetterPdfs = () => {
+      createLetterPdfs = (newDateString) => {
         
         this.state.currentUser.letters.forEach(letter => {
         
@@ -253,18 +253,19 @@ class App extends React.Component {
               'Accept': 'application/json',
             },
             body: JSON.stringify({
-              "letter_title": letter.letter_title,
               "recipient_name": letter.recipient_name,
               "recipient_email": letter.recipient_email,
-              "username" : this.state.currentUser.username,
+              "first_name" : this.state.currentUser.first_name,
+              "last_name" : this.state.currentUser.last_name,
+              "user_email" : this.state.currentUser.user_email,
               "letter_text" : letter.letter_text,
               "signoff" : letter.signoff,
-              "batch_date": "9_28"
+              "last_batch": newDateString
 
                 })
           }
           
-          fetch("https://www.webmerge.me/merge/659863/nw7yvx?test=1", configObj)
+          fetch("https://www.webmerge.me/merge/660625/r6qdtg?test=1", configObj)
         
         })
       }
@@ -279,22 +280,24 @@ class App extends React.Component {
               'Accept': 'application/json',
             },
             body: JSON.stringify({
-              "instructions": executor.instructions,
+              "relationship": executor.relationship,
               "executor_name": executor.executor_name,
               "executor_email": executor.executor_email,
-              "username" : this.state.currentUser.username,
+              "user_email" : this.state.currentUser.user_email,
+              "first_name" : this.state.currentUser.first_name,
+              "last_name" : this.state.currentUser.last_name,
               "letters": this.state.currentUser.letters,
               "executors": this.state.currentUser.executors
             })
           }
           
-          fetch("https://www.webmerge.me/merge/659873/jzdb9w?test=1", configObj)
+          fetch("https://www.webmerge.me/merge/660621/vxfy5q?test=1", configObj)
           
         })
       }
 
 
-      sendDropboxLink = () => {
+      sendDropboxLink = (newDateString) => {
        
         this.state.currentUser.executors.forEach(executor => {
 
@@ -307,8 +310,10 @@ class App extends React.Component {
           body: JSON.stringify({
             "executor_name": executor.executor_name,
             "executor_email": executor.executor_email,
-            "username" : this.state.currentUser.username,
-            "batch_date": "9_28"
+            "user_email" : this.state.currentUser.user_email,
+            "batch_date": newDateString,
+            "first_name" : this.state.currentUser.first_name,
+            "last_name" : this.state.currentUser.last_name
           })
         }
         
@@ -332,15 +337,14 @@ class App extends React.Component {
         //persists finished status in DB as true
         this.markFinished(newBatchDate)
         
-        
-        // //sends a post request to formstack for each letter which get stored in dropbox
-        // this.createLetterPdfs()
+        //sends a post request to formstack for each letter which get stored in dropbox
+        this.createLetterPdfs(newBatchDate)
 
         // //sends post request to formstack for each executor which get sent to their email -- will eventually also incorpoirate letter instructions
-        // this.createExecutorEmails()
+        this.createExecutorEmails()
           
         // //call to zapier that triggers dropbox link to be sent
-        // this.sendDropboxLink()
+        this.sendDropboxLink(newBatchDate)
 
         }
 
