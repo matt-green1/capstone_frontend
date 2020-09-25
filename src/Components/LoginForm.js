@@ -31,13 +31,13 @@ class LoginForm extends React.Component {
             <>
                 <Header as='h3'>Welcome Back! Log in below:</Header><br/>
                 <Form onSubmit={this.loginHelper}>
-                    <Form.Field width={6}>
+                    <Form.Field>
                         <label>Email</label>
-                        <input name="user_email" onChange={this.loginChangeHelper} type="text" value={this.state.user_email} placeholder="jonedoe@gmail.com" /><br/><br/>
+                        <input name="user_email" onChange={this.loginChangeHelper} type="text" value={this.state.user_email} className="signinupinput"/><br/><br/>
                     </Form.Field>
-                    <Form.Field width={6}>
+                    <Form.Field className="signinupinput">
                         <label>Password</label>
-                        <input name="password" onChange={this.loginChangeHelper} type="password" value={this.state.password} placeholder="JoneDoe3454" /><br/><br/>
+                        <input name="password" onChange={this.loginChangeHelper} type="password" value={this.state.password} className="signinupinput"/><br/><br/>
                     </Form.Field>
                     <Button type="submit" width='16' className="loginsubmit">Log In</Button>
                 </Form>
