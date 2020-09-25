@@ -1,54 +1,114 @@
 import React from 'react'
-import { NavLink } from 'react-router-dom'
-import { Button } from 'semantic-ui-react'
+import { NavLink, withRouter } from 'react-router-dom'
+import { Menu, Segment } from 'semantic-ui-react'
 
 class NavBar extends React.Component {
+    state = { 
+        activeItem: 'lifeletter' 
+    }
+    
+    handleItemClick = (e, { name }) => this.setState({ activeItem: name })
+
+    componentDiDMount = () => {
+        this.setState({activeItem: 'lifeletter' })
+    }
 
     render(){
+        console.log(this.state)
+        const { activeItem } = this.state
+
         return(
-            <>
-                
+            
+            <>  
                 {this.props.currentUser ?
-                <>
-                    <ul>
-                        <NavLink to="/home">
-                            <li>Home</li>
-                        </NavLink>
-
-                        <NavLink to="letters">
-                            <li>My Letters</li>
-                        </NavLink>
-
-                        <NavLink to="/executors">
-                            <li>My Executors</li>
-                        </NavLink>
-
-                        <NavLink to="/profile">
-                            <li>Profile</li>
-                        </NavLink>
-
-                            <li onClick={this.props.clearUser} >Log Out</li>
+                <Segment inverted className="nav" >
+                    <Menu inverted pointing secondary>
                         
-                    </ul>
-                    <p>-------------------------------------------------------------------------------------------------------------------------------------------------------------------------</p>
-                </>
+                        <Menu.Item
+                        name='lifeletter'
+                        active={activeItem === 'lifeletter'}
+                        onClick={this.handleItemClick}
+                        >
+                            <NavLink to="/home">
+                                LifeLetter
+                            </NavLink>
+                        </Menu.Item>
+
+                        <Menu.Item
+                        name='myletters'
+                        active={activeItem === 'myletters'}
+                        onClick={this.handleItemClick}
+                        >
+                            <NavLink to="letters">
+                                My Letters
+                            </NavLink>
+                        </Menu.Item>
+
+                        <Menu.Item
+                        name='myexecutors'
+                        active={activeItem === 'myexecutors'}
+                        onClick={this.handleItemClick}
+                        >
+                            <NavLink to="/executors">
+                                My Executors
+                            </NavLink>
+                        </Menu.Item>
+                            
+                        <Menu.Item
+                        name='profile'
+                        active={activeItem === 'profile'}
+                        onClick={this.handleItemClick}
+                        >
+                            <NavLink to="/profile">
+                                Profile
+                            </NavLink>
+                        </Menu.Item>
+
+                        <Menu.Item>
+                            <NavLink onClick={this.props.clearUser} to="/">
+                                Log Out
+                            </NavLink>
+                        </Menu.Item>
+
+                    </Menu>
+                </Segment>
                 :
                 <>
-                    <h4>LIFE LETTERS</h4>
-                    <ul>
+                <Segment inverted className="nav">
+                    <Menu inverted pointing secondary>
+    
+                    <Menu.Item
+                        name='lifeletter'
+                        active={activeItem === 'lifeletter'}
+                        onClick={this.handleItemClick}
+                    >
                         <NavLink to="/">
-                        <li>About</li>
+                            LifeLetter
                         </NavLink>
-
+                    </Menu.Item>
+                        
+                    <Menu.Item
+                        name='login'
+                        active={activeItem === 'login'}
+                        onClick={this.handleItemClick}
+                    >
                         <NavLink to="/login">
-                        <li>Log In</li>
+                            Log In
                         </NavLink>
+                    </Menu.Item>
 
+                    <Menu.Item
+                        name='signup'
+                        active={activeItem === 'signup'}
+                        onClick={this.handleItemClick}
+                    >
                         <NavLink to="/signup">
-                        <li>Signup</li>
+                            Signup
                         </NavLink>
-                    </ul>
-                    <p>-------------------------------------------------------------------------------------------------------------------------------------------------------------------------</p>
+                    </Menu.Item>
+
+                    </Menu>
+                </Segment>
                 </>
                 }
             </>
@@ -57,4 +117,4 @@ class NavBar extends React.Component {
     }
 }
 
-export default NavBar
+export default withRouter(NavBar)

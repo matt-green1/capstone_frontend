@@ -1,9 +1,51 @@
 import React from 'react'
 import { withRouter } from 'react-router-dom'
-import { Button } from 'semantic-ui-react'
+//Layout imports below
+import PropTypes from 'prop-types'
+//import { Component } from 'react'
+import { Button, Container, Divider, Grid, Header, Icon, Image, List, Menu, Segment, Sidebar, Visibility } from 'semantic-ui-react'
 
+const HomepageHeading = ({ mobile }) => (
+    <Container text>
+      <Header
+        as='h1'
+        content='LifeLetters'
+        invertedc
+        style={{
+          fontSize: mobile ? '2em' : '4em',
+          fontWeight: 'normal',
+          marginBottom: 0,
+          marginTop: mobile ? '1.5em' : '3em',
+        }}
+      />
+      <Header
+        as='h2'
+        content='Do whatever you want when you want to.'
+        inverted
+        style={{
+          fontSize: mobile ? '1.5em' : '1.7em',
+          fontWeight: 'normal',
+          marginTop: mobile ? '0.5em' : '1.5em',
+        }}
+      />
+      <Button primary size='huge'>
+        Get Started
+        <Icon name='right arrow' />
+      </Button>
+    </Container>
+  )
+  
+  HomepageHeading.propTypes = {
+    mobile: PropTypes.bool,
+  }
 
 class About extends React.Component {
+
+    state = {}
+
+    hideFixedMenu = () => this.setState({ fixed: false })
+    showFixedMenu = () => this.setState({ fixed: true })
+  
 
     loginNavHelper = () => {
         this.props.history.push("/login")
@@ -14,9 +56,58 @@ class About extends React.Component {
     }
 
     render() {
+        const { children } = this.props
+        const { fixed } = this.state
 
         return(
             <>
+            
+        <Visibility
+          once={false}
+          onBottomPassed={this.showFixedMenu}
+          onBottomPassedReverse={this.hideFixedMenu}
+        >
+          <Segment
+            inverted
+            textAlign='center'
+            style={{ minHeight: 700, padding: '1em 0em' }}
+            vertical
+          >
+            <Menu
+              fixed={fixed ? 'top' : null}
+              inverted={!fixed}
+              pointing={!fixed}
+              secondary={!fixed}
+              size='large'
+            >
+              <Container>
+                <Menu.Item as='a' active>
+                  Home
+                </Menu.Item>
+                <Menu.Item as='a'>Work</Menu.Item>
+                <Menu.Item as='a'>Company</Menu.Item>
+                <Menu.Item as='a'>Careers</Menu.Item>
+                <Menu.Item position='right'>
+                  <Button as='a' inverted={!fixed}>
+                    Log in
+                  </Button>
+                  <Button as='a' inverted={!fixed} primary={fixed} style={{ marginLeft: '0.5em' }}>
+                    Sign Up
+                  </Button>
+                </Menu.Item>
+              </Container>
+            </Menu>
+            <HomepageHeading />
+          </Segment>
+        </Visibility>
+
+        {children}
+      
+
+
+            <br/><br/><br/>
+            <h1>Original code:</h1>
+
             <h1>Welcome to LifeLetter!</h1>
             <h2>The personal side of your last wishes.</h2>
             <img src="https://media.giphy.com/media/brsEO1JayBVja/giphy.gif" />

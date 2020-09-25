@@ -1,5 +1,6 @@
 import React from 'react'
 import { withRouter } from 'react-router-dom'
+import { Button, Form, Header } from 'semantic-ui-react'
 
 class LoginForm extends React.Component {
 
@@ -28,14 +29,19 @@ class LoginForm extends React.Component {
     render() {
         return(
             <>
-                <h4>Welcome Back! Log in below:</h4>
-                <form onSubmit={this.loginHelper}>
-                    <label>Email:</label><br/>
-                    <input name="user_email" onChange={this.loginChangeHelper} type="text" value={this.state.user_email} placeholder="jonedoe@gmail.com" /><br/><br/>
-                    <label>Password:</label><br/>
-                    <input name="password" onChange={this.loginChangeHelper} type="password" value={this.state.password} placeholder="JoneDoe3454" /><br/><br/>
-                    <input type="submit"  value="Log In" />
-                </form>
+                <Header as='h3'>Welcome Back! Log in below:</Header><br/>
+                <Form onSubmit={this.loginHelper}>
+                    <Form.Field width={6}>
+                        <label>Email</label>
+                        <input name="user_email" onChange={this.loginChangeHelper} type="text" value={this.state.user_email} placeholder="jonedoe@gmail.com" /><br/><br/>
+                    </Form.Field>
+                    <Form.Field width={6}>
+                        <label>Password</label>
+                        <input name="password" onChange={this.loginChangeHelper} type="password" value={this.state.password} placeholder="JoneDoe3454" /><br/><br/>
+                    </Form.Field>
+                    <Button type="submit" width='16' className="loginsubmit">Log In</Button>
+                </Form>
+                <br/>
                 <p>Don't have an account? <u onClick={this.switchToSigninHelper} >Sign up here</u></p>
             </>
         )

@@ -67,7 +67,7 @@ class Profile extends React.Component {
                 
                 {this.props.currentUser.letter_status ? <button onClick={this.props.markUnfinished}>Mark Account Unfinished</button> : <button onClick={this.state.button ? this.exportLetterHelper : null}> SEND TO EXECUTORS </button> }
                 {this.state.button ? <p>Warning: Clicking the button above will email the letters to your executors. It cannot be undone.</p> : null}
-                <h4>Status: {this.props.currentUser.letter_status ? "Sent to Executors" : "Not Ready to Send"} </h4>
+                <h4>Current Letter Status: {this.props.currentUser.letter_status ? "Sent to Executors" : "Not Sent"} </h4>
             </>
         )
     }

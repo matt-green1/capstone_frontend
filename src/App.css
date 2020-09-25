@@ -1,7 +1,16 @@
 
+.ui.inverted.segment.nav {
+  background-color: #14213D;
+}
 
-
-
+.ui.button.loginsubmit {
+  color: #FCA311;
+  background: #14213D;
+  padding-top: 150px;
+  padding-right: 158px;
+  padding-bottom: 150px;
+  padding-left: 158px;
+}
 
 
 
