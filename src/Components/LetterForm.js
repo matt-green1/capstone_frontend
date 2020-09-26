@@ -1,4 +1,5 @@
 import React from 'react'
+import { Form, Button, Header, Icon, Popup } from 'semantic-ui-react'
 
 class LetterForm extends React.Component {
     state = {
@@ -118,44 +119,124 @@ class LetterForm extends React.Component {
     render() {
         return(
             <>
-                <button onClick={this.props.backToLetterList}>Back to Letter List</button><br/>
+                <Button onClick={this.props.backToLetterList}> Back to Letter List</Button>
                 
-                    {this.props.toEdit ? <h4>Edit Your Letter!</h4> : <h4>Create a Letter!</h4> }
-                <form onSubmit={this.createOrEditHelper}>
-                    <label>Letter Title (For Executor use only)</label><br/>
-                    <input name="letter_title" onChange={this.letterChangeHelper} value={this.state.letterObj.letter_title} type="text" placeholder="Mom Letter" />
-                    <br/><br/>
-                    <label>Recipient Full Name (Who is the letter going to?)</label><br/>
-                    <input name="recipient_name" onChange={this.letterChangeHelper} value={this.state.letterObj.recipient_name} type="text" placeholder="Marge Simpson" />
-                    <br/><br/>
-                    <label>Recipient Email (How the executor(s) will get in touch with the letter recipient)</label><br/>
-                    <input name="recipient_email" onChange={this.letterChangeHelper} value={this.state.letterObj.recipient_email} type="text" placeholder="marge@gmail.com" />
-                    <br/><br/>
-                    <label>Letter Text</label><br/>
-                    <textarea name="letter_text" onChange={this.letterChangeHelper} value={this.state.letterObj.letter_text} type="text" placeholder="Write the letter here!" />
-                    <br/>
-                    {this.promptRenderer()}
-                    <br/>
-                    <label>Instructions (Anything you think would help the Executors deliver the letter successfully)</label><br/>
-                    <textarea name="letter_instructions" onChange={this.letterChangeHelper} value={this.state.letterObj.letter_instructions} type="text" placeholder="Here is Brittany's phone number in case she doesn't respond to your email: 917-878-5643" />
-                    <br/><br/>
-                    <label>Personal Sign Off (This is how your letter will be "signed" at the bottom)</label><br/>
-                    <textarea name="signoff" onChange={this.letterChangeHelper} value={this.state.letterObj.signoff} type="text" placeholder="Love, Matt" />
-                    <br/><br/>
-                    <input type="submit"  value={this.props.toEdit ? "Save Changes" : "Create Letter" } />
-                </form>
-                    {/* Note: getting an error on raido buttons that it wants me to use onChange OR defaultChecked -- but that doesn't give me desired behavior so ignoring for now */}
-                    <br/>
-                    <h5>Having trouble finding the right words? Click an option below for guidance</h5>
-                    <label>Gratitude</label>
-                    <input type="radio" name="gratitude" checked={this.state.gratitude} onClick={this.gratitudeChanger} />&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
-                    <label>Forgiveness</label>
-                    <input type="radio" name="forgiveness" checked={this.state.forgiveness} onClick={this.forgivenessChanger} />&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
-                    <label>Favorite Memories</label>
-                    <input type="radio" name="favemems" checked={this.state.favemems} onClick={this.favememsChanger} />&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
-                    <label>Apology </label>
-                    <input type="radio" name="apology" checked={this.state.apology} onClick={this.apologyChanger} />
-                    <br/>
+                    {this.props.toEdit ? <Header as="h2">Edit Your Letter!</Header> : <Header as="h2">Create a Letter</Header> }
+                <Form onSubmit={this.createOrEditHelper}>
+                    <Form.Group>
+                        <Form.Field>
+                            <label>Recipient Full Name</label>
+                            <input name="recipient_name" onChange={this.letterChangeHelper} value={this.state.letterObj.recipient_name} type="text" placeholder="Marge Simpson" />
+                        </Form.Field>
+                        <Form.Field>
+                            <label>Recipient Contact Email&nbsp;
+                            <Popup
+                                content="How your executor(s) will get in touch with the letter recipient."
+                                mouseEnterDelay={1}
+                                mouseLeaveDelay={300}
+                                on='hover'
+                                trigger={<Icon name='help circle'/>} />
+                                </label>
+                            <input name="recipient_email" onChange={this.letterChangeHelper} value={this.state.letterObj.recipient_email} type="text" placeholder="marge@gmail.com" />
+                        </Form.Field>
+                        <Form.Field>
+                            <label>Letter Title (For Executor use only)</label>
+                            <input name="letter_title" onChange={this.letterChangeHelper} value={this.state.letterObj.letter_title} type="text" placeholder="Mom Letter" />
+                        </Form.Field>
+                    </Form.Group>
+
+                        <Form.Field>
+                            <label>Letter Text</label>
+                            <textarea name="letter_text" onChange={this.letterChangeHelper} value={this.state.letterObj.letter_text} type="text" placeholder="Write the letter here!" />
+                        </Form.Field>
+                        
+                        {/* Below radio buttons copied from the below compented out section */}
+                        <Header as="h5">Having trouble finding the right words? Click an option below for guidance</Header>
+                    <Form.Group inline>
+                        <Form.Radio
+                            label="Gratitude"
+                            checked={this.state.gratitude}
+                            onClick={this.gratitudeChanger}
+                        >
+                            <input type="radio" name="gratitude" checked={this.state.gratitude} onClick={this.gratitudeChanger} />
+                        </Form.Radio>
+                        <Form.Radio
+                            label="Forgiveness"
+                            checked={this.state.forgiveness}
+                            onClick={this.forgivenessChanger}
+                        >
+                            <input type="radio" name="forgiveness" checked={this.state.forgiveness} onClick={this.forgivenessChanger} />
+                        </Form.Radio>
+                        <Form.Radio
+                            label="Favorite Memories"
+                            checked={this.state.favemems}
+                            onClick={this.favememsChanger}
+                        >
+                            <input type="radio" name="favemems" checked={this.state.favemems} onClick={this.favememsChanger} />
+                        </Form.Radio>
+                        <Form.Radio
+                            label="Apology"
+                            checked={this.state.apology}
+                            onClick={this.apologyChanger}
+                        >
+                        <label>Apology </label>
+                            <input type="radio" name="apology" checked={this.state.apology} onClick={this.apologyChanger} />
+                        </Form.Radio>
+
+                    </Form.Group>
+
+                        {this.promptRenderer()}
+                        <Form.Field>
+                            <label>Instructions (Anything you think would help the Executors deliver the letter successfully)</label>
+                            <textarea name="letter_instructions" onChange={this.letterChangeHelper} value={this.state.letterObj.letter_instructions} type="text" placeholder="Here is Brittany's phone number in case she doesn't respond to your email: 917-878-5643" />
+                        </Form.Field>
+                        <Form.Field>
+                            <label>Personal Sign Off&nbsp;
+                            <Popup
+                                content="How your letter will be 'signed' at the bottom."
+                                mouseEnterDelay={1}
+                                mouseLeaveDelay={300}
+                                on='hover'
+                                trigger={<Icon name='help circle'/>} /></label>
+                            <textarea name="signoff" onChange={this.letterChangeHelper} value={this.state.letterObj.signoff} type="text" placeholder="Love, Matt" />
+                        </Form.Field>
+                        <Button input type="submit" >{this.props.toEdit ? "Save Changes" : "Create Letter" }</Button>
+                </Form>
+                    {/* Note: getting an error on radio buttons that it wants me to use onChange OR defaultChecked -- but that doesn't give me desired behavior so ignoring for now */}
+                    {/* Also might no longer need the extra input for form radio components */}
+                    {/* <Header as="h5">Having trouble finding the right words? Click an option below for guidance</Header>
+                    <Form.Group inline>
+                        <Form.Radio
+                            label="Gratitude"
+                            checked={this.state.gratitude}
+                            onClick={this.gratitudeChanger}
+                        >
+                            <input type="radio" name="gratitude" checked={this.state.gratitude} onClick={this.gratitudeChanger} />
+                        </Form.Radio>
+                        <Form.Radio
+                            label="Forgiveness"
+                            checked={this.state.forgiveness}
+                            onClick={this.forgivenessChanger}
+                        >
+                            <input type="radio" name="forgiveness" checked={this.state.forgiveness} onClick={this.forgivenessChanger} />
+                        </Form.Radio>
+                        <Form.Radio
+                            label="Favorite Memories"
+                            checked={this.state.favemems}
+                            onClick={this.favememsChanger}
+                        >
+                            <input type="radio" name="favemems" checked={this.state.favemems} onClick={this.favememsChanger} />
+                        </Form.Radio>
+                        <Form.Radio
+                            label="Apology"
+                            checked={this.state.apology}
+                            onClick={this.apologyChanger}
+                        >
+                        <label>Apology </label>
+                            <input type="radio" name="apology" checked={this.state.apology} onClick={this.apologyChanger} />
+                        </Form.Radio>
+
+                    </Form.Group> */}
             </>
         )
     }

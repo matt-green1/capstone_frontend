@@ -39,7 +39,8 @@ class LoginForm extends React.Component {
                         <label>Password</label>
                         <input name="password" onChange={this.loginChangeHelper} type="password" value={this.state.password} className="signinupinput"/><br/><br/>
                     </Form.Field>
-                    <Button type="submit" width='16' className="loginsubmit">Log In</Button>
+                    <Button type="submit"  className="loginsubmit">Log In</Button>
+                    {/* Above button originally had this as a prop: width='16' make sure it isn't messing with style to take out */}
                 </Form>
                 <br/>
                 <p>Don't have an account? <u onClick={this.switchToSigninHelper} >Sign up here</u></p>
