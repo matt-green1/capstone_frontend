@@ -34,6 +34,7 @@ class SignupForm extends React.Component {
         return(
             <>
                 <Header as="h3"> Nice to meet you! Signup below:</Header>
+                <br/>
                 <Form onSubmit={this.signupHelper}>
                     <Form.Field>
                         <label>First Name</label>

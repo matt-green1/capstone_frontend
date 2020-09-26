@@ -1,6 +1,7 @@
 import React from 'react'
 import Letter from '../Components/Letter'
 import LetterForm from '../Components/LetterForm'
+import { Table, Button, Header } from 'semantic-ui-react'
 
 class LetterContainer extends React.Component {
     //form: can be null, edit, or create - this will control which form comes up and will feed in different props
@@ -37,9 +38,9 @@ class LetterContainer extends React.Component {
 
                 ?
                 <>
-                    <h2>{this.props.currentUser.first_name}'s Letters</h2>
+                    <Header as="h1">{this.props.currentUser.first_name}'s Letters</Header>
                     
-                    <button onClick={this.createFormStateHelper} >Create New Letter</button><br/><br/>
+                    <Button onClick={this.createFormStateHelper} >Create New Letter</Button><br/><br/>
                     
                     {this.props.currentUser.letters.length < 1
                     ?
@@ -49,31 +50,23 @@ class LetterContainer extends React.Component {
                         </>
                     :
                     
-                    <table>
-                        <tbody>
-                            <tr>
-                                <th>
-                                    <h3>|&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;Title&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;|</h3>
-                                </th>
-                                <th>
-                                    <h3>&nbsp;&nbsp;&nbsp;Recipient&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;|</h3>
-                                </th>
-                                <th>
-                                    <h3>&nbsp;&nbsp;&nbsp;Recipient Email&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;|</h3>
-                                </th>
-                                <th>
-                                    <h3>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;Letter Text&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;|</h3>
-                                </th>
-                                <th>
-                                    <h3>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;Instructions&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;|</h3>
-                                </th>
-                                <th>
-                                    <h3>&nbsp;&nbsp;Edit / Delete&nbsp;&nbsp;&nbsp;|</h3>
-                                </th>
-                            </tr>
-                                {this.createLetters()}
-                        </tbody>
-                    </table>
+                    <Table fixed>
+                        <Table.Header>
+                            <Table.Row>
+                                <Table.HeaderCell>Title</Table.HeaderCell>
+                                <Table.HeaderCell>Recipient</Table.HeaderCell>
+                                <Table.HeaderCell>Recipient Email</Table.HeaderCell>
+                                <Table.HeaderCell>Letter Text</Table.HeaderCell>
+                                <Table.HeaderCell>Instructions</Table.HeaderCell>
+                                <Table.HeaderCell> Edit / Delete</Table.HeaderCell>
+                            </Table.Row>
+                        </Table.Header>
+
+
+                        <Table.Body>
+                            {this.createLetters()}
+                        </Table.Body>
+                    </Table>
                     }
                 </>
                     

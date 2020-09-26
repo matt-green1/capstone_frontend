@@ -1,7 +1,7 @@
 import React from 'react'
 import Executor from '../Components/Executor'
 import ExecutorForm from '../Components/ExecutorForm'
-
+import { Table, Button, Header } from 'semantic-ui-react'
 
 class ExecutorContainer extends React.Component {
 
@@ -37,9 +37,9 @@ class ExecutorContainer extends React.Component {
 
                 ?
                 <>
-                    <h2>{this.props.currentUser.first_name}'s Executors</h2>
+                    <Header as="h1" >{this.props.currentUser.first_name}'s Executors</Header>
                     
-                    <button onClick={this.createFormStateHelper}>Create New Executor</button><br/><br/>
+                    <Button onClick={this.createFormStateHelper}>Create New Executor</Button>
                 
                     {this.props.currentUser.executors.length < 1
                     ?
@@ -49,25 +49,22 @@ class ExecutorContainer extends React.Component {
                         </>
                     :
 
-                    <table>
-                        <tbody>
-                            <tr>
-                                <th>
-                                    <h3>|&nbsp;&nbsp;Name&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;|</h3>
-                                </th>
-                                <th>
-                                    <h3>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;Email&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;|&nbsp;&nbsp;&nbsp;</h3>
-                                </th>
-                                <th>
-                                    <h3>Relationship</h3>
-                                </th>
-                                <th>
-                                    <h3>&nbsp;&nbsp;&nbsp;|&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;Edit / Delete&nbsp;&nbsp;|</h3>
-                                </th>
-                            </tr>
-                                {this.createExecutors()}
-                        </tbody>
-                    </table>
+
+                    <Table fixed>
+                        <Table.Header>
+                            <Table.Row>
+                                <Table.HeaderCell>Name</Table.HeaderCell>
+                                <Table.HeaderCell>Email</Table.HeaderCell>
+                                <Table.HeaderCell>Relationship</Table.HeaderCell>
+                                <Table.HeaderCell> Edit / Delete</Table.HeaderCell>
+                            </Table.Row>
+                        </Table.Header>
+
+                        <Table.Body>
+                            {this.createExecutors()}
+                        </Table.Body>
+                    </Table>
+                    
                     }
                 </>
 

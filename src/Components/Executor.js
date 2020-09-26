@@ -1,5 +1,5 @@
 import React from 'react'
-
+import { Table, Button, Header } from 'semantic-ui-react'
 
 class Executor extends React.Component {
     
@@ -23,27 +23,26 @@ class Executor extends React.Component {
     render(){
         return(
             <>
-                <tr>
-                    <td>&nbsp;&nbsp;&nbsp;&nbsp;{this.props.executorObject.executor_name}</td>
-                    <td>{this.props.executorObject.executor_email}</td>
-                    <td>{this.props.executorObject.relationship}</td>
-                    <td>
+                <Table.Row>
+                    <Table.Cell>{this.props.executorObject.executor_name}</Table.Cell>
+                    <Table.Cell>{this.props.executorObject.executor_email}</Table.Cell>
+                    <Table.Cell>{this.props.executorObject.relationship}</Table.Cell>
+                    <Table.Cell>
                         {this.state.deleteActivated === false 
-                        ? 
-                        <>
-                            &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;<button onClick={this.editFormFillHelper}>Edit</button>&nbsp;&nbsp;&nbsp;
-                            <button onClick={this.changeDeleteStatus} >Delete</button>
-                        </>
-                        :
-                        <>
-                            <p>ARE YOU SURE?</p>
-                            <button onClick={this.changeDeleteStatus} >Go Back</button>&nbsp;&nbsp;
-                            <button onClick={this.deleteHelper} >Yes, Delete</button>
-                        </>                        
-                        }
-                    </td>
-
-                </tr>&nbsp;
+                            ? 
+                            <>
+                                <Button onClick={this.editFormFillHelper}>Edit</Button>
+                                <Button onClick={this.changeDeleteStatus} >Delete</Button>
+                            </>
+                            :
+                            <>
+                                <p>ARE YOU SURE?</p>
+                                <Button onClick={this.changeDeleteStatus} >Go Back</Button>&nbsp;&nbsp;
+                                <Button onClick={this.deleteHelper} >Yes, Delete</Button>
+                            </>                        
+                            }
+                    </Table.Cell>
+                </Table.Row>
             </>
         )
     }
