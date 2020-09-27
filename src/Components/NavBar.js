@@ -14,7 +14,6 @@ class NavBar extends React.Component {
     }
 
     render(){
-        console.log(this.state)
         const { activeItem } = this.state
 
         return(
@@ -23,52 +22,52 @@ class NavBar extends React.Component {
                 {this.props.currentUser ?
                 <Segment inverted className="nav" >
                     <Menu inverted pointing secondary>
-                        
-                        <Menu.Item
-                        name='lifeletter'
-                        active={activeItem === 'lifeletter'}
-                        onClick={this.handleItemClick}
-                        >
-                            <NavLink to="/home">
-                                LifeLetter
-                            </NavLink>
-                        </Menu.Item>
-
-                        <Menu.Item
-                        name='myletters'
-                        active={activeItem === 'myletters'}
-                        onClick={this.handleItemClick}
-                        >
-                            <NavLink to="letters">
-                                My Letters
-                            </NavLink>
-                        </Menu.Item>
-
-                        <Menu.Item
-                        name='myexecutors'
-                        active={activeItem === 'myexecutors'}
-                        onClick={this.handleItemClick}
-                        >
-                            <NavLink to="/executors">
-                                My Executors
-                            </NavLink>
-                        </Menu.Item>
+                        <NavLink to="/home">
+                            <Menu.Item
+                                name='lifeletter'
+                                active={activeItem === 'lifeletter'}
+                                onClick={this.handleItemClick}
+                            >
                             
-                        <Menu.Item
-                        name='profile'
-                        active={activeItem === 'profile'}
-                        onClick={this.handleItemClick}
-                        >
-                            <NavLink to="/profile">
-                                Profile
-                            </NavLink>
-                        </Menu.Item>
+                                LifeLetter
+                            </Menu.Item>
+                        </NavLink>
 
-                        <Menu.Item>
-                            <NavLink onClick={this.props.clearUser} to="/">
+                        <NavLink to="letters">
+                            <Menu.Item
+                                name='myletters'
+                                active={activeItem === 'myletters'}
+                                onClick={this.handleItemClick}
+                            >
+                                My Letters
+                            </Menu.Item>
+                        </NavLink>
+
+                        <NavLink to="/executors">
+                            <Menu.Item
+                                name='myexecutors'
+                                active={activeItem === 'myexecutors'}
+                                onClick={this.handleItemClick}
+                            >
+                                My Executors
+                            </Menu.Item>
+                        </NavLink>
+                            
+                        <NavLink to="/profile">
+                            <Menu.Item
+                                name='profile'
+                                active={activeItem === 'profile'}
+                                onClick={this.handleItemClick}
+                            >
+                                Profile
+                            </Menu.Item>
+                        </NavLink>
+
+                        <NavLink onClick={this.props.clearUser} to="/">
+                            <Menu.Item>
                                 Log Out
-                            </NavLink>
-                        </Menu.Item>
+                            </Menu.Item>
+                        </NavLink>
 
                     </Menu>
                 </Segment>
@@ -77,35 +76,35 @@ class NavBar extends React.Component {
                 <Segment inverted className="nav">
                     <Menu inverted pointing secondary>
     
-                    <Menu.Item
-                        name='lifeletter'
-                        active={activeItem === 'lifeletter'}
-                        onClick={this.handleItemClick}
-                    >
-                        <NavLink to="/">
-                            LifeLetter
-                        </NavLink>
-                    </Menu.Item>
+                    <NavLink to="/">
+                        <Menu.Item
+                            name='lifeletter'
+                            active={activeItem === 'lifeletter'}
+                            onClick={this.handleItemClick}
+                        >
+                                LifeLetter
+                        </Menu.Item>
+                    </NavLink>
                         
-                    <Menu.Item
-                        name='login'
-                        active={activeItem === 'login'}
-                        onClick={this.handleItemClick}
-                    >
-                        <NavLink to="/login">
-                            Log In
-                        </NavLink>
-                    </Menu.Item>
+                    <NavLink to="/login">
+                        <Menu.Item
+                            name='login'
+                            active={activeItem === 'login'}
+                            onClick={this.handleItemClick}
+                        >
+                                Log In
+                        </Menu.Item>
+                    </NavLink>
 
-                    <Menu.Item
-                        name='signup'
-                        active={activeItem === 'signup'}
-                        onClick={this.handleItemClick}
-                    >
-                        <NavLink to="/signup">
-                            Signup
-                        </NavLink>
-                    </Menu.Item>
+                    <NavLink to="/signup">
+                        <Menu.Item
+                            name='signup'
+                            active={activeItem === 'signup'}
+                            onClick={this.handleItemClick}
+                        >
+                                Signup
+                        </Menu.Item>
+                    </NavLink>
 
                     </Menu>
                 </Segment>

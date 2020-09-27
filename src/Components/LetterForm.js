@@ -151,7 +151,15 @@ class LetterForm extends React.Component {
                         </Form.Field>
                         
                         {/* Below radio buttons copied from the below compented out section */}
-                        <Header as="h5">Having trouble finding the right words? Click an option below for guidance</Header>
+                        <Header as="h5">Having trouble finding the right words? Click an option below for guidance&nbsp;
+                            <Popup
+                                content="Research (LINK) has shown that end of life regrets/final mesages fall into a few categories"
+                                mouseEnterDelay={1}
+                                mouseLeaveDelay={300}
+                                on='hover'
+                                trigger={<Icon name='help circle'/>} />
+                        
+                        </Header>
                     <Form.Group inline>
                         <Form.Radio
                             label="Gratitude"

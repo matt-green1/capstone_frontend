@@ -1,4 +1,5 @@
 import React from 'react'
+import { Form, Button, Header, Icon, Popup } from 'semantic-ui-react'
 
 class ExecutorForm extends React.Component {
     state = {
@@ -38,21 +39,33 @@ class ExecutorForm extends React.Component {
     render(){
         return(
             <>
-                <button onClick={this.props.backToExecutorList}>Back to Executor List</button>
+                <Button onClick={this.props.backToExecutorList}>Back to Executor List</Button>
                 
-                    {this.props.toEdit ? <h4>Edit Executor</h4> : <h4>Add an Executor</h4> }
-                <form onSubmit={this.createOrEditHelper} >
-                    <label>Executor Full Name (Will be in charge of distributing your letters)</label><br/>
-                    <input name="executor_name" onChange={this.executorChangeHelper} value={this.state.executor_name} type="text" placeholder="Carl Tart" />
-                    <br/><br/>
-                    <label>Executor Email (How we get the letters to the executor)</label><br/>
-                    <input name="executor_email" onChange={this.executorChangeHelper} value={this.state.executor_email} type="text" placeholder="carltart@gmail.com" />
-                    <br/><br/>
-                    <label>Relationship To Executor</label><br/>
-                    <textarea name="relationship" onChange={this.executorChangeHelper} value={this.state.relationship} type="text" placeholder="Mom, Friend, etc." />
-                    <br/><br/>
-                    <input type="submit"  value={this.props.toEdit ? "Save Changes" : "Add Executor" } />
-                </form>
+                    {this.props.toEdit ? <Header as="h1">Edit Executor</Header> : <Header as="h1">Add an Executor</Header>}
+                <Form onSubmit={this.createOrEditHelper} >
+                    <Form.Field>
+                        <label>Executor Full Name</label>
+                        <input name="executor_name" onChange={this.executorChangeHelper} value={this.state.executor_name} type="text" placeholder="Carl Tart" />
+                    </Form.Field>
+                    <Form.Field>
+                        <label>Executor Email&nbsp;
+                            <Popup
+                                content="How we send the letters to the executor."
+                                mouseEnterDelay={1}
+                                mouseLeaveDelay={300}
+                                on='hover'
+                                trigger={<Icon name='help circle'/>} />
+
+                        </label>
+                        <input name="executor_email" onChange={this.executorChangeHelper} value={this.state.executor_email} type="text" placeholder="carltart@gmail.com" />
+                    </Form.Field>
+                    <Form.Field>
+                        <label>Relationship To Executor</label>
+                        <input name="relationship" onChange={this.executorChangeHelper} value={this.state.relationship} type="text" placeholder="Mom, Friend, etc." />
+                    </Form.Field>
+                    
+                    <Button type="submit" >{this.props.toEdit ? "Save Changes" : "Add Executor" }</Button>
+                </Form>
             </>
         )
     }
