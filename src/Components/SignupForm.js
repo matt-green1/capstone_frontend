@@ -1,6 +1,6 @@
 import React from 'react'
 import { withRouter } from 'react-router-dom'
-import { Button, Form, Header, Grid } from 'semantic-ui-react'
+import { Button, Form, Header, Grid, Container } from 'semantic-ui-react'
 
 class SignupForm extends React.Component {
 
@@ -33,31 +33,36 @@ class SignupForm extends React.Component {
     render() {
         return(
             <>
-                <Grid centered columns={2}>
-                    <Header as="h3"> Nice to meet you! Signup below:</Header>
-                    <p>Already have an account? <u onClick={this.switchToLoginHelper} >Log in here</u></p>
-
-                    <Form onSubmit={this.signupHelper}>
-                        <Form.Field>
-                            <label>FIRST NAME</label>
-                            <input name="first_name" onChange={this.signupChangeHelper} type="text" value={this.state.first_name} className="signinupinput" />
-                        </Form.Field><br/>
-                        <Form.Field>
-                            <label>LAST NAME</label>
-                            <input name="last_name" onChange={this.signupChangeHelper} type="text" value={this.state.last_name} className="signinupinput"/>
-                        </Form.Field><br/>
-                        <Form.Field>
-                            <label>EMAIL</label>
-                            <input name="user_email" onChange={this.signupChangeHelper} type="text" value={this.state.user_email} className="signinupinput"/>
-                        </Form.Field><br/>
-                        <Form.Field>
-                            <label>CREATE PASSWORD</label>
-                            <input name="password" onChange={this.signupChangeHelper} type="password" value={this.state.password} className="signinupinput"/>
-                        </Form.Field><br/>
-                        <Button type="submit" className="submit">Sign Up</Button>
-                    </Form>
-                
-                </Grid>
+                <Container>
+                    <Grid columns={2} id="logingrid">
+                        <Grid.Column centered id="signupleftcolumn" textAlign="center">
+                            <Header as="h1" id="signupheader"> Nice to meet you!</Header>
+                            <Header as="h2" id="signupsubheader"> Sign up here  ➯</Header>
+                            <p id="signupmessage">Already have an account? <u onClick={this.switchToLoginHelper} >Log in here</u></p>
+                        </Grid.Column>
+                        <Grid.Column centered id="signuprightcolumn">
+                            <Form onSubmit={this.signupHelper}>
+                                <Form.Field>
+                                    <label className="signuplabel">FIRST NAME</label>
+                                    <input name="first_name" onChange={this.signupChangeHelper} type="text" value={this.state.first_name} className="signinupinput" />
+                                </Form.Field><br/>
+                                <Form.Field>
+                                    <label className="signuplabel">LAST NAME</label>
+                                    <input name="last_name" onChange={this.signupChangeHelper} type="text" value={this.state.last_name} className="signinupinput"/>
+                                </Form.Field><br/>
+                                <Form.Field>
+                                    <label className="signuplabel">EMAIL</label>
+                                    <input name="user_email" onChange={this.signupChangeHelper} type="text" value={this.state.user_email} className="signinupinput"/>
+                                </Form.Field><br/>
+                                <Form.Field>
+                                    <label className="signuplabel">CREATE PASSWORD</label>
+                                    <input name="password" onChange={this.signupChangeHelper} type="password" value={this.state.password} className="signinupinput"/>
+                                </Form.Field><br/>
+                                <Button type="submit" id="signupbutton">Sign Up</Button>
+                            </Form>
+                        </Grid.Column>
+                    </Grid>
+                </Container>
             </>
         )
     }

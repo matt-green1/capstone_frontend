@@ -15,16 +15,6 @@
   font-size: 20px;
 }
 
-.ui.button.signup {
-  color: #FCA311;
-  background: #14213D;
-  padding-top: 20px;
-  padding-right: 221px;
-  padding-bottom: 20px;
-  padding-left: 221px;
-  margin-top: 25px;
-}
-
 #logingrid {
   padding-top: 150px;
 }
@@ -35,6 +25,17 @@
   width: 475px;
   font-family: Windsor Pro Regular;
   font-size: 20px;
+  border: 1px solid #14213D;
+}
+
+.ui.form input:not([type=date]).signinupinput:focus {
+  padding-top: 19px;
+  padding-bottom: 19px;
+  width: 475px;
+  font-family: Windsor Pro Regular;
+  font-size: 20px;
+  border: 1px solid #14213D;
+  box-shadow: 0 0 2px #FCA311;
 }
 
 .ui.form .field>label.loginlabel {
@@ -123,14 +124,73 @@
 
 /* left column on login page */
 .ui.grid>[class*="center aligned"].column.column {
-  position:relative; left:-90px
+  position:relative; left:-90px; top: 30px;
 }
 
 /* right column on login page */
 #loginrightcolumn {
   position:relative; left:90px
-
 }
+
+#signupheader {
+  font-family: Windsor Pro Bold;
+  font-size: 69px;
+  color: #14213D;
+  text-shadow: 3px -1px #EDAC43;
+}
+
+#signupsubheader {
+  font-family: Windsor Pro Bold;
+  font-size: 65px;
+  color: #14213D;
+  text-shadow: 3px -1px #EDAC43;
+}
+
+#signupmessage {
+  font-family: danzza-medium-webfont;
+  font-size: 18px;
+  padding-top: 22px;
+}
+
+#signupleftcolumn {
+  position:relative; left:-90px
+}
+
+#signuprightcolumn {
+  position:relative; left:90px; top: -45px;
+}
+
+.ui.form .field>label.signuplabel {
+  color: #14213D;
+  font-family: danzza-medium-webfont;
+  padding-top: 10px;
+}
+
+#signupbutton {
+  color: #FCA311;
+  background: #14213D;
+  padding-top: 25px;
+  padding-right: 205px;
+  padding-bottom: 25px;
+  padding-left: 205px;
+  margin-top: 24px;
+  font-family: Windsor Pro Regular;
+  font-size: 20px;
+}
+
+
+/* left column on login page
+.ui.grid>[class*="center aligned"].column.column {
+  position:relative; left:-90px; top: 30px;
+}
+
+/* right column on login page */
+/* #loginrightcolumn {
+  position:relative; left:90px
+} */ 
+
+
+
 
 @font-face {
   font-family: 'Windsor Pro Bold';
