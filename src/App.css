@@ -220,19 +220,109 @@
   font-size: 20px;
 }
 
-
-/* left column on login page
-.ui.grid>[class*="center aligned"].column.column {
-  position:relative; left:-90px; top: 30px;
+/* homepage styling below */
+#homemainheader{
+  font-family: Windsor Pro Bold;
+  font-size: 69px;
+  color: #14213D;
+  text-shadow: 3px -1px #EDAC43;
+  text-align: center;
+  padding-top: 60px;
 }
 
-/* right column on login page */
-/* #loginrightcolumn {
-  position:relative; left:90px
-} */ 
+#homesubheader {
+  font-family: Windsor Pro Regular;
+  text-align: center;
+  font-size: 30px;
+  position:relative; top: 35px;
+}
 
+#homeinstructionheader{
+  color: #14213D;
+  font-family: danzza-medium-webfont;
+  font-size: 40px;
+  padding-top: 55px;
+  position:relative; left:250px; top: 15px;
+}
 
+/* numbered instrucitons before you added grid */
+/* .numberedinstructions {
+  color: #14213D;
+  text-align: left;
+  font-family: danzza-medium-webfont;
+  font-size: 27px;
+  padding-top: 20px;
+  align-content: center;
+  position:relative; left:90px; top: 15px;
+  width: 1500px;
+} */
 
+#homecolumn1 {
+  width: 1000px;
+  color: #14213D;
+  text-align: left;
+  font-family: danzza-medium-webfont;
+  font-size: 25px;
+}
+
+#homecolumn2 {
+  width: 1000px;
+  color: #14213D;
+  text-align: left;
+  font-family: danzza-medium-webfont;
+  font-size: 25px;
+}
+
+#homecolumn3 {
+  width: 1000px;
+  color: #14213D;
+  text-align: left;
+  font-family: danzza-medium-webfont;
+  font-size: 25px;
+}
+
+#homebutton1 {
+  color: #FCA311;
+  background: #14213D;
+  padding-top: 20px;
+  padding-right: 50px;
+  padding-bottom: 20px;
+  padding-left: 50px;
+  font-family: Windsor Pro Regular;
+  font-size: 20px;
+  width: 240px;
+}
+
+#homebutton2 {
+  color: #FCA311;
+  background: #14213D;
+  padding-top: 20px;
+  padding-right: 50px;
+  padding-bottom: 20px;
+  padding-left: 50px;
+  font-family: Windsor Pro Regular;
+  font-size: 20px;
+  width: 240px;
+}
+
+#homebutton3 {
+  color: #FCA311;
+  background: #14213D;
+  padding-top: 20px;
+  padding-right: 50px;
+  padding-bottom: 20px;
+  padding-left: 50px;
+  font-family: Windsor Pro Regular;
+  font-size: 20px;
+  width: 240px;
+}
+
+#homegrid {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  position:relative; top: 40px;
+}
 
 @font-face {
   font-family: 'Windsor Pro Bold';

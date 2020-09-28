@@ -42,17 +42,6 @@ class NavBar extends React.Component {
                             </Menu.Item>
                         </NavLink>
 
-                        <NavLink to="letters">
-                            <Menu.Item
-                                name='myletters'
-                                active={activeItem === 'myletters'}
-                                onClick={this.handleItemClick}
-                                className="navafterlink"
-                            >
-                                My Letters
-                            </Menu.Item>
-                        </NavLink>
-
                         <NavLink to="/executors">
                             <Menu.Item
                                 name='myexecutors'
@@ -64,6 +53,17 @@ class NavBar extends React.Component {
                             </Menu.Item>
                         </NavLink>
                             
+                        <NavLink to="letters">
+                            <Menu.Item
+                                name='myletters'
+                                active={activeItem === 'myletters'}
+                                onClick={this.handleItemClick}
+                                className="navafterlink"
+                            >
+                                My Letters
+                            </Menu.Item>
+                        </NavLink>
+
                         <NavLink to="/profile">
                             <Menu.Item
                                 name='profile'

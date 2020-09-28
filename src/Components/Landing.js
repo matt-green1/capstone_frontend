@@ -3,33 +3,7 @@ import { withRouter } from 'react-router-dom'
 
 import { Button, Container, Header, Segment, Grid, Image, List } from 'semantic-ui-react'
 
-
-// const HomepageHeading = () => (
-//     <Container text>
-//       <Header
-//         id="aboutlogo"
-//         as='h1'
-//         content='LifeLetter'
-//       />
-//       <Header
-//         id="aboutslogan"
-//         as='h2'
-//         content='The personal side of your last wishes'
-//       />
-//       <Button className="aboutsignupin" basic color='yellow' content='Yellow' onClick={this.loginNavHelper} >
-      
-//         Log In
-//       </Button>
-//       <Button className="aboutsignupin" basic color='yellow' content='Yellow' onClick={this.signupNavHelper}>
-//         Sign Up
-//       </Button>
-//     </Container>
-//   )
- 
-
 class Landing extends React.Component {
-
-    
 
     loginNavHelper = () => {
         this.props.history.push("/login")
@@ -79,7 +53,7 @@ class Landing extends React.Component {
 
               <Segment id="aboutexplainer">
             
-                <Header as="h1" id="explainerheader">Easily create personal messages to be delivered in the event that you pass away.</Header>
+                <Header as="h1" id="explainerheader">Create personal messages to your loved ones that will be delivered in the event that you pass away.</Header>
                 <Header as="h2" id="explainersubheader">We take care of the boring stuff, so you can focus on what really matters.</Header>
                 <Grid divided='vertically'>
                   <Grid.Row columns={3}>
@@ -87,9 +61,8 @@ class Landing extends React.Component {
                       <Image src="./images/write_72.png" centered={true} />
                       <Header as="h2">Write</Header>
                       <List>
-                        <List.Item>Write all important information in one place, including instructions for distribution.</List.Item>
-                        <List.Item>Save and edit your letters so you can take your time and make sure they're just right.</List.Item>
-                        <List.Item>We take care of the formatting so you can focus on the text.</List.Item>
+                        <List.Item>Save your progress so you can take your time and make sure they're just right.</List.Item>
+                        <List.Item>We take care of the formatting so you can focus on the messages themselves.</List.Item>
                         <List.Item>Our thoughtful writing prompts will help if you're feeling stuck.</List.Item>
                       </List>
                     </Grid.Column>
@@ -98,7 +71,7 @@ class Landing extends React.Component {
                       <Header as="h2">Store</Header>
                       <List>
                         <List.Item>Keep all of your letters organized in one place until they're ready to send.</List.Item>
-                        <List.Item>Choose Executors who will be in charge of distributing your letters.</List.Item>
+                        <List.Item>Choose "Executors" who will be in charge of distributing your letters.</List.Item>
                       </List>
                     </Grid.Column>
                     <Grid.Column>
