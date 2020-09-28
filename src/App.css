@@ -1,7 +1,49 @@
 
-.ui.inverted.segment.nav {
+.ui.inverted.segment.navbefore {
   background-color: #14213D;
+  border-radius: 0em;
+  height: 100px
 }
+
+.ui.secondary.inverted.menu .active.item.navbeforelink {
+  color:#FCA311  !important;
+}
+
+.ui.secondary.inverted.menu a.item.navbeforelink {
+  color:#FCA311 !important;
+  font-family: danzza-medium-webfont;
+  font-size: 17px;
+}
+
+/* the actual menu outline for the underline */
+.ui.secondary.inverted.pointing.menu {
+  position:relative; top: 7px; left: 20px;
+}
+
+.ui.inverted.segment.navafter {
+  background-color: #14213D;
+  border-radius: 0em;
+  height: 100px
+}
+
+.ui.secondary.inverted.menu .active.item.navafterlink {
+  color:#FCA311  !important;
+}
+
+.ui.secondary.inverted.menu a.item.navafterlink {
+  color:#FCA311 !important;
+  font-family: danzza-medium-webfont;
+  font-size: 17px;
+}
+
+#logout {
+  color:#FCA311 !important;
+  font-family: danzza-medium-webfont;
+  font-size: 17px;
+  position:relative; left: 1050px;
+}
+
+/* ---- Nav above here ---- */
 
 .ui.button.login {
   color: #FCA311;
