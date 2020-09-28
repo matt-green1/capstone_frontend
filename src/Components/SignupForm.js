@@ -52,7 +52,7 @@ class SignupForm extends React.Component {
                         <label>Create Password</label>
                         <input name="password" onChange={this.signupChangeHelper} type="password" value={this.state.password} className="signinupinput"/>
                     </Form.Field><br/>
-                    <Button type="submit" className="loginsubmit">Sign Up</Button>
+                    <Button type="submit" className="submit">Sign Up</Button>
                 </Form>
                 <br/>
                 <p>Already have an account? <u onClick={this.switchToLoginHelper} >Log in here</u></p>

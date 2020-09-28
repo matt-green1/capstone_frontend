@@ -3,7 +3,19 @@
   background-color: #14213D;
 }
 
-.ui.button.loginsubmit {
+.ui.button.login {
+  color: #FCA311;
+  background: #14213D;
+  padding-top: 25px;
+  padding-right: 211px;
+  padding-bottom: 25px;
+  padding-left: 211px;
+  margin-top: 24px;
+  font-family: Windsor Pro Regular;
+  font-size: 20px;
+}
+
+.ui.button.signup {
   color: #FCA311;
   background: #14213D;
   padding-top: 20px;
@@ -13,11 +25,18 @@
   margin-top: 25px;
 }
 
-
 .ui.form input:not([type=date]).signinupinput {
-  padding-top: 15px;
-  padding-bottom: 15px;
+  padding-top: 19px;
+  padding-bottom: 19px;
   width: 475px;
+  font-family: Windsor Pro Regular;
+  font-size: 20px;
+}
+
+.ui.form .field>label.loginlabel {
+  color: #14213D;
+  font-family: danzza-medium-webfont;
+  padding-top: 10px;
 }
 
 #aboutlogo {
@@ -76,6 +95,31 @@
 #explainersubheader {
   font-family: danzza-medium-webfont;
   padding-bottom: 35px;
+}
+
+/* .ui.centered.grid {
+  background-color: red;
+  position: center;
+  align-content: center;
+} */
+
+#loginheader {
+  font-family: Windsor Pro Bold;
+  font-size: 60px;
+  color: #14213D;
+  text-shadow: 3px -1px #EDAC43;
+}
+
+#loginsubheader {
+  font-family: Windsor Pro Bold;
+  font-size: 60px;
+  color: #14213D;
+  text-shadow: 3px -1px #EDAC43;
+}
+
+#loginmessage {
+  font-family: danzza-medium-webfont;
+  font-size: 17px;
 }
 
 @font-face {

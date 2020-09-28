@@ -11,9 +11,9 @@ import './fonts/WindsorProRg.woff'
 import './fonts/WindsorProUltHv.woff'
 import './fonts/WindsorProXBoldCn.woff'
 import './fonts/danzza-medium-webfont.ttf'
-import './images/send.png'
-import './images/store.png'
-import './images/write copy.png'
+//import '../public/images/send.png'
+//import '../public/images/store.png'
+//import '../public/images/write copy.png'
 
 ReactDOM.render(
   <BrowserRouter>
