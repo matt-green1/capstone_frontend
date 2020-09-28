@@ -5,6 +5,15 @@ import App from './App';
 import * as serviceWorker from './serviceWorker';
 import { BrowserRouter } from 'react-router-dom' 
 import 'semantic-ui-css/semantic.min.css'
+import './fonts/WindsorProBold.woff'
+import './fonts/WindsorProElongated.woff'
+import './fonts/WindsorProRg.woff'
+import './fonts/WindsorProUltHv.woff'
+import './fonts/WindsorProXBoldCn.woff'
+import './fonts/danzza-medium-webfont.ttf'
+import './images/send.png'
+import './images/store.png'
+import './images/write copy.png'
 
 ReactDOM.render(
   <BrowserRouter>

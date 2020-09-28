@@ -5,6 +5,7 @@ import LoginForm from './Components/LoginForm'
 import SignupForm from './Components/SignupForm'
 import MainContainer from './Containers/MainContainer'
 import { Route, Switch, withRouter } from 'react-router-dom'
+import Landing from './Components/Landing'
 import About from './Components/About'
 
 class App extends React.Component {
@@ -382,7 +383,8 @@ class App extends React.Component {
             </>
             :
             <>
-              <Route exact path="/" render={() => <About /> } />
+              <Route exact path="/" render={() => <Landing /> } />
+              <Route exact path="/about" render={() => <About /> } />
               <Route exact path="/login" render={() => <LoginForm loginHandler={this.loginHandler} />} />
               <Route exact path="/signup" render={() => <SignupForm signupHandler={this.signupHandler } /> }/>
             </>

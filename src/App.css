@@ -20,12 +20,105 @@
   width: 475px;
 }
 
+#aboutlogo {
+  font-size: 6em;
+  font-weight: normal;
+  margin-bottom: 0px;
+  margin-top: 1em;
+  color:#EDAC43;
+  font-family: Windsor Pro Bold;
+}
 
+#aboutslogan {
+  font-size: 2.4em;
+  font-weight: normal;
+  margin-bottom: 20px;
+  margin-top: 20px;
+  color:#EDAC43;
+  font-family: Windsor Pro Regular;
+}
 
+#aboutbg {
+  text-align:'center';
+  background-color: #14213D;
+  margin-top: -19px;
+  padding-bottom: 160px;
+  border-radius: 0em;
+}
 
+.ui.yellow.basic.button.aboutsignupin {
+    background: transparent none!important;
+    color:#EDAC43 !important;
+    font-weight: 300;
+    font-size: 20px;
+    font-family: 'danzza-medium-webfont';
+    border-radius: .28571429rem;
+    text-transform: none;
+    text-shadow: none!important;
+    padding: 23px 48px 23px 48px;
+    margin: 35px 30px 0 30px;
+    box-shadow: 0 0 0 1px #EDAC43 inset;
+}
 
+#aboutexplainer {
+  border-radius: 0em;
+  border: 0em;
+  margin-top: -14px;
+  text-align: center;
+  font-family: danzza-medium-webfont;;
+}
 
+#explainerheader {
+  font-family: danzza-medium-webfont;
+  padding-top: 40px;
+}
 
+#explainersubheader {
+  font-family: danzza-medium-webfont;
+  padding-bottom: 35px;
+}
+
+@font-face {
+  font-family: 'Windsor Pro Bold';
+  font-style: normal;
+  font-weight: normal;
+  src: local('Windsor Pro Bold'), url('./fonts/WindsorProBold.woff') format('woff');
+  }
+
+@font-face {
+  font-family: 'Windsor Pro Regular';
+  font-style: normal;
+  font-weight: normal;
+  src: local('Windsor Pro Regular'), url('./fonts/WindsorProRg.woff') format('woff');
+  }
+  
+@font-face {
+font-family: 'Windsor Pro Elongated';
+font-style: normal;
+font-weight: normal;
+src: local('Windsor Pro Elongated'), url('./fonts/WindsorProElongated.woff') format('woff');
+}
+
+@font-face {
+font-family: 'Windsor Pro Extra Bold Condensed';
+font-style: normal;
+font-weight: normal;
+src: local('Windsor Pro Extra Bold Condensed'), url('./fonts/WindsorProXBoldCn.woff') format('woff');
+}
+
+@font-face {
+font-family: 'Windsor Pro Ultra Heavy';
+font-style: normal;
+font-weight: normal;
+src: local('Windsor Pro Ultra Heavy'), url('./fonts/WindsorProUltHv.woff') format('woff');
+}
+
+@font-face {
+  font-family: 'danzza-medium-webfont';
+  font-style: normal;
+  font-weight: normal;
+  src: local('danzza-medium-webfont'), url('./fonts/danzza-medium-webfont.ttf') format('woff');
+  }
 
 
 

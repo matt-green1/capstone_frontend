@@ -85,7 +85,17 @@ class NavBar extends React.Component {
                                 LifeLetter
                         </Menu.Item>
                     </NavLink>
-                        
+
+                    <NavLink to="/about">
+                        <Menu.Item
+                            name='about'
+                            active={activeItem === 'about'}
+                            onClick={this.handleItemClick}
+                        >
+                                About
+                        </Menu.Item>
+                    </NavLink>
+
                     <NavLink to="/login">
                         <Menu.Item
                             name='login'
