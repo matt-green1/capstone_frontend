@@ -359,8 +359,8 @@
 }
 
 #execspacerdiv {
-  padding-top: 20px;
-  padding-bottom: 20px;
+  padding-top: 28px;
+  padding-bottom: 28px;
 }
 
 #exectable {
@@ -368,10 +368,10 @@
   margin: auto;
   border-color:#14213D;
   /* border: 2px #14213D; */
-  border-top-width: 3px;
-  border-bottom-width: 3px;
-  border-left-width: 3px;
-  border-right-width: 3px;
+  border-top-width: 1px;
+  border-bottom-width: 1px;
+  border-left-width: 1px;
+  border-right-width: 1px;
 }
 
 /* tableheader */
@@ -389,6 +389,31 @@
 
 #exectabletopheader{
   border-radius: 0em;
+}
+
+.ui.table tr.execdatarow {
+  height: 80px;
+  text-align: center;
+}
+
+button.ui.button.execformbutton {
+  color: #FCA311;
+  background: #14213D;
+  padding-top: 15px;
+  padding-right: 30px;
+  padding-bottom: 15px;
+  padding-left: 30px;
+  font-family: Windsor Pro Regular;
+  font-size: 20px;
+}
+
+td.exectabledata {
+  font-family: Windsor Pro Regular;
+  font-size: 22px;
+}
+
+p.delvalidation {
+  font-family: danzza-medium-webfont;
 }
 
 @font-face {

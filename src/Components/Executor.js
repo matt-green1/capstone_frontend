@@ -23,22 +23,22 @@ class Executor extends React.Component {
     render(){
         return(
             <>
-                <Table.Row>
-                    <Table.Cell>{this.props.executorObject.executor_name}</Table.Cell>
-                    <Table.Cell>{this.props.executorObject.executor_email}</Table.Cell>
-                    <Table.Cell>{this.props.executorObject.relationship}</Table.Cell>
+                <Table.Row className="execdatarow">
+                    <Table.Cell className="exectabledata">{this.props.executorObject.executor_name}</Table.Cell>
+                    <Table.Cell className="exectabledata">{this.props.executorObject.executor_email}</Table.Cell>
+                    <Table.Cell className="exectabledata">{this.props.executorObject.relationship}</Table.Cell>
                     <Table.Cell>
                         {this.state.deleteActivated === false 
                             ? 
                             <>
-                                <Button onClick={this.editFormFillHelper}>Edit</Button>
-                                <Button onClick={this.changeDeleteStatus} >Delete</Button>
+                                <Button onClick={this.editFormFillHelper} className="execformbutton">Edit</Button>
+                                &nbsp;&nbsp;&nbsp;<Button onClick={this.changeDeleteStatus} className="execformbutton">Delete</Button>
                             </>
                             :
                             <>
-                                <p>ARE YOU SURE?</p>
-                                <Button onClick={this.changeDeleteStatus} >Go Back</Button>&nbsp;&nbsp;
-                                <Button onClick={this.deleteHelper} >Yes, Delete</Button>
+                                <p className="delvalidation">ARE YOU SURE?</p>
+                                &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;<Button onClick={this.changeDeleteStatus} className="execformbutton">Cancel</Button>
+                                &nbsp;&nbsp;&nbsp;<Button onClick={this.deleteHelper} className="execformbutton">Yes, Delete</Button>
                             </>                        
                             }
                     </Table.Cell>
