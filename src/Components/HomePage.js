@@ -9,7 +9,7 @@ class HomePage extends React.Component {
             this.props.history.push("/executors")
         } else if (e.target.innerText === "Write Letters") {
             this.props.history.push("/letters")
-        } else if (e.target.innerText === "Send Letters") {
+        } else if (e.target.innerText === "Finalize Account") {
             this.props.history.push("/profile")
         }
     }

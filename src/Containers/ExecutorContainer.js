@@ -1,7 +1,7 @@
 import React from 'react'
 import Executor from '../Components/Executor'
 import ExecutorForm from '../Components/ExecutorForm'
-import { Table, Button, Header } from 'semantic-ui-react'
+import { Table, Button, Header, Icon, Popup } from 'semantic-ui-react'
 
 class ExecutorContainer extends React.Component {
 
@@ -37,9 +37,11 @@ class ExecutorContainer extends React.Component {
 
                 ?
                 <>
-                    <Header as="h1" >{this.props.currentUser.first_name}'s Executors</Header>
-                    
-                    <Button onClick={this.createFormStateHelper}>Create New Executor</Button>
+                    <Header as="h1" id="execheader">{this.props.currentUser.first_name}'s Executors</Header>
+                    <Header as="h3" id="execinstructions">An executor should be someone you trust completely and who is reliable enough to handle the responsibility of carrying out your last wishes.</Header>
+
+                    <Button id="createexecbutton" onClick={this.createFormStateHelper}>Create New Executor</Button>
+                    <div id="execspacerdiv"></div>
                 
                     {this.props.currentUser.executors.length < 1
                     ?
@@ -50,13 +52,13 @@ class ExecutorContainer extends React.Component {
                     :
 
 
-                    <Table fixed>
-                        <Table.Header>
-                            <Table.Row>
-                                <Table.HeaderCell>Name</Table.HeaderCell>
-                                <Table.HeaderCell>Email</Table.HeaderCell>
-                                <Table.HeaderCell>Relationship</Table.HeaderCell>
-                                <Table.HeaderCell> Edit / Delete</Table.HeaderCell>
+                    <Table id="exectable">
+                        <Table.Header id="exectabletopheader">
+                            <Table.Row id="exectoprow">
+                                <Table.HeaderCell className="exectableheader">Name</Table.HeaderCell>
+                                <Table.HeaderCell className="exectableheader">Email</Table.HeaderCell>
+                                <Table.HeaderCell className="exectableheader">Relationship</Table.HeaderCell>
+                                <Table.HeaderCell className="exectableheader">Modify</Table.HeaderCell>
                             </Table.Row>
                         </Table.Header>
 
