@@ -1,5 +1,5 @@
 import React from 'react'
-import { Form, Button, Header, Icon, Popup } from 'semantic-ui-react'
+import { Form, Button, Header, Icon, Popup, TextArea } from 'semantic-ui-react'
 
 class LetterForm extends React.Component {
     state = {
@@ -147,12 +147,14 @@ class LetterForm extends React.Component {
                     </Form.Group>
 
                         <Form.Field id="lettertextinputcenter">
-                            <label className="letterformlabel">LETTER TEXT</label>
+                            <label id="lettertextinputlabel">LETTER TEXT</label>
                             <textarea name="letter_text" onChange={this.letterChangeHelper} value={this.state.letterObj.letter_text} type="text" id="lettertextinput" />
                         </Form.Field>
-                        
-                        {/* Below radio buttons copied from the below compented out section */}
+
+                        <div id="promptcenterer">{this.promptRenderer()}</div>
+
                         <Header as="h5" id="radioheader">Having trouble finding the right words? Click an option below for guidance.</Header>
+                     
                     <Form.Group inline id="radiobuttoncenter">
                         <Form.Radio
                             label="Gratitude"
@@ -190,11 +192,11 @@ class LetterForm extends React.Component {
 
                     </Form.Group>
 
-                        <div id="promptcenterer">{this.promptRenderer()}</div>
-                        
+                        {/* <div id="promptcenterer">{this.promptRenderer()}</div> */}
+                    <Form.Group className="letterformdoublegroup"> 
                         <Form.Field>
                             <label className="letterformlabel">EXECUTOR INSTRUCTIONS</label>
-                            <textarea name="letter_instructions" onChange={this.letterChangeHelper} value={this.state.letterObj.letter_instructions} type="text" placeholder="Here is Brittany's phone number in case she doesn't respond to your email: 917-878-5643" />
+                            <textarea name="letter_instructions" onChange={this.letterChangeHelper} value={this.state.letterObj.letter_instructions} type="text" className="letterformdoubleinput" />
                         </Form.Field>
                         <Form.Field>
                             <label className="letterformlabel">PERSONAL SIGN OFF&nbsp;
@@ -204,10 +206,12 @@ class LetterForm extends React.Component {
                                 mouseLeaveDelay={300}
                                 on='hover'
                                 trigger={<Icon name='help circle'/>} /></label>
-                            <textarea name="signoff" onChange={this.letterChangeHelper} value={this.state.letterObj.signoff} type="text" placeholder="Love, Matt" />
+                            <textarea name="signoff" onChange={this.letterChangeHelper} value={this.state.letterObj.signoff} type="text" className="letterformdoubleinput" />
                         </Form.Field>
+                    </Form.Group>
                         <Button input type="submit" id="addeditletterbutton" >{this.props.toEdit ? "Save Changes" : "Create Letter" }</Button>
                 </Form>
+                    <div id="letterformbottondivspacer"></div>
                     
             </>
         )

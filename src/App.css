@@ -668,18 +668,28 @@ td.lettertabledata {
 #addeditletterbutton {
   color: #FCA311;
   background: #14213D;
-  padding-top: 25px;
+  padding-top: 35px;
   padding-right: 182px;
-  padding-bottom: 25px;
+  padding-bottom: 35px;
   padding-left: 182px;
   margin-top: 22px;
+  margin-bottom: 100px;
   font-family: Windsor Pro Regular;
   font-size: 20px;
+  margin: 0 auto;
+  display: flex;
+  justify-content: center;
+  
 }
 
 #letterformdivspacer{
   padding-top: 20px;
   padding-bottom: 20px; 
+}
+
+#letterformbottondivspacer {
+  padding-top: 20px;
+  padding-bottom: 20px;
 }
 
 /* this find the input */
@@ -745,22 +755,72 @@ p.radioprompt {
 
 #promptcenterer {
   text-align: center;
-  padding-bottom: 15px;
+  padding-bottom: 5px;
+  padding-top: 5px;
 }
 
 #lettertextinput {
-  width: 1450px;
+  width: 1380px;
   height: 200px;
   font-family: Windsor Pro Regular;
   font-size: 20px;
   border: 1px solid #14213D;
   margin-bottom: 10px;
+  margin: 0 auto;
+  display: flex;
+  justify-content: center;
 }
 
-#lettertextinputcenter {
-  margin: 0 auto;
-  align-content: center;
+#lettertextinputlabel {
+  color: #14213D;
+  font-family: danzza-medium-webfont;
+  padding-top: 10px;
+  position: relative; left: 221px;
 }
+
+/* div#lettertextinputcenter {
+  margin: 0 auto;
+  display: flex;
+  justify-content: center;
+} */
+
+.ui.form .fields .letterformdoublegroup {
+  padding-top: 1000px;
+  /* margin: 0 auto;
+  display: flex;
+  justify-content: center; */
+}
+
+div.fields.letterformdoublegroup{
+  margin: 0 auto;
+  display: flex;
+  justify-content: center;
+}
+
+/* this find the input */
+.ui.form textarea:not([type=date]).letterformdoubleinput {
+  padding-top: 19px;
+  padding-bottom: 19px;
+  width: 685px;
+  height: 90px;
+  font-family: Windsor Pro Regular;
+  font-size: 20px;
+  border: 1px solid #14213D;
+  margin-bottom: 29px;
+}
+
+/* the thing that makes it glow */
+.ui.form textarea:not([type=date]).letterformdoubleinput:focus {
+  padding-top: 19px;
+  padding-bottom: 19px;
+  width: 685px;
+  height: 90px;
+  font-family: Windsor Pro Regular;
+  font-size: 20px;
+  border: 1px solid #14213D;
+  box-shadow: 0 0 2px #FCA311;
+}
+
 
 /* font stuff below */
 
