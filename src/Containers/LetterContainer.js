@@ -38,10 +38,13 @@ class LetterContainer extends React.Component {
 
                 ?
                 <>
-                    <Header as="h1">{this.props.currentUser.first_name}'s Letters</Header>
-                    
-                    <Button onClick={this.createFormStateHelper} >Create New Letter</Button><br/><br/>
-                    
+                    <Header as="h1" id="lettermainheader">{this.props.currentUser.first_name}'s Letters</Header>
+                    <Header as="h3" id="letterinstructions">These messages an be indimidating to write, so don't worry about them being perfect immediately. Get a draft down and edit it until it's just right.</Header>
+
+
+                    <Button onClick={this.createFormStateHelper} id="createletterbutton" >Create New Letter</Button><br/><br/>
+                    <div id="lettertabledivspacer"></div>
+
                     {this.props.currentUser.letters.length < 1
                     ?
                         <>
@@ -49,16 +52,16 @@ class LetterContainer extends React.Component {
                             <img src="https://media.giphy.com/media/dy4swYs1dp430jChRa/giphy-downsized.gif" />
                         </>
                     :
-                    
-                    <Table fixed>
-                        <Table.Header>
-                            <Table.Row>
-                                <Table.HeaderCell>Title</Table.HeaderCell>
-                                <Table.HeaderCell>Recipient</Table.HeaderCell>
-                                <Table.HeaderCell>Recipient Email</Table.HeaderCell>
-                                <Table.HeaderCell>Letter Text</Table.HeaderCell>
-                                <Table.HeaderCell>Instructions</Table.HeaderCell>
-                                <Table.HeaderCell> Edit / Delete</Table.HeaderCell>
+                    <>
+                    <Table celled fixed singleline id="lettertable" >
+                        <Table.Header id="lettertabletopheader">
+                            <Table.Row id="lettertoprow">
+                                <Table.HeaderCell className="lettertableheader">Title</Table.HeaderCell>
+                                <Table.HeaderCell className="lettertableheader">Recipient</Table.HeaderCell>
+                                <Table.HeaderCell className="lettertableheader">Recipient Email</Table.HeaderCell>
+                                <Table.HeaderCell className="lettertableheader">Letter Text</Table.HeaderCell>
+                                <Table.HeaderCell className="lettertableheader">Instructions</Table.HeaderCell>
+                                <Table.HeaderCell className="lettertableheader">Modify</Table.HeaderCell>
                             </Table.Row>
                         </Table.Header>
 
@@ -66,7 +69,10 @@ class LetterContainer extends React.Component {
                         <Table.Body>
                             {this.createLetters()}
                         </Table.Body>
+                        
                     </Table>
+                    <div id="lettertabledivspacerbottom"></div>
+                    </>
                     }
                 </>
                     

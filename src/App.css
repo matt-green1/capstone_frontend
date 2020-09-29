@@ -270,7 +270,7 @@
   font-family: danzza-medium-webfont;
   font-size: 40px;
   padding-top: 55px;
-  position:relative; left:250px; top: 15px;
+  position:relative; left:350px; top: 15px;
 }
 
 /* numbered instrucitons before you added grid */
@@ -402,6 +402,7 @@
   border-right-width: 1px;
 }
 
+
 /* tableheader */
 .ui.table thead th.exectableheader {
   background: #14213D;
@@ -415,9 +416,13 @@
   height: 80px;
 }
 
+/* this is just trying to get rid of border radius */
 #exectabletopheader{
   border-radius: 0em;
 }
+
+/* ====================================================================================================================== */
+
 
 .ui.table tr.execdatarow {
   height: 80px;
@@ -443,6 +448,8 @@ td.exectabledata {
 p.delvalidation {
   font-family: danzza-medium-webfont;
 }
+
+/* ========================================================================================================= */
 
 /* exec form below here */
 h1.ui.header.execformheader {
@@ -530,6 +537,110 @@ h1.ui.header.execformheader {
   display: flex;
   justify-content: center;
 }
+
+/* letter page stuff here */
+
+#lettermainheader {
+  font-family: Windsor Pro Bold;
+  font-size: 69px;
+  color: #14213D;
+  text-shadow: 3px -1px #EDAC43;
+  text-align: center;
+  padding-top: 50px;
+  padding-bottom: 10px;
+
+}
+
+#letterinstructions {
+  color: #14213D;
+  font-family: danzza-medium-webfont;
+  font-size: 30px;
+  width: 1100px;
+  padding-bottom: 50px;
+  padding-top: 20px;
+  text-align: center;
+  margin: auto;
+}
+
+#createletterbutton {
+  color: #FCA311;
+  background: #14213D;
+  padding-top: 20px;
+  padding-right: 50px;
+  padding-bottom: 20px;
+  padding-left: 50px;
+  font-family: Windsor Pro Regular;
+  font-size: 20px;
+  display: flex;  
+  margin: auto;
+}
+
+#lettertabledivspacer {
+  padding-bottom: 19px
+}
+
+#lettertabledivspacerbottom {
+  padding-bottom: 100px
+
+}
+
+#lettertable {
+  width: 1500px;
+  margin: auto;
+  border-color:#14213D;
+  border-top-width: 1px;
+  border-bottom-width: 1px;
+  border-left-width: 1px;
+  border-right-width: 1px;
+}
+
+/* tableheader */
+.ui.table thead th.lettertableheader {
+  background: #14213D;
+  font-family: danzza-medium-webfont;
+  color: #FCA311;
+  font-size: 18px;
+  text-align: center;
+}
+
+#lettertoprow {
+  height: 80px;
+}
+
+/* this is just trying to get rid of border radius */
+#lettertabletopheader{
+  border-radius: 0em;
+}
+
+.ui.table tr.letterdatarow {
+  height: 80px;
+  text-align: center;
+}
+
+button.ui.button.letterformbutton {
+  color: #FCA311;
+  background: #14213D;
+  padding-top: 14px;
+  padding-right: 18px;
+  padding-bottom: 14px;
+  padding-left: 18px;
+  font-family: Windsor Pro Regular;
+  font-size: 20px;
+}
+
+td.lettertabledata {
+  font-family: Windsor Pro Regular;
+  font-size: 19px;
+}
+
+/* 
+using the class from exec
+p.delvalidation {
+  font-family: danzza-medium-webfont;
+} */
+
+
+/* font stuff below */
 
 @font-face {
   font-family: 'Windsor Pro Bold';

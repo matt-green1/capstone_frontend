@@ -25,24 +25,24 @@ class Letter extends React.Component {
     render() {
         return(
             <>
-                    <Table.Row>
-                        <Table.Cell>{this.props.letterObject.letter_title}</Table.Cell>
-                        <Table.Cell>{this.props.letterObject.recipient_name}</Table.Cell>
-                        <Table.Cell>{this.props.letterObject.recipient_email}</Table.Cell>
-                        <Table.Cell>{this.props.letterObject.letter_text}</Table.Cell>
-                        <Table.Cell>{this.props.letterObject.letter_instructions}</Table.Cell>
+                    <Table.Row className="letterdatarow">
+                        <Table.Cell className="lettertabledata">{this.props.letterObject.letter_title}</Table.Cell>
+                        <Table.Cell className="lettertabledata">{this.props.letterObject.recipient_name}</Table.Cell>
+                        <Table.Cell className="lettertabledata">{this.props.letterObject.recipient_email}</Table.Cell>
+                        <Table.Cell className="lettertabledata">{this.props.letterObject.letter_text}</Table.Cell>
+                        <Table.Cell className="lettertabledata">{this.props.letterObject.letter_instructions}</Table.Cell>
                         <Table.Cell>
                             {this.state.deleteActivated === false 
                             ? 
                             <>
-                                <Button onClick={this.editFormFillHelper}>Edit</Button>
-                                <Button onClick={this.changeDeleteStatus} >Delete</Button>
+                                <Button onClick={this.editFormFillHelper} className="letterformbutton" >Edit</Button>
+                                &nbsp;&nbsp;<Button onClick={this.changeDeleteStatus} className="letterformbutton" >Delete</Button>
                             </>
                             :
                             <>
-                                <p>ARE YOU SURE?</p>
-                                <Button onClick={this.changeDeleteStatus} >Go Back</Button>
-                                <Button onClick={this.deleteHelper} >Yes, Delete</Button>
+                                <p className="delvalidation">ARE YOU SURE?</p>
+                                <Button onClick={this.changeDeleteStatus} className="letterformbutton" >Cancel</Button>
+                                <Button onClick={this.deleteHelper} className="letterformbutton" >Yes, Delete</Button>
                             </>                        
                             }
                         </Table.Cell>
