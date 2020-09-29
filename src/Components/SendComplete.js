@@ -1,6 +1,6 @@
 import React from 'react'
 import { withRouter } from 'react-router-dom'
-import { Button } from 'semantic-ui-react'
+import { Button, Header,  } from 'semantic-ui-react'
 
 class SendComplete extends React.Component{
 
@@ -10,13 +10,13 @@ class SendComplete extends React.Component{
 
     render(){
         return(
-            <>
-                <h1>Congrats!</h1>      
-                <h2>Letters sent successfully (below image will be thumbs animation)</h2>
-                <img src="https://media.giphy.com/media/ckB9wvcONerp73fvkQ/source.gif"/>
-                <p>Your executors should get an email with instructions and informatiom about your letters and the other executoprs. (you will be CC's on this so you can be sure they went through)</p>
-            
-                <Button onClick={this.backToProfileHelper}>Back to Profile</Button>
+            <>    
+                <Header as="h1" id="successheader"> Letters sent successfully!</Header>
+                <img src="https://media.giphy.com/media/ckB9wvcONerp73fvkQ/source.gif" id="successimage"/>
+                <Header as="h3" className="successinstructions">Your executors will get an email shortly with instructions and information.</Header>
+                <Header as="h3" className="successinstructions">You will be CC'd so you can be sure they went through.</Header>
+                <div id="successpagedivspacer"></div>
+                <Button onClick={this.backToProfileHelper} id="successbutton">⇦ Back to Profile</Button>
             </>
               )
     }

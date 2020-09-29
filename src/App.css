@@ -829,7 +829,7 @@ div.fields.letterformdoublegroup{
   color: #14213D;
   text-shadow: 3px -1px #EDAC43;
   text-align: center;
-  padding-top: 40px;
+  padding-top: 55px;
 }
 
 
@@ -839,11 +839,11 @@ div.fields.letterformdoublegroup{
   color: #14213D;
   text-shadow: 3px -1px #EDAC43;
   text-align: center;
-  padding-top: 40px;
+  padding-top: 55px;
 }
 
 h3.accountgeneraltext {
-  font-family: Windsor Pro Regular;
+  font-family: danzza-medium-webfont;
   font-size: 20px;
   margin-bottom: 29px;
 }
@@ -924,7 +924,96 @@ div.accounttextcenterer {
   justify-content: center;
 }
 
+#finalizeheader{
+  font-family: Windsor Pro Bold;
+  font-size: 65px;
+  color: #14213D;
+  text-shadow: 3px -1px #EDAC43;
+  padding-top: 10px;
+}
 
+.ui.toggle.checkbox.finalizetoggle {
+  transform: scale(2.1);
+}
+
+/* trying to target the toggle
+.ui.toggle.checkbox input:checked~.box:before, .ui.toggle.checkbox input:checked~label:before {
+  background-color: #14213D!important;
+} */
+
+#toggleheader {
+  color: #14213D;
+  font-family: danzza-medium-webfont;
+  font-size: 30px;
+  margin-bottom: 30px;
+}
+
+#letterstatusheader{
+  color: #14213D;
+  font-family: danzza-medium-webfont;
+  font-size: 30px;
+  margin-bottom: 30px;
+}
+
+.ui.button.profilesendbutton{
+  color: #FCA311;
+  background: #14213D;
+  padding-top: 25px;
+  padding-right: 45px;
+  padding-bottom: 25px;
+  padding-left: 45px;
+  font-family: Windsor Pro Regular;
+  font-size: 30px;
+  margin-top: 10px; 
+}
+
+#profilewarning {
+  font-family: Windsor Pro Bold;
+  margin-bottom: 70px;
+  color: #B7355A;
+}
+
+#successheader {
+  font-family: Windsor Pro Bold;
+  font-size: 60px;
+  color: #14213D;
+  text-shadow: 3px -1px #EDAC43;
+  padding-top: 10px;
+  text-align: center;
+  margin-bottom: 25px;
+  margin-top: 15px;
+}
+
+#successimage {
+  margin: 0 auto;
+  display: flex;
+  justify-content: center;
+  border: 5px solid #14213D;
+}
+
+.ui.header.successinstructions {
+  text-align: center;
+  font-family: danzza-medium-webfont;
+  font-size: 25px; 
+}
+
+#successbutton {
+  color: #FCA311;
+  background: #14213D;
+  padding-top: 25px;
+  padding-right: 70px;
+  padding-bottom: 25px;
+  padding-left: 70px;
+  font-family: Windsor Pro Regular;
+  font-size: 20px;
+  margin: 0 auto;
+  display: flex;
+  justify-content: center;
+}
+
+#successpagedivspacer {
+  padding-top: 20px;
+}
 
 /* font stuff below */
 
