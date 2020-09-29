@@ -25,7 +25,7 @@ class NavBar extends React.Component {
 
     render(){
         const { activeItem } = this.state
-        console.log(this.props.location.pathname)
+        //console.log(this.props.location.pathname)
         return(
             
             <>  

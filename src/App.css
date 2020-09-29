@@ -92,6 +92,7 @@
   margin-bottom: 0px;
   margin-top: 1em;
   color:#EDAC43;
+  position:relative; top: -35px;
   font-family: Windsor Pro Bold;
 }
 
@@ -102,13 +103,14 @@
   margin-top: 20px;
   color:#EDAC43;
   font-family: Windsor Pro Regular;
+  position:relative; top: -35px;
 }
 
 #aboutbg {
   text-align:'center';
   background-color: #14213D;
   margin-top: -19px;
-  padding-bottom: 160px;
+  padding-bottom: 75px;
   border-radius: 0em;
 }
 
@@ -124,6 +126,7 @@
     padding: 23px 48px 23px 48px;
     margin: 35px 30px 0 30px;
     box-shadow: 0 0 0 1px #EDAC43 inset;
+    position:relative; top: -30px;
 }
 
 #aboutexplainer {
@@ -131,17 +134,42 @@
   border: 0em;
   margin-top: -14px;
   text-align: center;
-  font-family: danzza-medium-webfont;;
+  font-family: danzza-medium-webfont;
+  color: #14213D
 }
 
 #explainerheader {
   font-family: danzza-medium-webfont;
   padding-top: 40px;
+  color: #14213D
 }
 
 #explainersubheader {
   font-family: danzza-medium-webfont;
   padding-bottom: 35px;
+  color: #14213D
+}
+
+.ui.header.triadlabel {
+  color: #14213D;
+  font-family: danzza-medium-webfont;
+  text-shadow: 1px -1px #EDAC43;
+}
+
+.ui.list.triadlist {
+  font-family: danzza-medium-webfont;
+  color: #14213D;
+  font-size: 20px;
+  width: 400px;
+  margin: 0 auto;
+}
+
+.ui.list>.item.triadlistitem {
+  padding-bottom: 15px;
+}
+
+#landingspacingdiv {
+  padding-bottom: 30px;
 }
 
 #loginheader {

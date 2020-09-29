@@ -59,32 +59,31 @@ class Landing extends React.Component {
                   <Grid.Row columns={3}>
                     <Grid.Column>
                       <Image src="./images/write_72.png" centered={true} />
-                      <Header as="h2">Write</Header>
-                      <List>
-                        <List.Item>Save your progress so you can take your time and make sure they're just right.</List.Item>
-                        <List.Item>We take care of the formatting so you can focus on the messages themselves.</List.Item>
+                      <Header as="h2" className="triadlabel" >Write</Header>
+                      <List className="triadlist">
+                        <List.Item className="triadlistitem" >Save your progress so you can make sure your messages are just right.</List.Item>
                         <List.Item>Our thoughtful writing prompts will help if you're feeling stuck.</List.Item>
                       </List>
                     </Grid.Column>
                     <Grid.Column>
                       <Image src="./images/store.png" centered={true} />
-                      <Header as="h2">Store</Header>
-                      <List>
-                        <List.Item>Keep all of your letters organized in one place until they're ready to send.</List.Item>
+                      <Header as="h2" className="triadlabel" >Store</Header>
+                      <List className="triadlist">
+                        <List.Item className="triadlistitem">Keep all of your letters organized in one place until they're ready to send.</List.Item>
                         <List.Item>Choose "Executors" who will be in charge of distributing your letters.</List.Item>
                       </List>
                     </Grid.Column>
                     <Grid.Column>
                       <Image src="./images/send.png" centered={true} />
-                      <Header as="h2">Send</Header>
-                      <List>
-                        <List.Item>When you're ready, send letters where they need to go with the click of a button.</List.Item>
+                      <Header as="h2" className="triadlabel">Send</Header>
+                      <List className="triadlist">
+                        <List.Item className="triadlistitem">When you're ready, send letters where they need to go with the click of a button.</List.Item>
                         <List.Item>Letters will be exported and stored securely so only Executors can see them.</List.Item>
                       </List>
                     </Grid.Column>
                   </Grid.Row>
                 </Grid>
-              
+                <div id="landingspacingdiv"></div>
             </Segment>
             </>
         )
