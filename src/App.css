@@ -169,8 +169,71 @@
 }
 
 #landingspacingdiv {
-  padding-bottom: 30px;
+  padding-bottom: 36px;
 }
+
+/* the new about page aka background stuff below - need to rename classes above which refer to landing page */
+#backgroundheader {
+  font-family: Windsor Pro Bold;
+  text-align: center;
+  font-size: 70px;
+  color: #14213D;
+  margin-top: 40px;
+  margin-bottom: 30px;
+  text-shadow: 3px -1px #EDAC43;
+}
+
+#backgroundbigline {
+  margin-top: 30px;
+  margin-bottom: 30px;
+  text-align: center;
+  font-family: Windsor Pro Bold;
+  font-size: 28px;
+  
+}
+
+#backgroundsubheader {
+  color: #14213D;
+  font-family: danzza-medium-webfont;
+  font-size: 21px;
+  width: 900px;
+  margin: auto;
+}
+
+#backgroundexplainer {
+  color: #14213D;
+  font-family: danzza-medium-webfont;
+  font-size: 21px;
+  width: 900px;
+  margin: auto;
+  
+}
+
+div #bglinheight1 {
+  line-height: 2;
+}
+
+div #bglinheight2 {
+  line-height: 2;
+}
+
+div #bglinheight4 {
+  font-size: 19px;
+  width: 800px;
+  position:relative; left:75px;
+  margin-top: 40px;
+  margin-bottom: 40px;
+}
+
+div #bglinheight5 {
+  line-height: 2;
+}
+
+/* div #backgroundbigline {
+  line-height: 5;
+} */
+
+/* log in stuff below */
 
 #loginheader {
   font-family: Windsor Pro Bold;
@@ -1015,7 +1078,27 @@ div.accounttextcenterer {
   padding-top: 20px;
 }
 
+/* 
+easter egg formatting */
+
 /* font stuff below */
+
+h2.nothingcreatedyet {
+  text-align: center;
+  font-family: danzza-medium-webfont;
+  font-size: 25px;
+  margin-bottom: 45px; 
+}
+
+img.nothingcreatedyetimage{
+  margin: 0 auto;
+  display: flex;
+  justify-content: center;
+  border: 5px solid #14213D;
+  box-shadow: 0 0 0 2px #EDAC43;
+}
+
+
 
 @font-face {
   font-family: 'Windsor Pro Bold';

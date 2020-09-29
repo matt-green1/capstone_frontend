@@ -48,8 +48,8 @@ class LetterContainer extends React.Component {
                     {this.props.currentUser.letters.length < 1
                     ?
                         <>
-                            <h2>You have no letters yet! Create one above!</h2>
-                            <img src="https://media.giphy.com/media/dy4swYs1dp430jChRa/giphy-downsized.gif" />
+                            <h2 className="nothingcreatedyet">You have no letters. Create one above.</h2>
+                            <img className="nothingcreatedyetimage" src="https://media.giphy.com/media/dy4swYs1dp430jChRa/giphy-downsized.gif" />
                         </>
                     :
                     <>

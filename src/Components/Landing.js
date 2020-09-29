@@ -84,6 +84,7 @@ class Landing extends React.Component {
                   </Grid.Row>
                 </Grid>
                 <div id="landingspacingdiv"></div>
+            
             </Segment>
             </>
         )
