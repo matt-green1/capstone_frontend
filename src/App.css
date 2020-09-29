@@ -416,6 +416,93 @@ p.delvalidation {
   font-family: danzza-medium-webfont;
 }
 
+/* exec form below here */
+h1.ui.header.execformheader {
+  font-family: Windsor Pro Bold;
+  font-size: 69px;
+  color: #14213D;
+  text-shadow: 3px -1px #EDAC43;
+  text-align: center;
+  padding-top: 50px;
+  padding-bottom: 20px;
+}
+
+#execbackbutton {
+  color: #FCA311;
+  background: #14213D;
+  padding-top: 18px;
+  padding-right: 40px;
+  padding-bottom: 18px;
+  padding-left: 40px;
+  font-family: danzza-medium-webfont;
+  font-size: 18px;
+  display: flex;  
+  margin-left: 750px;
+}
+
+#addsaveexecbutton {
+  color: #FCA311;
+  background: #14213D;
+  padding-top: 15px;
+  padding-right: 30px;
+  padding-bottom: 15px;
+  padding-left: 30px;
+  font-family: Windsor Pro Regular;
+  font-size: 20px;
+}
+
+#execformdivspacer{
+  padding-top: 20px;
+  padding-bottom: 20px; 
+}
+
+/* .ui.form input:not([type=date]).signinupinput:focus */
+
+.ui.form input:not([type=date]).execforminput {
+  padding-top: 19px;
+  padding-bottom: 19px;
+  width: 475px;
+  font-family: Windsor Pro Regular;
+  font-size: 20px;
+  border: 1px solid #14213D;
+  margin-bottom: 29px;
+}
+
+
+.ui.form input:not([type=date]).execforminput:focus {
+  padding-top: 19px;
+  padding-bottom: 19px;
+  width: 475px;
+  font-family: Windsor Pro Regular;
+  font-size: 20px;
+  border: 1px solid #14213D;
+  box-shadow: 0 0 2px #FCA311;
+}
+
+#addeditexecutorbutton {
+  color: #FCA311;
+  background: #14213D;
+  padding-top: 25px;
+  padding-right: 182px;
+  padding-bottom: 25px;
+  padding-left: 182px;
+  margin-top: 22px;
+  font-family: Windsor Pro Regular;
+  font-size: 20px;
+}
+
+.ui.form .field>label.execformlabel {
+  color: #14213D;
+  font-family: danzza-medium-webfont;
+  padding-top: 10px;
+}
+
+#execformdiv {
+  margin: 0 auto;
+  display: flex;
+  justify-content: center;
+}
+
 @font-face {
   font-family: 'Windsor Pro Bold';
   font-style: normal;

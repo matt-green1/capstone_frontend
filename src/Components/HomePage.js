@@ -27,7 +27,7 @@ class HomePage extends React.Component {
                 <Grid id="homegrid">
                     <Grid.Row >
                         <Grid.Column id="homecolumn1">
-                            <p className="numberedinstructions">1. Enter one or more "Executors" into your account. Your executors will be in charge of distributing your letters using instructions you provide.</p><br/>
+                            <p className="numberedinstructions">1. Add one or more "Executors" to your account. Your executors will be in charge of distributing your letters using instructions you provide.</p><br/>
                         </Grid.Column>
                         <Grid.Column>
                             <Button onClick={this.buttonRouteHelper} id="homebutton1" >Create Executors</Button> 
