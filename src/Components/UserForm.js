@@ -1,4 +1,5 @@
 import React from 'react'
+import { Header, Button, Message, Container, Form } from 'semantic-ui-react'
 
 class UserForm extends React.Component {
     
@@ -22,23 +23,32 @@ class UserForm extends React.Component {
     render(){
         return(
             <>                
-                <br/>
-                <form onSubmit={this.editUserInfoHelper} >
-                    <label>First Name:</label>&nbsp;&nbsp;
-                    <input name="first_name" onChange={this.userFormChangeHelper} value={this.state.first_name} type="text" placeholder="Your First Name" />
-                    &nbsp;&nbsp;&nbsp;&nbsp;
-                    <label>Last Name:</label>&nbsp;&nbsp;
-                    <input name="last_name" onChange={this.userFormChangeHelper} value={this.state.last_name} type="text" placeholder="Your Last Name" />
-                    <br/><br/>
-                    <label>Email / Login:</label>&nbsp;&nbsp;
-                    <input name="user_email" onChange={this.userFormChangeHelper} value={this.state.user_email} type="text" placeholder="yourEmail@gmail.com" />
-                    <br/><br/>
-                    <label>Password:</label>&nbsp;&nbsp;
-                    <input name="password" onChange={this.userFormChangeHelper} value={this.state.password} type="text" placeholder="Mom, Friend, etc." />
-                    <br/><br/>
-                    <button onClick={this.props.editStatusChanger}>Cancel Edit</button>&nbsp;&nbsp;&nbsp;&nbsp;
-                    <input type="submit"  value="Save Changes" />
-                </form>
+                <div id="edituserform">
+                <Form onSubmit={this.editUserInfoHelper} >
+                    <Form.Field>
+                        <label className="userlabel">FIRST NAME</label>
+                        <input name="first_name" onChange={this.userFormChangeHelper} value={this.state.first_name} type="text" className="userforminput" />
+                    </Form.Field>
+
+                    <Form.Field>
+                    <label className="userlabel">LAST NAME</label>
+                    <input name="last_name" onChange={this.userFormChangeHelper} value={this.state.last_name} type="text" className="userforminput" />
+                    </Form.Field>
+
+                    <Form.Field>
+                    <label className="userlabel">EMAIL</label>
+                    <input name="user_email" onChange={this.userFormChangeHelper} value={this.state.user_email} type="text" className="userforminput" />
+                    </Form.Field>
+
+                    <Form.Field>
+                    <label className="userlabel">PASSWORD</label>
+                    <input name="password" onChange={this.userFormChangeHelper} value={this.state.password} type="text" className="userforminput" />
+                    </Form.Field>
+
+                    <Button onClick={this.props.editStatusChanger} id="canceleditprofilebutton" >Cancel Edit</Button>
+                    <Button type="submit" id="savechangesprofilebutton">Save Changes</Button>
+                </Form>
+                </div>
             </>
         )
     }

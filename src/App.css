@@ -821,6 +821,110 @@ div.fields.letterformdoublegroup{
   box-shadow: 0 0 2px #FCA311;
 }
 
+/* profile page stuff below */
+
+#accountinfoheader {
+  font-family: Windsor Pro Bold;
+  font-size: 50px;
+  color: #14213D;
+  text-shadow: 3px -1px #EDAC43;
+  text-align: center;
+  padding-top: 40px;
+}
+
+
+#accountletterinfoheader {
+  font-family: Windsor Pro Bold;
+  font-size: 50px;
+  color: #14213D;
+  text-shadow: 3px -1px #EDAC43;
+  text-align: center;
+  padding-top: 40px;
+}
+
+h3.accountgeneraltext {
+  font-family: Windsor Pro Regular;
+  font-size: 20px;
+  margin-bottom: 29px;
+}
+
+div.accounttextcenterer {
+  position: relative; left: 50px;
+}
+
+#editprofileinfobutton {
+  color: #FCA311;
+  background: #14213D;
+  padding-top: 15px;
+  padding-right: 20px;
+  padding-bottom: 15px;
+  padding-left: 20px;
+  font-family: Windsor Pro Regular;
+  font-size: 20px;
+  display: flex;  
+  
+}
+
+#canceleditprofilebutton {
+  color: #FCA311;
+  background: #14213D;
+  padding-top: 15px;
+  padding-right: 20px;
+  padding-bottom: 15px;
+  padding-left: 20px;
+  font-family: Windsor Pro Regular;
+  font-size: 17px;
+  margin-left: 0px; 
+}
+
+#savechangesprofilebutton {
+  color: #FCA311;
+  background: #14213D;
+  padding-top: 15px;
+  padding-right: 15px;
+  padding-bottom: 15px;
+  padding-left: 15px;
+  font-family: Windsor Pro Regular;
+  font-size: 17px;
+  margin-left: 50px; 
+}
+
+#finalizecontainer {
+  text-align: center;
+  margin-top: 50px;
+}
+
+/* this find the input */
+.ui.form input:not([type=date]).userforminput {
+  width: 300px;
+  height: 40px;
+  font-family: Windsor Pro Regular;
+  font-size: 20px;
+  border: 1px solid #14213D;
+}
+
+/* the thing that makes it glow */
+.ui.form input:not([type=date]).userforminput:focus {
+  width: 300px;
+  height: 40px;
+  font-family: Windsor Pro Regular;
+  font-size: 20px;
+  border: 1px solid #14213D;
+  box-shadow: 0 0 2px #FCA311;
+}
+
+.ui.form .field>label.userlabel {
+  color: #14213D;
+  font-family: danzza-medium-webfont;
+}
+
+#edituserform {
+  margin: 0 auto;
+  display: flex;
+  justify-content: center;
+}
+
+
 
 /* font stuff below */
 

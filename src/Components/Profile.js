@@ -1,7 +1,7 @@
 import React from 'react'
 import { withRouter } from 'react-router-dom'
 import UserForm from './UserForm'
-import { Header, Button, Message, Divider } from 'semantic-ui-react'
+import { Header, Button, Message, Grid, Container } from 'semantic-ui-react'
 
 class Profile extends React.Component {
 
@@ -52,43 +52,54 @@ class Profile extends React.Component {
         //this.prettifyDate()
         return (
             <>
-                <Header as="h1">Account Information</Header>
-                {this.state.editButton
-                ?
-                <UserForm currentUser={this.props.currentUser} editStatusChanger={this.editStatusChanger} editUserInfoHandler={this.props.editUserInfoHandler}/>
-                :
-                <>
-                    <h3>Name: {this.props.currentUser.first_name} {this.props.currentUser.last_name}</h3>
-                    <h3>Email: {this.props.currentUser.user_email} </h3>
-                    <h3>Password: {this.passwordRedactor()} </h3>
-                    
-                    <Button onClick={this.editStatusChanger}> Edit Account Information </Button>
-                </>
-                }
-                <Divider section/>
-                
-                <Header as="h1">My Letters</Header>
-                    <h3>Letters last sent to executors on: {this.props.currentUser.last_batch} </h3>
-                    <h3>Number of Letters: {this.props.currentUser.letters.length} </h3>
-                    <h3>Number of Executors: {this.props.currentUser.executors.length} </h3>                
+                <Container>
+                    <Grid columns={2}>
+                        <Grid.Column>
+                            <Header as="h1" id="accountinfoheader">Account Information</Header>
+                            {this.state.editButton
+                            ?
+                            <UserForm currentUser={this.props.currentUser} editStatusChanger={this.editStatusChanger} editUserInfoHandler={this.props.editUserInfoHandler}/>
+                            :
+                            <>
+                                <div className="accounttextcenterer">
+                                    <h3 className="accountgeneraltext" >Name: {this.props.currentUser.first_name} {this.props.currentUser.last_name}</h3>
+                                    <h3 className="accountgeneraltext">Email: {this.props.currentUser.user_email} </h3>
+                                    <h3 className="accountgeneraltext">Password: {this.passwordRedactor()} </h3>
+                                    
+                                    <Button onClick={this.editStatusChanger} id="editprofileinfobutton"> Edit Account Information </Button>
+                                </div>
+                            </>
+                            }
+                        </Grid.Column>
 
-                <Divider section/>
+                        <Grid.Column>
+                            <Header as="h1" id="accountletterinfoheader">My Letters</Header>
+                                <div className="accounttextcenterer">
+                                    <h3 className="accountgeneraltext">Letters last sent to Executors: {this.props.currentUser.last_batch} </h3>
+                                    <h3 className="accountgeneraltext">Number of Letters: {this.props.currentUser.letters.length} </h3>
+                                    <h3 className="accountgeneraltext">Number of Executors: {this.props.currentUser.executors.length} </h3>                
+                                </div>
+                        </Grid.Column>
+                    </Grid>
+                </Container>
 
-                <Header as="h1">Finalize Account</Header>
-                {this.props.currentUser.letter_status ? null :
-                    <div className="ui toggle checkbox">
-                        <input type="checkbox" name="public" onChange={this.exportButtonActivator} checked={this.state.button} />
-                        <label>Letters ready to send?</label>
-                    </div>
+                <Container id="finalizecontainer">
+                    <Header as="h1">Finalize Account</Header>
+                    {this.props.currentUser.letter_status ? null :
+                        <div className="ui toggle checkbox">
+                            <input type="checkbox" name="public" onChange={this.exportButtonActivator} checked={this.state.button} />
+                            <label>Letters ready to send?</label>
+                        </div>
+                        
+                    }
                     
-                }
-                
-                <br/><br/>
-                {this.props.currentUser.letter_status ? <Button onClick={this.props.markUnfinished}>Mark Account Unfinished</Button> : <Button onClick={this.state.button ? this.exportLetterHelper : null}> SEND TO EXECUTORS </Button> }
-                {this.state.button ? <Message warning 
-                header="Warning: Clicking the button above will email your letters to your executors. It cannot be undone."
-                /> : null}
-                <h4>Current Letter Status: {this.props.currentUser.letter_status ? "Sent to Executors" : "Not Sent"} </h4>
+                    <br/><br/>
+                    {this.props.currentUser.letter_status ? <Button onClick={this.props.markUnfinished}>Mark Account Unfinished</Button> : <Button onClick={this.state.button ? this.exportLetterHelper : null}> SEND TO EXECUTORS </Button> }
+                    {this.state.button ? <Message warning 
+                    header="Warning: Clicking the button above will email your letters to your executors. It cannot be undone."
+                    /> : null}
+                    <h4>Current Letter Status: {this.props.currentUser.letter_status ? "Sent to Executors" : "Not Sent"} </h4>
+                </Container>
             </>
         )
     }
