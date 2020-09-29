@@ -53,7 +53,7 @@ class LetterContainer extends React.Component {
                         </>
                     :
                     <>
-                    <Table celled fixed singleline id="lettertable" >
+                    <Table fixed singleLine id="lettertable" >
                         <Table.Header id="lettertabletopheader">
                             <Table.Row id="lettertoprow">
                                 <Table.HeaderCell className="lettertableheader">Title</Table.HeaderCell>

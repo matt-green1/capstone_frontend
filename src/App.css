@@ -270,7 +270,7 @@
   font-family: danzza-medium-webfont;
   font-size: 40px;
   padding-top: 55px;
-  position:relative; left:350px; top: 15px;
+  position:relative; left:275px; top: 15px;
 }
 
 /* numbered instrucitons before you added grid */
@@ -410,6 +410,7 @@
   color: #FCA311;
   font-size: 18px;
   text-align: center;
+  border-radius: 0em;
 }
 
 #exectoprow {
@@ -417,12 +418,9 @@
 }
 
 /* this is just trying to get rid of border radius */
-#exectabletopheader{
+.ui.table thead th.tableheadercorner{
   border-radius: 0em;
 }
-
-/* ====================================================================================================================== */
-
 
 .ui.table tr.execdatarow {
   height: 80px;
@@ -449,7 +447,6 @@ p.delvalidation {
   font-family: danzza-medium-webfont;
 }
 
-/* ========================================================================================================= */
 
 /* exec form below here */
 h1.ui.header.execformheader {
@@ -475,6 +472,9 @@ h1.ui.header.execformheader {
   margin-left: 750px;
 }
 
+
+/* 
+NOTE: I don't think this is styling anything at the moment */
 #addsaveexecbutton {
   color: #FCA311;
   background: #14213D;
@@ -514,6 +514,8 @@ h1.ui.header.execformheader {
   box-shadow: 0 0 2px #FCA311;
 }
 
+/* 
+Already added to letter version */
 #addeditexecutorbutton {
   color: #FCA311;
   background: #14213D;
@@ -526,6 +528,9 @@ h1.ui.header.execformheader {
   font-size: 20px;
 }
 
+/* ====================================================================================================================== */
+
+
 .ui.form .field>label.execformlabel {
   color: #14213D;
   font-family: danzza-medium-webfont;
@@ -537,6 +542,9 @@ h1.ui.header.execformheader {
   display: flex;
   justify-content: center;
 }
+
+/* ========================================================================================================= */
+
 
 /* letter page stuff here */
 
@@ -633,12 +641,126 @@ td.lettertabledata {
   font-size: 19px;
 }
 
-/* 
-using the class from exec
-p.delvalidation {
-  font-family: danzza-medium-webfont;
-} */
+/* letter form below here */
+.ui.header.letterformheader {
+  font-family: Windsor Pro Bold;
+  font-size: 69px;
+  color: #14213D;
+  text-shadow: 3px -1px #EDAC43;
+  text-align: center;
+  padding-top: 50px;
+  padding-bottom: 20px;
+}
 
+#letterbackbutton {
+  color: #FCA311;
+  background: #14213D;
+  padding-top: 18px;
+  padding-right: 40px;
+  padding-bottom: 18px;
+  padding-left: 40px;
+  font-family: danzza-medium-webfont;
+  font-size: 18px;
+  display: flex;  
+  margin-left: 750px;
+}
+
+#addeditletterbutton {
+  color: #FCA311;
+  background: #14213D;
+  padding-top: 25px;
+  padding-right: 182px;
+  padding-bottom: 25px;
+  padding-left: 182px;
+  margin-top: 22px;
+  font-family: Windsor Pro Regular;
+  font-size: 20px;
+}
+
+#letterformdivspacer{
+  padding-top: 20px;
+  padding-bottom: 20px; 
+}
+
+/* this find the input */
+.ui.form input:not([type=date]).letterformtriadinput {
+  padding-top: 19px;
+  padding-bottom: 19px;
+  width: 450px;
+  font-family: Windsor Pro Regular;
+  font-size: 20px;
+  border: 1px solid #14213D;
+  margin-bottom: 29px;
+}
+
+/* the thing that makes it glow */
+.ui.form input:not([type=date]).letterformtriadinput:focus {
+  padding-top: 19px;
+  padding-bottom: 19px;
+  width: 450px;
+  font-family: Windsor Pro Regular;
+  font-size: 20px;
+  border: 1px solid #14213D;
+  box-shadow: 0 0 2px #FCA311;
+}
+
+#triadgroup {
+  margin: 0 auto;
+  display: flex;
+  justify-content: center;
+}
+
+.ui.form .field>label.letterformlabel {
+  color: #14213D;
+  font-family: danzza-medium-webfont;
+  padding-top: 10px;
+}
+
+#radioheader {
+  color: #14213D;
+  font-family: danzza-medium-webfont;
+  padding-top: 10px;
+  font-size: 18px;
+  text-align: center;
+}
+
+div.radiotitle {
+  color: #14213D;
+  font-family: danzza-medium-webfont;
+  padding-top: 10px;
+  font-size: 60px;
+}
+
+p.radioprompt {
+  color: #14213D;
+  font-family: danzza-medium-webfont;
+  font-size: 18px;
+}
+
+#radiobuttoncenter {
+  margin: 0 auto;
+  justify-content: center;
+  padding-bottom: 20px;
+}
+
+#promptcenterer {
+  text-align: center;
+  padding-bottom: 15px;
+}
+
+#lettertextinput {
+  width: 1450px;
+  height: 200px;
+  font-family: Windsor Pro Regular;
+  font-size: 20px;
+  border: 1px solid #14213D;
+  margin-bottom: 10px;
+}
+
+#lettertextinputcenter {
+  margin: 0 auto;
+  align-content: center;
+}
 
 /* font stuff below */
 
