@@ -27,7 +27,9 @@ rails db:migrate
 rails db:seed
 rails s
 ```
-3. Set up front end. Open another terminal tab and enter:
+3. Fork and clone this (front end) repo.
+
+4. Set up front end. Open another terminal tab and enter:
 
 ```
 cd mentorMe_frontend
