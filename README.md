@@ -1,7 +1,5 @@
 # LifeLetter
 
-A will for your feelings.
-
 ## Description
 There are a lot of services that take care of the legal aspects of the end of a person's life, but many people don't consider the importance of reflecting on their lives and expressing their feelings to those they love.
 
@@ -9,4 +7,36 @@ Inspired by <a href="https://med.stanford.edu/letter/friendsandfamily.html">The 
 
 Back end repo <a href="https://github.com/matt-green1/capstone_backend">here</a>.
 
+## Demo
 ***Video demo and live site coming soon.
+
+## Prerequisites
+React, Rails, PostgresSQL
+
+## Installation Instructions
+
+1. Fork and clone <a href="https://github.com/matt-green1/capstone_backend">back end repo</a>.
+
+2. Set up back end. In terminal, enter:
+
+```
+cd capstone_backend
+bundle install
+rails db:create
+rails db:migrate
+rails db:seed
+rails s
+```
+3. Set up front end. Open another terminal tab and enter:
+
+```
+cd mentorMe_frontend
+npm install
+npm start // Will launch on http://localhost:3001/
+```
+
+
+
+
+
+
