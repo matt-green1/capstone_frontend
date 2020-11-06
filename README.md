@@ -8,7 +8,7 @@ Inspired by <a href="https://med.stanford.edu/letter/friendsandfamily.html">The 
 Back end repo <a href="https://github.com/matt-green1/capstone_backend">here</a>.
 
 ## Demo
-***Video demo and live site coming soon.
+You can watch video demo <a href="https://www.youtube.com/watch?v=pYok3fufeUI&feature=youtu.be&ab_channel=MatthewGreen">here</a>. Live site coming soon.
 
 ## Prerequisites
 React, Rails, PostgresSQL
