@@ -3,6 +3,8 @@ import { withRouter } from 'react-router-dom'
 
 import { Button, Container, Header, Segment, Grid, Image, List } from 'semantic-ui-react'
 
+//Site homepage when you're not signed in - original place someone lands.
+
 class Landing extends React.Component {
 
     loginNavHelper = () => {
@@ -18,16 +20,11 @@ class Landing extends React.Component {
   }
 
     render() {
-       
         return(
             <>
-            
               <Segment
                 id="aboutbg"
-                // inverted
                 textAlign='center'
-                // style={{ minHeight: 700, padding: '1em 0em' }}
-                //vertical
               >
                 <Container text>
                     <Header
@@ -49,7 +46,6 @@ class Landing extends React.Component {
                 </Container>
 
               </Segment>
-
 
               <Segment id="aboutexplainer">
             
@@ -89,20 +85,6 @@ class Landing extends React.Component {
             </>
         )
     }
-
-
 }
 
 export default withRouter(Landing)
-
-              //the original sign up button
-              // <h4>Ready to get started?! Log in or Sign up below!</h4>
-              //   <Button onClick={this.loginNavHelper} >Log In</Button>
-              //   <Button onClick={this.signupNavHelper}>Sign Up</Button>
-
-
-                // <ul>
-                //     <li>Write personal messages to your loved ones (will give you prompts to get you started and let you save an come back to them until they're just right).</li>
-                //     <li>Designate an "Executors" who will take care of getting the messages to your loved ones.</li>
-                //     <li>When finished writing, you can send the letters to your executors with the click of a button.</li>
-                // </ul>

@@ -2,6 +2,8 @@ import React from 'react'
 import { withRouter } from 'react-router-dom'
 import { Button, Header, Grid } from 'semantic-ui-react'
 
+// Main page after someone logs in/signs up.
+
 class HomePage extends React.Component {
 
     buttonRouteHelper = (e) => {

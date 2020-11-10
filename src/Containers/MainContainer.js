@@ -9,7 +9,6 @@ import SendComplete from '../Components/SendComplete'
 
 class MainContainer extends React.Component {
 
-
     render() {
         return(
             <>                    
@@ -23,7 +22,6 @@ class MainContainer extends React.Component {
             </>
         )
     }
-
 }
 
 export default withRouter(MainContainer)

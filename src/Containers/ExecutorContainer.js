@@ -34,7 +34,6 @@ class ExecutorContainer extends React.Component {
         return(
             <>    
                 {!this.state.form_status
-
                 ?
                 <>
                     <Header as="h1" id="execheader">{this.props.currentUser.first_name}'s Executors</Header>
@@ -50,7 +49,6 @@ class ExecutorContainer extends React.Component {
                             <img className="nothingcreatedyetimage" src="https://media.giphy.com/media/dy4swYs1dp430jChRa/giphy-downsized.gif" />
                         </>
                     :
-
 
                     <Table id="exectable">
                         <Table.Header id="exectabletopheader">

@@ -7,26 +7,11 @@ class NavBar extends React.Component {
         activeItem: "" 
     }
     
-
-
     handleItemClick = (e, { name }) => this.setState({ activeItem: name })
-
-    // componentDiDMount = () => {
-    //     if(this.props.location.href == "http://localhost:3001/home") {
-    //         this.setState({activeItem: 'lifeletter' })
-    //     } else if (this.props.location.href == "http://localhost:3001/profile") {
-    //         this.setState({activeItem: 'profile' })
-    //     } else if (this.props.location.href == "http://localhost:3001/letters") {
-    //         this.setState({activeItem: 'myletters' })
-    //     } else if (this.props.location.href == "http://localhost:3001/executors") {
-    //         this.setState({activeItem: 'myexecutors' })
-    //     }
-    // }
 
     render(){
         const { activeItem } = this.state
-        //console.log(this.props.location.pathname)
-        return(
+=        return(
             
             <>  
                 {this.props.currentUser ?
@@ -35,7 +20,6 @@ class NavBar extends React.Component {
                         <NavLink to="/home">
                             <Menu.Item
                                 name='lifeletter'
-                                // active={activeItem === 'lifeletter'}
                                 active={this.props.location.pathname === "/home"}
                                 onClick={this.handleItemClick}
                                 className="navafterlink"
@@ -48,7 +32,6 @@ class NavBar extends React.Component {
                         <NavLink to="/executors">
                             <Menu.Item
                                 name='myexecutors'
-                                // active={activeItem === 'myexecutors'}
                                 active={this.props.location.pathname === "/executors"}
                                 onClick={this.handleItemClick}
                                 className="navafterlink"
@@ -60,7 +43,6 @@ class NavBar extends React.Component {
                         <NavLink to="letters">
                             <Menu.Item
                                 name='myletters'
-                                // active={activeItem === 'myletters'}
                                 active={this.props.location.pathname === "/letters"}
                                 onClick={this.handleItemClick}
                                 className="navafterlink"
@@ -72,7 +54,6 @@ class NavBar extends React.Component {
                         <NavLink to="/profile">
                             <Menu.Item
                                 name='profile'
-                                // active={activeItem === 'profile'}
                                 active={this.props.location.pathname === "/profile"}
                                 onClick={this.handleItemClick}
                                 className="navafterlink"
@@ -99,7 +80,6 @@ class NavBar extends React.Component {
                     <NavLink to="/">
                         <Menu.Item
                             name='lifeletter'
-                            // active={activeItem === 'lifeletter'}
                             active={this.props.location.pathname === "/"}
                             onClick={this.handleItemClick}
                             className="navbeforelink"
@@ -111,7 +91,6 @@ class NavBar extends React.Component {
                     <NavLink to="/about">
                         <Menu.Item
                             name='about'
-                            // active={activeItem === 'about'}
                             active={this.props.location.pathname === "/about"}
                             onClick={this.handleItemClick}
                             className="navbeforelink"
@@ -123,7 +102,6 @@ class NavBar extends React.Component {
                     <NavLink to="/login">
                         <Menu.Item
                             name='login'
-                            // active={activeItem === 'login'}
                             active={this.props.location.pathname === "/login"}
                             onClick={this.handleItemClick}
                             className="navbeforelink"
@@ -135,7 +113,6 @@ class NavBar extends React.Component {
                     <NavLink to="/signup">
                         <Menu.Item
                             name='signup'
-                            // active={activeItem === 'signup'}
                             active={this.props.location.pathname === "/signup"}
                             onClick={this.handleItemClick}
                             className="navbeforelink"

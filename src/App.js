@@ -324,7 +324,6 @@ class App extends React.Component {
         let configObj = {
           method: 'POST',
           headers: {
-            //'Content-Type': 'application/json',
             'Accept': 'application/json'
           },
           body: JSON.stringify({
@@ -370,7 +369,6 @@ class App extends React.Component {
 
     render(){
       //this.state.currentUser ? console.log("last batch date:", this.state.currentUser.last_batch) :console.log("no user")
-      //this.state.currentUser ? console.log("letter_status:", this.state.currentUser.letter_status) :console.log("no user")
       
       return (
         <>

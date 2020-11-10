@@ -86,7 +86,6 @@ class LetterContainer extends React.Component {
             </>
         )
     }
-
 }
 
 export default LetterContainer

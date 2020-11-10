@@ -52,7 +52,6 @@ class Letter extends React.Component {
         )
     }
 
-
 }
 
 export default Letter

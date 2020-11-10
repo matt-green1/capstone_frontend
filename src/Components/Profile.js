@@ -33,51 +33,27 @@ class Profile extends React.Component {
         return "*".repeat(passwordLength)
     }
 
-    // prettifyDate = () => {
-    //     let dateOrigArray = this.props.currentUser.last_batch.split("_")
-    //     let [weekDay, month, monthDay, year, hour, minute, second] = dateOrigArray
-    //     //why doesn't destructuring work above?
-// need tyo play around with generating dates IN the script not in node - and figure out your conditions -- then write a note to check them wednesday and thursday
-    // link: https://stackoverflow.com/questions/8224459/how-to-create-a-date-object-from-string-in-javascript    
-    // lecture notes: https://www.notion.so/mattssandbox/Copy-of-8-17-Syntactic-Sugar-5e424af05113464da4c2f0d5a731c633
-    //below we'll need to do some manual STRFTiming
-    //     if weekday mon, tues, thurs, fri get "day added"
-    //        wed, sat, sunday get custom add ons
-            
-        //n
-    //     //console.log(weekday)
-    // }
-
     niceDate = () => {
         let dateOrigArray = this.props.currentUser.last_batch.split("_")
         
         let dateOnly = dateOrigArray.slice(0,4)
         let formattedDate = dateOnly.join(" ")
-        //console.log(formattedDate)
 
         let militaryHour = parseInt(dateOrigArray[4])
-        //console.log(militaryHour)
 
         militaryHour > 12 ? militaryHour -=12 : militaryHour += 0
-        //console.log(militaryHour)
 
         //getting everything except hour
         let timeOnly = dateOrigArray.slice(5)
-        //console.log("timeonly:", timeOnly)
 
-
-        // let fullTime = timeOnly.unshift(militaryHour)
         let fullTime = [militaryHour, ...timeOnly]
-        //console.log("fulltime:",fullTime)
 
         let formattedTime = fullTime.join(":")
-        //console.log(formattedTime)
         
         return `${formattedDate} at ${formattedTime} `
     }
 
     render() {
-        //this.niceDate()
         return (
             <>
                 <Container>
@@ -123,8 +99,7 @@ class Profile extends React.Component {
                                 onChange={this.exportButtonActivator}
                                 checked={this.state.button}
                             >
-                                {/* <input type="checkbox" name="public" onChange={this.exportButtonActivator} checked={this.state.button} />
-                                <label>Letters ready to send?</label> */}
+                               
                             </Checkbox>
                         </>
                     }
@@ -140,24 +115,3 @@ class Profile extends React.Component {
 }
 
 export default withRouter(Profile)
-
-
-// Intact finalize acocuint container before changes:
-
-// <Container id="finalizecontainer">
-//                     <Header as="h1" id="finalizeheader">Finalize Account</Header>
-//                     {this.props.currentUser.letter_status ? null :
-//                         <div className="ui toggle checkbox">
-//                             <input type="checkbox" name="public" onChange={this.exportButtonActivator} checked={this.state.button} />
-//                             <label>Letters ready to send?</label>
-//                         </div>
-                        
-//                     }
-                    
-//                     <br/><br/>
-//                     {this.props.currentUser.letter_status ? <Button onClick={this.props.markUnfinished}>Mark Account Unfinished</Button> : <Button onClick={this.state.button ? this.exportLetterHelper : null}> SEND TO EXECUTORS </Button> }
-//                     {this.state.button ? <Message warning 
-//                     header="Warning: Clicking the button above will email your letters to your executors. It cannot be undone."
-//                     /> : null}
-//                     <h4>Current Letter Status: {this.props.currentUser.letter_status ? "Sent to Executors" : "Not Sent"} </h4>
-//                 </Container>
