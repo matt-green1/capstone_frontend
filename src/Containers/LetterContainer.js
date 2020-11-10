@@ -22,7 +22,6 @@ class LetterContainer extends React.Component {
         this.setState({...this.state, form_status: "create"})
     }
 
-    //Note: This works because any truthy value that isn't "create" brings up edit - might want to make the logic more explicit later
     editFormStateHelper = (letterObj) => {
         this.setState({...this.state, form_status: "edit", toEdit: letterObj})
     }
@@ -35,12 +34,10 @@ class LetterContainer extends React.Component {
         return(
             <>    
                 {!this.state.form_status
-
                 ?
                 <>
                     <Header as="h1" id="lettermainheader">{this.props.currentUser.first_name}'s Letters</Header>
-                    <Header as="h3" id="letterinstructions">These messages an be indimidating to write, so don't worry about them being perfect immediately. Get a draft down and edit it until it's just right.</Header>
-
+                    <Header as="h3" id="letterinstructions">These messages an be intimidating to write, so don't worry about them being perfect immediately. Get a draft down and edit it until it's just right.</Header>
 
                     <Button onClick={this.createFormStateHelper} id="createletterbutton" >Create New Letter</Button><br/><br/>
                     <div id="lettertabledivspacer"></div>
@@ -65,7 +62,6 @@ class LetterContainer extends React.Component {
                             </Table.Row>
                         </Table.Header>
 
-
                         <Table.Body>
                             {this.createLetters()}
                         </Table.Body>
@@ -75,7 +71,6 @@ class LetterContainer extends React.Component {
                     </>
                     }
                 </>
-                    
                 :
                 <>
                 {this.state.form_status === "create" 
@@ -88,9 +83,6 @@ class LetterContainer extends React.Component {
                     }
                 </>
                 }
-                
-                
-
             </>
         )
     }
