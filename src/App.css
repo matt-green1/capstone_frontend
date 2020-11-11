@@ -1,3 +1,5 @@
+/* ---- Navbar Start ---- */
+
 .ui.inverted.segment.navbefore {
   background-color: #14213D;
   border-radius: 0em;
@@ -42,7 +44,9 @@
   position:relative; left: 1050px;
 }
 
-/* ---- Nav above here ---- */
+/* ---- Navbar End ---- */
+
+
 
 .ui.button.login {
   color: #FCA311;
@@ -228,7 +232,9 @@ div #bglinheight5 {
   line-height: 2;
 }
 
-/* log in stuff below */
+/* WHICH seciton above */
+
+/* log in Start */
 
 #loginheader {
   font-family: Windsor Pro Bold;
@@ -306,7 +312,10 @@ div #bglinheight5 {
   font-size: 20px;
 }
 
-/* homepage styling below */
+/* log in end */
+
+
+/* homepage start */
 #homemainheader{
   font-family: Windsor Pro Bold;
   font-size: 69px;
@@ -398,7 +407,9 @@ div #bglinheight5 {
   position:relative; top: 40px;
 }
 
-/* executor page */
+/* homepage end */
+
+/* executor page start */
 #execheader {
   font-family: Windsor Pro Bold;
   font-size: 69px;
@@ -447,7 +458,6 @@ div #bglinheight5 {
   border-right-width: 1px;
 }
 
-
 /* tableheader */
 .ui.table thead th.exectableheader {
   background: #14213D;
@@ -491,9 +501,10 @@ td.exectabledata {
 p.delvalidation {
   font-family: danzza-medium-webfont;
 }
+/* executor page end */
 
 
-/* exec form below here */
+/* executor form start */
 h1.ui.header.execformheader {
   font-family: Windsor Pro Bold;
   font-size: 69px;
@@ -515,19 +526,6 @@ h1.ui.header.execformheader {
   font-size: 18px;
   display: flex;  
   margin-left: 750px;
-}
-
-
-/* NOTE: I don't think this is styling anything at the moment */
-#addsaveexecbutton {
-  color: #FCA311;
-  background: #14213D;
-  padding-top: 15px;
-  padding-right: 30px;
-  padding-bottom: 15px;
-  padding-left: 30px;
-  font-family: Windsor Pro Regular;
-  font-size: 20px;
 }
 
 #execformdivspacer{
@@ -555,7 +553,6 @@ h1.ui.header.execformheader {
   box-shadow: 0 0 2px #FCA311;
 }
 
-/* Already added to letter version */
 #addeditexecutorbutton {
   color: #FCA311;
   background: #14213D;
@@ -580,7 +577,10 @@ h1.ui.header.execformheader {
   justify-content: center;
 }
 
-/* letter page stuff below */
+/* executor form end */
+
+
+/* letter page start */
 
 #lettermainheader {
   font-family: Windsor Pro Bold;
@@ -647,11 +647,6 @@ h1.ui.header.execformheader {
   height: 80px;
 }
 
-/* trying to get rid of border radius */
-#lettertabletopheader{
-  border-radius: 0em;
-}
-
 .ui.table tr.letterdatarow {
   height: 80px;
   text-align: center;
@@ -672,8 +667,9 @@ td.lettertabledata {
   font-family: Windsor Pro Regular;
   font-size: 19px;
 }
+/* letter page start */
 
-/* letter form below here */
+/* letter form start */
 .ui.header.letterformheader {
   font-family: Windsor Pro Bold;
   font-size: 69px;
@@ -831,7 +827,7 @@ div.fields.letterformdoublegroup{
   margin-bottom: 29px;
 }
 
-/* the thing that makes it glow */
+/* makes it glow */
 .ui.form textarea:not([type=date]).letterformdoubleinput:focus {
   padding-top: 19px;
   padding-bottom: 19px;
@@ -842,9 +838,9 @@ div.fields.letterformdoublegroup{
   border: 1px solid #14213D;
   box-shadow: 0 0 2px #FCA311;
 }
+/* letter form end */
 
-/* profile page stuff below */
-
+/* profile page start */
 #accountinfoheader {
   font-family: Windsor Pro Bold;
   font-size: 50px;
@@ -923,7 +919,7 @@ div.accounttextcenterer {
   border: 1px solid #14213D;
 }
 
-/* the thing that makes it glow */
+/* makes it glow */
 .ui.form input:not([type=date]).userforminput:focus {
   width: 300px;
   height: 40px;
@@ -986,6 +982,9 @@ div.accounttextcenterer {
   margin-bottom: 70px;
   color: #B7355A;
 }
+/* profile page start */
+
+/* success page start */
 
 #successheader {
   font-family: Windsor Pro Bold;
@@ -1029,9 +1028,11 @@ div.accounttextcenterer {
   padding-top: 20px;
 }
 
-/* easter egg formatting */
+/* success page start */
 
-/* font stuff below */
+
+
+/* easter egg formatting start */
 
 h2.nothingcreatedyet {
   text-align: center;
@@ -1048,7 +1049,10 @@ img.nothingcreatedyetimage{
   box-shadow: 0 0 0 2px #EDAC43;
 }
 
+/* easter egg formatting end */
 
+
+/* fonts below */
 
 @font-face {
   font-family: 'Windsor Pro Bold';

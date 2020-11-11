@@ -11,7 +11,7 @@ class NavBar extends React.Component {
 
     render(){
         const { activeItem } = this.state
-=        return(
+        return(
             
             <>  
                 {this.props.currentUser ?
