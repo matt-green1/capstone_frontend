@@ -10,10 +10,12 @@ class LetterContainer extends React.Component {
         toEdit: null
     }
 
+    // sorts letters by the order in which you originally created them using their primary key
     sortedLetters = () => {
         return this.props.currentUser.letters.sort((a,b) => a.id - b.id)
     }
 
+    //creates letter objects
     createLetters = () => {
         return this.sortedLetters().map(letterObj => <Letter key={letterObj.id} letterObject={letterObj} editFormStateHelper={this.editFormStateHelper} deleteLetterHandler={this.props.deleteLetterHandler}  />)
     }
@@ -75,9 +77,7 @@ class LetterContainer extends React.Component {
                 <>
                 {this.state.form_status === "create" 
                     ?
-
                     <LetterForm createOrEditHandler={this.props.createLetterHandler} backToLetterList={this.backToLetterList} toEdit={this.state.toEdit} currentUser={this.props.currentUser} />
-
                     :
                     <LetterForm createOrEditHandler={this.props.editLetterHandler} backToLetterList={this.backToLetterList} toEdit={this.state.toEdit} currentUser={this.props.currentUser} />
                     }

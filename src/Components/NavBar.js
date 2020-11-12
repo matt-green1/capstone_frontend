@@ -24,7 +24,6 @@ class NavBar extends React.Component {
                                 onClick={this.handleItemClick}
                                 className="navafterlink"
                             >
-                            
                                 LifeLetter
                             </Menu.Item>
                         </NavLink>
@@ -127,7 +126,6 @@ class NavBar extends React.Component {
                 }
             </>
         )
-
     }
 }
 

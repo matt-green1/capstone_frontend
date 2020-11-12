@@ -6,7 +6,6 @@ import HomePage from '../Components/HomePage'
 import Profile from '../Components/Profile'
 import SendComplete from '../Components/SendComplete'
 
-
 class MainContainer extends React.Component {
 
     render() {

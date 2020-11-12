@@ -10,6 +10,7 @@ class Profile extends React.Component {
         editButton : false
     }
 
+    // Validation to make sure you've written letters before trying to finalize your account. 
     exportButtonActivator = () => {    
         if(this.props.currentUser.letters.length > 0 && this.props.currentUser.executors.length > 0 ) {
             this.setState({...this.state, button: !this.state.button})
@@ -28,28 +29,35 @@ class Profile extends React.Component {
         this.setState({...this.state, editButton: !this.state.editButton})
     }
 
+    // Hides password on profile page - replaces each character with a "*"
     passwordRedactor = () => {
         let passwordLength = this.props.currentUser.password.length
         return "*".repeat(passwordLength)
     }
 
+    // Formats date object - more user friendly
     niceDate = () => {
+        // Splits date by underscores into an array
         let dateOrigArray = this.props.currentUser.last_batch.split("_")
-        
+
+        //Takes only first 4 elements and joins them into a string seperated by a space
         let dateOnly = dateOrigArray.slice(0,4)
         let formattedDate = dateOnly.join(" ")
 
+        // isolates just the military time hour and then converts it to normal time
         let militaryHour = parseInt(dateOrigArray[4])
-
         militaryHour > 12 ? militaryHour -=12 : militaryHour += 0
 
-        //getting everything except hour
+        //gets the time elements that are NOT the hour
         let timeOnly = dateOrigArray.slice(5)
 
+        //combines the civilian-ized hour with the rest of the time array
         let fullTime = [militaryHour, ...timeOnly]
 
+        //joins array with a colon
         let formattedTime = fullTime.join(":")
         
+        //returns the date and time in a readable format
         return `${formattedDate} at ${formattedTime} `
     }
 
@@ -90,28 +98,28 @@ class Profile extends React.Component {
                 <Container id="finalizecontainer">
                     <Header as="h1" id="finalizeheader">Finalize Account</Header>
                     <Header as="h1" id="letterstatusheader">Current Letter Status: <em>{this.props.currentUser.letter_status ? "Sent to Executors" : "Not Sent"}</em> </Header>
-                    {this.props.currentUser.letter_status ? null :
-                        <>
-                            <Header as="h1" id="toggleheader">Mark letters ready to send:</Header>
-                            <Checkbox 
-                                className="finalizetoggle"
-                                toggle
-                                onChange={this.exportButtonActivator}
-                                checked={this.state.button}
-                            >
-                               
-                            </Checkbox>
-                        </>
-                    }
+                        {this.props.currentUser.letter_status ? null :
+                            <>
+                                <Header as="h1" id="toggleheader">Mark letters ready to send:</Header>
+                                <Checkbox 
+                                    className="finalizetoggle"
+                                    toggle
+                                    onChange={this.exportButtonActivator}
+                                    checked={this.state.button}
+                                >
+                                
+                                </Checkbox>
+                            </>
+                        }
                     
-                    <br/><br/>
-                    {this.props.currentUser.letter_status ? <Button onClick={this.props.markUnfinished} className="profilesendbutton" >Mark Account Unfinished</Button> : <Button onClick={this.state.button ? this.exportLetterHelper : null} className="profilesendbutton"> Send To Executors </Button> }
-                    {this.state.button ? <Header as="h2" id="profilewarning">Warning: Clicking the button above will email your letters to your executors. It cannot be undone.</Header> : null}
+                        <br/><br/>
+                        
+                        {this.props.currentUser.letter_status ? <Button onClick={this.props.markUnfinished} className="profilesendbutton" >Mark Account Unfinished</Button> : <Button onClick={this.state.button ? this.exportLetterHelper : null} className="profilesendbutton"> Send To Executors </Button> }
+                        {this.state.button ? <Header as="h2" id="profilewarning">Warning: Clicking the button above will email your letters to your executors. It cannot be undone.</Header> : null}
                 </Container>
             </>
         )
     }
-
 }
 
 export default withRouter(Profile)
