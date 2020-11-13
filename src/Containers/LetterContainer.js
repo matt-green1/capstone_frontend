@@ -15,19 +15,22 @@ class LetterContainer extends React.Component {
         return this.props.currentUser.letters.sort((a,b) => a.id - b.id)
     }
 
-    //creates letter objects
+    //creates letter components
     createLetters = () => {
         return this.sortedLetters().map(letterObj => <Letter key={letterObj.id} letterObject={letterObj} editFormStateHelper={this.editFormStateHelper} deleteLetterHandler={this.props.deleteLetterHandler}  />)
     }
 
+    // helper function for Create button onClick that brings up a blank, letter form for creating a new letter
     createFormStateHelper = () => {
         this.setState({...this.state, form_status: "create"})
     }
 
+    // helper function that is passed as props to each letter component. Used for Edit button onClick - used to populate form with existing letter contents
     editFormStateHelper = (letterObj) => {
         this.setState({...this.state, form_status: "edit", toEdit: letterObj})
     }
 
+    // helper function passed to letter form - closes out form and goes back to letter container page
     backToLetterList = () => {
         this.setState({...this.state, form_status: null, toEdit: null})
     }

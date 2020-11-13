@@ -10,22 +10,28 @@ class ExecutorContainer extends React.Component {
         toEdit: null
     }
 
+    // sorts executors by the order in which they were originally created 
     sortedExecutors = () => {
         return this.props.currentUser.executors.sort((a,b) => a.id - b.id)
     }
 
+    //creates executor components
     createExecutors = () => {
     return this.sortedExecutors().map(executorObj => <Executor key={executorObj.id} executorObject={executorObj} editFormStateHelper={this.editFormStateHelper} deleteExecutorHandler={this.props.deleteExecutorHandler} />)
     }
 
+    // helper function for Create button onClick that brings up a blank, executor form for creating a new executor
+    // also provides validation - limits the number of executors to a maxiumum of 3
     createFormStateHelper = () => {
         this.props.currentUser.executors.length >= 3 ? window.alert("You cannot have more than three executors.\nPlease delete one if you'd like to add a new one.") : this.setState({...this.state, form_status: "create"})
     }
 
+    // helper function that is passed as props to each executor component. Used for Edit button onClick - used to populate form with existing executor information
     editFormStateHelper = (executorObj) => {
         this.setState({...this.state, form_status: "edit", toEdit: executorObj})
     }
-
+    
+    // helper function passed to executor form - closes out form and goes back to executor container page
     backToExecutorList = () => {
         this.setState({...this.state, form_status: null, toEdit: null})
     }
