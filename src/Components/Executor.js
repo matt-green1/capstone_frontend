@@ -7,14 +7,17 @@ class Executor extends React.Component {
         deleteActivated : false
     }
 
+    //Helper function for edit onClick. Calls editFormStateHelper which is passed down from Exec container and passes in the executor object (Changes exec cont. state which brings up form which is filled with saved exec info).
     editFormFillHelper = () => {
         this.props.editFormStateHelper(this.props.executorObject)
     }
 
+    //Helper function that flips state and reveals/conceals actual delete button (first button just there for validation)
     changeDeleteStatus = () => {
         this.setState({deleteActivated : !this.state.deleteActivated})
     }
-
+    
+    //Validation on delete button. Brings up warning message and allows you to delete if you press button again.
     deleteHelper = () => {
         this.props.deleteExecutorHandler(this.props.executorObject)
         this.changeDeleteStatus()

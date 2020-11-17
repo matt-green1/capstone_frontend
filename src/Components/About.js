@@ -1,7 +1,7 @@
 import React from 'react'
 import { Container, Header, Image } from 'semantic-ui-react'
 
-// Pre signup/log in background info page
+// Pre signup or log in background info page
 
 class About extends React.Component {
 
