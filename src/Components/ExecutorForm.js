@@ -9,10 +9,12 @@ class ExecutorForm extends React.Component {
         relationship: ""
     }
 
+    //Controls form input
     executorChangeHelper = (e) => {
         this.setState({...this.state, [e.target.name]:e.target.value})
     }
 
+    // If editing existing executor, fills form with saved executor info
     componentDidMount = () => {
         if(this.props.toEdit) {
             this.setState({
@@ -24,6 +26,8 @@ class ExecutorForm extends React.Component {
         }
     }
 
+    //Helper function when form submitted. Two functions live in App (one for creating new exec w/ POST and one for editing existing exec w PATCH)
+    //Different function passed in from Executor container based on its state (create or edit)
     createOrEditHelper = (e) => {
         e.preventDefault()
         this.props.createOrEditHandler(this.state, this.props.toEdit)
