@@ -7,20 +7,21 @@ class Letter extends React.Component {
         deleteActivated : false
     }
 
+    //Helper function for edit onClick. Calls editFormStateHelper which is passed down from letter container and passes in the letter object (Changes letter cont. state which brings up form which is filled with saved letter info).
     editFormFillHelper = () => {
         this.props.editFormStateHelper(this.props.letterObject)
     }
 
+    //Helper function that flips state and reveals/conceals actual delete button (first button just there for validation)
     changeDeleteStatus = () => {
         this.setState({deleteActivated : !this.state.deleteActivated})
     }
 
+    //Validation on delete button. Brings up warning message and allows you to delete if you press button again.
     deleteHelper = () => {
         this.props.deleteLetterHandler(this.props.letterObject)
         this.changeDeleteStatus()
     }
-
-
 
     render() {
         return(
