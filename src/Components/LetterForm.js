@@ -12,6 +12,8 @@ class LetterForm extends React.Component {
             letter_instructions: "",
             signoff: ""
                 },
+        
+        //The above object controls the form inputs. The four key value pairs below control the prompt with radio buttons
         gratitude: false,
         forgiveness :false,
         favemems: false,
@@ -19,10 +21,12 @@ class LetterForm extends React.Component {
 
     }
 
+    //Controls form input
     letterChangeHelper = (e) => {
         this.setState({...this.state, letterObj: {...this.state.letterObj, [e.target.name]:e.target.value}})
     }
 
+    // If editing existing letter, fills form with saved letter info
     componentDidMount = () => {
         if(this.props.toEdit) {
             this.setState({
@@ -58,7 +62,7 @@ class LetterForm extends React.Component {
         })
     }
 
-    //Un-dry (wet?) code to deal with changing state of radio buttons
+    //Four functions control the prompt radio buttons. Should eventually be refactored to be less reptetitive.
     gratitudeChanger = (e) => {
         this.setState({
                     ...this.state, gratitude: !this.state.gratitude, forgiveness :false, favemems: false, apology: false
@@ -83,7 +87,7 @@ class LetterForm extends React.Component {
                 })
     }
 
-    //renders the prompt text based on what radio button is clicked
+    //Renders the prompt text based on what radio button is clicked
     promptRenderer = () => {
         if(this.state.gratitude) {
             return (
