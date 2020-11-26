@@ -19,7 +19,7 @@ class App extends React.Component {
     this.setState({currentUser: null}, () => this.props.history.push("/"))
   }
 
-  //Log in and signup
+  //Log in
   loginHandler = (loginInfo) => {
     
     let configObj = {
@@ -45,8 +45,8 @@ class App extends React.Component {
     })
   }
   
+  //Sign up
   signupHandler = (signupInfo) => {
-    
       let configObj = {
         method: 'POST',
         headers: {

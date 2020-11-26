@@ -190,13 +190,11 @@ class LetterForm extends React.Component {
                             onClick={this.apologyChanger}
                             className="radiotitle"
                         >
-                        {/* <label>Apology </label> think I forgot to delete this before */}
                             <input type="radio" name="apology" checked={this.state.apology} onClick={this.apologyChanger} />
                         </Form.Radio>
 
                     </Form.Group>
 
-                        {/* <div id="promptcenterer">{this.promptRenderer()}</div> */}
                     <Form.Group className="letterformdoublegroup"> 
                         <Form.Field>
                             <label className="letterformlabel">EXECUTOR INSTRUCTIONS</label>

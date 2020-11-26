@@ -9,10 +9,12 @@ class LoginForm extends React.Component {
         password: ""
     }
 
+    // Controls log in form
     loginChangeHelper = (e) => {
         this.setState({...this.state, [e.target.name]:e.target.value})
     }
 
+    // Send log in info up to app.js to use in post request. Resets form to be blank
     loginHelper = (e) => {
         e.preventDefault()
         this.props.loginHandler(this.state)
@@ -22,6 +24,7 @@ class LoginForm extends React.Component {
         })
     }
 
+    // Used in onClick on button to go to sign up form
     switchToSigninHelper = () => {
         this.props.history.push("/signup")
     }
@@ -30,9 +33,7 @@ class LoginForm extends React.Component {
         return(
             <>
                 <Container>
-                    <Grid columns={2} id="logingrid">
-                        {/* <Grid.Row  > */}
-                            
+                    <Grid columns={2} id="logingrid">    
                             <Grid.Column centered textAlign="center" >
                                 <Header as="h1" id="loginheader" >Welcome back!</Header>
                                 <Header as="h2" id="loginsubheader">Log in here  ➯</Header>
@@ -53,9 +54,7 @@ class LoginForm extends React.Component {
                                     <Button type="submit"  className="login">Log In</Button>
                                     {/* Above button originally had this as a prop: width='16' make sure it isn't messing with style to take out */}
                                 </Form>
-                            </Grid.Column >
-                            
-                        {/* </Grid.Row> */}
+                            </Grid.Column >                            
                     </Grid>
                 </Container>
             </>
