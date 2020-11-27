@@ -7,6 +7,7 @@ class NavBar extends React.Component {
         activeItem: "" 
     }
     
+    //Selects which Nav bar item is "active" and gets the underline
     handleItemClick = (e, { name }) => this.setState({ activeItem: name })
 
     render(){

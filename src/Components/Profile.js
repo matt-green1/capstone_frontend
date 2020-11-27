@@ -10,7 +10,8 @@ class Profile extends React.Component {
         editButton : false
     }
 
-    // Validation to make sure you've written letters before trying to finalize your account. 
+    // Validation to make sure you've written letters before trying to finalize your account. Check is there's at least 1 letter.
+    // Activates finalize account button and warning.
     exportButtonActivator = () => {    
         if(this.props.currentUser.letters.length > 0 && this.props.currentUser.executors.length > 0 ) {
             this.setState({...this.state, button: !this.state.button})
@@ -19,12 +20,14 @@ class Profile extends React.Component {
         }
     }
 
+    // Changes status of activated "export button" to "sent", calls exportLetters function in app (see app notes for details), calls and redirects to send-confirmation page
     exportLetterHelper = () => {
         this.setState({...this.state, button: !this.state.button})
         this.props.exportLetters()
         this.props.history.push("/complete")
     }
 
+    // Changes state, brings up userForm
     editStatusChanger = () => {
         this.setState({...this.state, editButton: !this.state.editButton})
     }
@@ -40,24 +43,24 @@ class Profile extends React.Component {
         // Splits date by underscores into an array
         let dateOrigArray = this.props.currentUser.last_batch.split("_")
 
-        //Takes only first 4 elements and joins them into a string seperated by a space
+        // Takes only first 4 elements and joins them into a string seperated by a space
         let dateOnly = dateOrigArray.slice(0,4)
         let formattedDate = dateOnly.join(" ")
 
-        // isolates just the military time hour and then converts it to normal time
+        // Isolates just the military time hour and then converts it to normal time
         let militaryHour = parseInt(dateOrigArray[4])
         militaryHour > 12 ? militaryHour -=12 : militaryHour += 0
 
-        //gets the time elements that are NOT the hour
+        // Gets the time elements that are NOT the hour
         let timeOnly = dateOrigArray.slice(5)
 
-        //combines the civilian-ized hour with the rest of the time array
+        // Combines the civilian-ized hour with the rest of the time array
         let fullTime = [militaryHour, ...timeOnly]
 
-        //joins array with a colon
+        // Joins array with a colon
         let formattedTime = fullTime.join(":")
         
-        //returns the date and time in a readable format
+        // Returns the date and time in a readable format
         return `${formattedDate} at ${formattedTime} `
     }
 
