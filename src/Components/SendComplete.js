@@ -4,6 +4,7 @@ import { Button, Header,  } from 'semantic-ui-react'
 
 class SendComplete extends React.Component{
 
+    // Navigates back to profile page (sent status will be changed)
     backToProfileHelper = () => {
         this.props.history.push("/profile")
     }
