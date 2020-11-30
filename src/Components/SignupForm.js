@@ -11,10 +11,12 @@ class SignupForm extends React.Component {
         last_name: ""
     }
 
+    //Controls sign up form
     signupChangeHelper = (e) => {
         this.setState({...this.state, [e.target.name]:e.target.value})
     }
 
+    // Calls function in app that sends Post request to create new user
     signupHelper = (e) => {
         e.preventDefault()
         this.props.signupHandler(this.state)
@@ -26,6 +28,7 @@ class SignupForm extends React.Component {
         })
     }
 
+    //used in onClick of button to switch to log in page
     switchToLoginHelper = () => {
         this.props.history.push("/login")
     }
