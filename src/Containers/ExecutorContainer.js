@@ -73,7 +73,6 @@ class ExecutorContainer extends React.Component {
                     
                     }
                 </>
-
                 :
                 <>
                 {this.state.form_status === "create"
@@ -87,7 +86,6 @@ class ExecutorContainer extends React.Component {
         </>
         )
     }
-
 }
 
 export default ExecutorContainer

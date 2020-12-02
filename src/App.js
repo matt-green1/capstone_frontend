@@ -19,7 +19,7 @@ class App extends React.Component {
     this.setState({currentUser: null}, () => this.props.history.push("/"))
   }
 
-  //Log in
+  //Called in loginForm
   loginHandler = (loginInfo) => {
     
     let configObj = {
@@ -45,7 +45,7 @@ class App extends React.Component {
     })
   }
   
-  //Sign up
+  //Called in signupForm
   signupHandler = (signupInfo) => {
       let configObj = {
         method: 'POST',
@@ -85,7 +85,7 @@ class App extends React.Component {
 
   // Letter Create/Edit/Delete Handlers
   createLetterHandler = (letterObj, toEdit) => {
-    //toEdit will be null here sine it only exists if we're editing a letter
+    //toEdit will be null here since it only exists if we're editing a letter
     
     const configObj = {
       method: 'POST',
@@ -104,6 +104,7 @@ class App extends React.Component {
       })
   }
 
+  // Called in userForm (in profile) when use makes changes to account info
   editLetterHandler = (letterObj, toEdit) => {
     
     const configObj = {
@@ -131,6 +132,7 @@ class App extends React.Component {
         })
     }
 
+    //Called in letter container 
     deleteLetterHandler = (letterObj) => {
       
       const configObj = {
@@ -165,6 +167,7 @@ class App extends React.Component {
         })
     }
 
+    // Called in executor container
     editExecutorHandler = (executorObj, toEdit) => {
     
       const configObj = {
@@ -189,6 +192,7 @@ class App extends React.Component {
           })
       }
 
+      //Called in executor container
       deleteExecutorHandler = (executorObj) => {
       
         const configObj = {
@@ -203,6 +207,7 @@ class App extends React.Component {
             })
       }
 
+      //Called in userForm (in profile)
       editUserInfoHandler = (userInfo) => {
         
         const configObj = {
@@ -222,8 +227,9 @@ class App extends React.Component {
 
       }
 
-      // ------ Getting stuff out of the app below ------
+      // ------ Getting data out of the app below here ------
 
+      //Called in profile. Button that makes account not finalized so you can send new batch of letters.
       markUnfinished = () => {
         const configObj = {
           method: 'PATCH',
@@ -261,7 +267,7 @@ class App extends React.Component {
           )
       }
 
-
+      // Iterates through letters and creates variables that formStack uses to fill in letter pdf template with custom data
       createLetterPdfs = (newDateString) => {
         
         this.state.currentUser.letters.forEach(letter => {
