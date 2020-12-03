@@ -247,7 +247,7 @@ class App extends React.Component {
           )
       }
 
-      //used in exportLetters function
+      //used in exportLetters function - changes status of user in DB
       markFinished = (dateTimeString) => {
         console.log("inside function:", dateTimeString)
 
@@ -296,6 +296,7 @@ class App extends React.Component {
         })
       }
 
+      // Iterates through executors and creates variables that formStack uses to fill in email template with custom data
       createExecutorEmails = () => {
         this.state.currentUser.executors.forEach(executor => {
 
@@ -322,7 +323,7 @@ class App extends React.Component {
         })
       }
 
-
+      // Sends request to Zapier with all neccessary user, executor, and account info. Zapier finds share link in dorpbox and then  
       sendDropboxLink = (newDateString) => {
        
         this.state.currentUser.executors.forEach(executor => {
@@ -346,6 +347,9 @@ class App extends React.Component {
         
         })
       }
+
+      // Calls several helper functions that mark user's account as finalized in DB, make calls to web hooks that create letter PDFs and put them in Dropbox,
+      // create and send executor emails eith instructions, and lastly, find and send a dropbox link to the dropbox folder with the leter PDFs
 
       exportLetters = () => {
         
@@ -374,7 +378,6 @@ class App extends React.Component {
         }
 
     render(){
-      //this.state.currentUser ? console.log("last batch date:", this.state.currentUser.last_batch) :console.log("no user")
       
       return (
         <>
