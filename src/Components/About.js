@@ -2,6 +2,7 @@ import React from 'react'
 import { Container, Header, Image } from 'semantic-ui-react'
 
 // Pre signup or log in background info page
+// About component - css id'd as background - need to switch to about (after landing is changed FIRST) - then reflect it in the css notes
 
 class About extends React.Component {
 

@@ -4,6 +4,7 @@ import { withRouter } from 'react-router-dom'
 import { Button, Container, Header, Segment, Grid, Image, List } from 'semantic-ui-react'
 
 //Site homepage when you're not signed in - original place someone lands.
+// Landing component - css id'd as "about" - need to switch to landing
 
 class Landing extends React.Component {
 
