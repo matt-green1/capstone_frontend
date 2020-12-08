@@ -47,7 +47,7 @@
 /* ---- Navbar End ---- */
 
 
-/* Pre log in / sign up start */
+/* Landing page start - (pre log in page you land on) */
 
 .ui.button.login {
   color: #FCA311;
@@ -176,8 +176,12 @@
   padding-bottom: 36px;
 }
 
-/* the new about page aka background stuff below - need to rename classes above which refer to landing page */
-#backgroundheader {
+/* Landing page end */
+
+
+/* About page start */
+
+#aboutheader {
   font-family: Windsor Pro Bold;
   text-align: center;
   font-size: 70px;
@@ -187,7 +191,7 @@
   text-shadow: 3px -1px #EDAC43;
 }
 
-#backgroundbigline {
+#aboutbigline {
   margin-top: 30px;
   margin-bottom: 30px;
   text-align: center;
@@ -196,7 +200,7 @@
   
 }
 
-#backgroundsubheader {
+#aboutsubheader {
   color: #14213D;
   font-family: danzza-medium-webfont;
   font-size: 21px;
@@ -204,7 +208,7 @@
   margin: auto;
 }
 
-#backgroundexplainer {
+#aboutexplainer {
   color: #14213D;
   font-family: danzza-medium-webfont;
   font-size: 21px;
@@ -213,15 +217,15 @@
   
 }
 
-div #bglinheight1 {
+div #aboutlinheight1 {
   line-height: 2;
 }
 
-div #bglinheight2 {
+div #aboutlinheight2 {
   line-height: 2;
 }
 
-div #bglinheight4 {
+div #aboutlinheight4 {
   font-size: 19px;
   width: 800px;
   position:relative; left:75px;
@@ -229,11 +233,12 @@ div #bglinheight4 {
   margin-bottom: 40px;
 }
 
-div #bglinheight5 {
+div #aboutlinheight5 {
   line-height: 2;
 }
 
-/* WHICH section above */
+/* About page end */
+
 
 /* log in Start */
 
