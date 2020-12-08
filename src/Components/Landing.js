@@ -24,31 +24,31 @@ class Landing extends React.Component {
         return(
             <>
               <Segment
-                id="aboutbg"
+                id="landingbg"
                 textAlign='center'
               >
                 <Container text>
                     <Header
-                      id="aboutlogo"
+                      id="landinglogo"
                       as='h1'
                       content='LifeLetter'
                     />
                     <Header
-                      id="aboutslogan"
+                      id="landingslogan"
                       as='h2'
                       content='The personal side of your last wishes.'
                     />
-                    <Button className="aboutsignupin" basic color='yellow' content='Yellow' onClick={this.loginNavHelper} >
+                    <Button className="landingsignupin" basic color='yellow' content='Yellow' onClick={this.loginNavHelper} >
                       Log In
                     </Button>
-                    <Button className="aboutsignupin" basic color='yellow' content='Yellow' onClick={this.signupNavHelper}>
+                    <Button className="landingsignupin" basic color='yellow' content='Yellow' onClick={this.signupNavHelper}>
                       Sign Up
                     </Button>
                 </Container>
 
               </Segment>
 
-              <Segment id="aboutexplainer">
+              <Segment id="landingexplainer">
             
                 <Header as="h1" id="explainerheader">Create personal messages to your loved ones that will be delivered in the event that you pass away.</Header>
                 <Header as="h2" id="explainersubheader">We take care of the boring stuff, so you can focus on what really matters.</Header>
