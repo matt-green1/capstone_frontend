@@ -47,7 +47,7 @@
 /* ---- Navbar End ---- */
 
 
-/* Landing page start - (pre log in page you land on) */
+/* Landing page start - (pre log in page you start on) */
 
 .ui.button.login {
   color: #FCA311;
@@ -240,7 +240,7 @@ div #aboutlinheight5 {
 /* About page end */
 
 
-/* log in Start */
+/* Log in page start */
 
 #loginheader {
   font-family: Windsor Pro Bold;
@@ -318,10 +318,11 @@ div #aboutlinheight5 {
   font-size: 20px;
 }
 
-/* log in end */
+/* Log in pag end */
 
 
-/* homepage start */
+/* Homepage start - where you land post sign in or sign up */
+
 #homemainheader{
   font-family: Windsor Pro Bold;
   font-size: 69px;
@@ -415,7 +416,8 @@ div #aboutlinheight5 {
 
 /* homepage end */
 
-/* executor page start */
+/* Executor container page start */
+
 #execheader {
   font-family: Windsor Pro Bold;
   font-size: 69px;
@@ -507,10 +509,12 @@ td.exectabledata {
 p.delvalidation {
   font-family: danzza-medium-webfont;
 }
-/* executor page end */
+
+/* Executor container page end */
 
 
-/* executor form start */
+/* Executor form start */
+
 h1.ui.header.execformheader {
   font-family: Windsor Pro Bold;
   font-size: 69px;
@@ -583,10 +587,10 @@ h1.ui.header.execformheader {
   justify-content: center;
 }
 
-/* executor form end */
+/* Executor form end */
 
 
-/* letter page start */
+/* Letter container page start */
 
 #lettermainheader {
   font-family: Windsor Pro Bold;
@@ -673,9 +677,11 @@ td.lettertabledata {
   font-family: Windsor Pro Regular;
   font-size: 19px;
 }
-/* letter page start */
 
-/* letter form start */
+/* Letter container page start */
+
+/* Letter form start */
+
 .ui.header.letterformheader {
   font-family: Windsor Pro Bold;
   font-size: 69px;
@@ -844,9 +850,11 @@ div.fields.letterformdoublegroup{
   border: 1px solid #14213D;
   box-shadow: 0 0 2px #FCA311;
 }
-/* letter form end */
 
-/* profile page start */
+/* Letter form end */
+
+/* Profile page start */
+
 #accountinfoheader {
   font-family: Windsor Pro Bold;
   font-size: 50px;
@@ -916,7 +924,7 @@ div.accounttextcenterer {
   margin-top: 50px;
 }
 
-/* this find the input */
+/* this finds the input */
 .ui.form input:not([type=date]).userforminput {
   width: 300px;
   height: 40px;
@@ -988,9 +996,10 @@ div.accounttextcenterer {
   margin-bottom: 70px;
   color: #B7355A;
 }
-/* profile page start */
 
-/* success page start */
+/* Profile page end */
+
+/* Success page start (comes up after letters finalized) */
 
 #successheader {
   font-family: Windsor Pro Bold;
@@ -1034,11 +1043,9 @@ div.accounttextcenterer {
   padding-top: 20px;
 }
 
-/* success page start */
+/* Success page end */
 
-
-
-/* easter egg formatting start */
+/* Easter egg formatting start */
 
 h2.nothingcreatedyet {
   text-align: center;
@@ -1055,10 +1062,10 @@ img.nothingcreatedyetimage{
   box-shadow: 0 0 0 2px #EDAC43;
 }
 
-/* easter egg formatting end */
+/* Easter egg formatting end */
 
 
-/* fonts below */
+/* fonts  */
 
 @font-face {
   font-family: 'Windsor Pro Bold';
