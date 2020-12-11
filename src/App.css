@@ -344,7 +344,9 @@ div #aboutlinheight5 {
   font-family: danzza-medium-webfont;
   font-size: 40px;
   padding-top: 55px;
-  position:relative; left:275px; top: 15px;
+  padding-right: 950px;
+  text-align: center;
+  /* position:relative; left:275px; top: 15px; */
 }
 
 #homecolumn1 {
