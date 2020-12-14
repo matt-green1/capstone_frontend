@@ -680,7 +680,7 @@ td.lettertabledata {
   font-size: 19px;
 }
 
-/* Letter container page start */
+/* Letter container page end */
 
 /* Letter form start */
 
@@ -851,6 +851,12 @@ div.fields.letterformdoublegroup{
   font-size: 20px;
   border: 1px solid #14213D;
   box-shadow: 0 0 2px #FCA311;
+}
+
+
+#backtolettercontainter {
+  display: flex;  
+  margin: auto;
 }
 
 /* Letter form end */

@@ -125,7 +125,7 @@ class LetterForm extends React.Component {
             <>
                 {this.props.toEdit ? <Header as="h2" className="letterformheader" >Edit Letter</Header> : <Header as="h2" className="letterformheader" >Add a Letter</Header> }
                 
-                <Button onClick={this.props.backToLetterList} id="letterbackbutton">⇦ Back to Letter List</Button>
+                <Button id="backtolettercontainter" onClick={this.props.backToLetterList} id="letterbackbutton">⇦ Back to Letter List</Button>
                 <div id="letterformdivspacer"></div>
                 <Form onSubmit={this.createOrEditHelper}>
                     <Form.Group id="triadgroup">
