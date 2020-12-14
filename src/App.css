@@ -703,8 +703,10 @@ td.lettertabledata {
   padding-left: 40px;
   font-family: danzza-medium-webfont;
   font-size: 18px;
-  display: flex;  
-  margin-left: 750px;
+  margin: 0 auto;
+  display: flex;
+  justify-content: center;  
+  /* margin-left: 750px; */
 }
 
 #addeditletterbutton {
@@ -854,10 +856,6 @@ div.fields.letterformdoublegroup{
 }
 
 
-#backtolettercontainter {
-  display: flex;  
-  margin: auto;
-}
 
 /* Letter form end */
 
