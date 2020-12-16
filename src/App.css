@@ -818,7 +818,11 @@ p.radioprompt {
   color: #14213D;
   font-family: danzza-medium-webfont;
   padding-top: 10px;
-  position: relative; left: 221px;
+  padding-bottom: 3px;
+  margin: 0 auto;
+  display: flex;
+  justify-content: center;
+  margin-right: 1290px;
 }
 
 .ui.form .fields .letterformdoublegroup {

@@ -148,16 +148,17 @@ class LetterForm extends React.Component {
                             <label className="letterformlabel">LETTER TITLE</label>
                             <input name="letter_title" onChange={this.letterChangeHelper} value={this.state.letterObj.letter_title} type="text" className="letterformtriadinput" />
                         </Form.Field>
+                        
                     </Form.Group>
 
-                        <Form.Field id="lettertextinputcenter">
-                            <label id="lettertextinputlabel">LETTER TEXT</label>
-                            <textarea name="letter_text" onChange={this.letterChangeHelper} value={this.state.letterObj.letter_text} type="text" id="lettertextinput" />
-                        </Form.Field>
 
-                        <div id="promptcenterer">{this.promptRenderer()}</div>
+                    <Form.Field id="lettertextinputcenter">
+                        <label id="lettertextinputlabel">LETTER TEXT</label>
+                        <textarea name="letter_text" onChange={this.letterChangeHelper} value={this.state.letterObj.letter_text} type="text" id="lettertextinput" />
+                    </Form.Field>
+                    <div id="promptcenterer">{this.promptRenderer()}</div>
 
-                        <Header as="h5" id="radioheader">Having trouble finding the right words? Click an option below for guidance.</Header>
+                    <Header as="h5" id="radioheader">Having trouble finding the right words? Click an option below for guidance.</Header>
                      
                     <Form.Group inline id="radiobuttoncenter">
                         <Form.Radio
