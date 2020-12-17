@@ -536,8 +536,11 @@ h1.ui.header.execformheader {
   padding-left: 40px;
   font-family: danzza-medium-webfont;
   font-size: 18px;
-  display: flex;  
-  margin-left: 750px;
+  /* display: flex;  
+  margin-left: 750px; */
+  margin: 0 auto;
+  display: flex;
+  justify-content: center;  
 }
 
 #execformdivspacer{
