@@ -41,7 +41,10 @@
   color:#FCA311 !important;
   font-family: danzza-medium-webfont;
   font-size: 17px;
-  position:relative; left: 1050px;
+  /* position:relative; left: 1050px; */
+  /* margin-left: 1050px; */
+  padding-left: 1050px;
+  
 }
 
 /* ---- Navbar End ---- */
