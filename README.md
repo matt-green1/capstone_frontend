@@ -32,7 +32,7 @@ rails s
 4. Set up front end. Open another terminal tab and enter:
 
 ```
-cd mentorMe_frontend
+cd capstone_frontend
 npm install
 npm start // Will launch on http://localhost:3001/
 ```
